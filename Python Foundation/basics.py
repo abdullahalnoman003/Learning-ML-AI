@@ -25,4 +25,3 @@ print(like)
 
 cgpa = float(input("Enter your cgpa: "))
 print("Your Cgpa is: ", cgpa)
->>>>>>> 7d4e4b6d4713e75257c2cf66f6886a85668b1ade
