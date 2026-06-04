@@ -29,8 +29,8 @@ This repository provides **step-by-step learning** from **Python fundamentals** 
 ###  Phase 1: Python Foundations — `Phase 1 - Python Foundation/`
  [Detailed Guide](Phase%201%20-%20Python%20Foundation/GUIDE.md)
 
-| File | Topic | Status |
-|------|-------|--------|
+| File | Topic |
+|------|-------|
 | `first.py` | Hello World, print basics | 
 | `basics.py` | Variables, Data Types, Input, Typecasting | 
 | `IfElse.py` | Conditional Statements | 
@@ -54,8 +54,8 @@ This repository provides **step-by-step learning** from **Python fundamentals** 
 ###  Phase 2: Data Science Tools — `Phase 2 - Data Science/`
  [Detailed Guide](Phase%202%20-%20Data%20Science/GUIDE.md)
 
-| File | Topic | Status |
-|------|-------|--------|
+| File | Topic |
+|------|-------|
 | `numpy_basics.py` | NumPy fundamentals, arrays, operations | 
 | `numpy_math.py` | Matrix operations, linear algebra | 
 | `pandas_basics.py` | DataFrames, data manipulation | 
@@ -70,8 +70,8 @@ This repository provides **step-by-step learning** from **Python fundamentals** 
 ###  Phase 3: Machine Learning — `Phase 3 - Machine Learning/`
  [Detailed Guide](Phase%203%20-%20Machine%20Learning/GUIDE.md)
 
-| File | Topic | Status |
-|------|-------|--------|
+| File | Topic |
+|------|-------|
 | `ml_concepts.py` | ML types, workflow, terminology | 
 | `linear_regression_scratch.py` | Build regression from scratch | 
 | `linear_regression_sklearn.py` | Professional ML with scikit-learn | 
@@ -89,8 +89,8 @@ This repository provides **step-by-step learning** from **Python fundamentals** 
 ###  Phase 4: Deep Learning — `Phase 4 - Deep Learning/`
  [Detailed Guide](Phase%204%20-%20Deep%20Learning/GUIDE.md)
 
-| File | Topic | Status |
-|------|-------|--------|
+| File | Topic |
+|------|-------|
 | `neural_network_scratch.py` | Neural networks from scratch | 
 | `backpropagation.py` | Backpropagation explained | 
 | `tensorflow_basics.py` | TensorFlow and Keras basics | 
@@ -107,8 +107,8 @@ This repository provides **step-by-step learning** from **Python fundamentals** 
 ###  Phase 5: Research & Experiments — `Phase 5 - Research/`
  [Detailed Guide](Phase%205%20-%20Research/GUIDE.md) | [Quick Start](Phase%205%20-%20Research/QUICKSTART.md)
 
-| Resource | Description | Status |
-|----------|------------|--------|
+| Resource | Description |
+|----------|------------|
 | `paper_reading_guide.py` | Interactive 3-pass method guide | 
 | `experiment_tracking.py` | Experiment logging, W&B integration | 
 | `kaggle_guide.py` | Complete Kaggle workflow | 
