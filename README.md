@@ -13,33 +13,21 @@ This repository provides **step-by-step learning** from **Python fundamentals** 
 > - **4 interactive research guides** + templates
 > - Every file includes working code, explanations, and visualizations
 
----
 
 ## 🎯 Why This Repository?
 
-- Build **strong Python foundations** for AI/ML
-- Learn concepts **from scratch with clear understanding**
-- Implement algorithms instead of only using libraries
-- Prepare for **university research and future AI work**
-- Maintain **daily GitHub contributions** in 2026
 
----
 
 ## 🧠 Learning Philosophy
 
 > *"Understand deeply → Implement simply → Document clearly"*
 
-- No blind copy-paste
-- One concept at a time
-- Clear comments & explanations
-- Focus on **learning + consistency**
 
----
 
 ## 🗂️ Repository Structure
 
-### ✅ Phase 1: Python Foundations — `Python Foundation/`
-📖 [Detailed Guide](Python%20Foundation/GUIDE.md)
+### ✅ Phase 1: Python Foundations — `Phase 1 - Python Foundation/`
+📖 [Detailed Guide](Phase%201%20-%20Python%20Foundation/GUIDE.md)
 
 | File | Topic | Status |
 |------|-------|--------|
@@ -62,7 +50,6 @@ This repository provides **step-by-step learning** from **Python fundamentals** 
 
 **Progress: 8 / 16 topics complete**
 
----
 
 ### ✅ Phase 2: Data Science Tools — `Phase 2 - Data Science/`
 📖 [Detailed Guide](Phase%202%20-%20Data%20Science/GUIDE.md)
@@ -79,7 +66,6 @@ This repository provides **step-by-step learning** from **Python fundamentals** 
 
 **Progress: 7 / 7 topics complete** ✨
 
----
 
 ### ✅ Phase 3: Machine Learning — `Phase 3 - Machine Learning/`
 📖 [Detailed Guide](Phase%203%20-%20Machine%20Learning/GUIDE.md)
@@ -99,7 +85,6 @@ This repository provides **step-by-step learning** from **Python fundamentals** 
 
 **Progress: 10 / 10 topics complete** ✨
 
----
 
 ### ✅ Phase 4: Deep Learning — `Phase 4 - Deep Learning/`
 📖 [Detailed Guide](Phase%204%20-%20Deep%20Learning/GUIDE.md)
@@ -118,7 +103,6 @@ This repository provides **step-by-step learning** from **Python fundamentals** 
 
 **Progress: 9 / 9 topics complete** ✨
 
----
 
 ### ✅ Phase 5: Research & Experiments — `Phase 5 - Research/`
 📖 [Detailed Guide](Phase%205%20-%20Research/GUIDE.md) | [Quick Start](Phase%205%20-%20Research/QUICKSTART.md)
@@ -135,19 +119,13 @@ This repository provides **step-by-step learning** from **Python fundamentals** 
 
 **Progress: Complete research toolkit ready** ✨
 
----
 
 ## 📅 Daily Commitment
 
 I aim to contribute every day in 2026, even if it's:
-- A small code improvement
-- New concept notes
-- Practice problems
-- Experiments or documentation
 
 **Consistency matters more than speed.**
 
----
 
 ## 🧪 How to Use This Repository
 
@@ -178,13 +156,6 @@ I aim to contribute every day in 2026, even if it's:
    ```
 
 ### Every File Includes:
-- ✅ Clear explanations (no jargon, or jargon explained)
-- ✅ Working, runnable code
-- ✅ Print statements showing all outputs
-- ✅ Visualizations saved as PNG files
-- ✅ Real-world examples and datasets
-- ✅ "Why this matters" sections
-- ✅ Links to next topics
 
 ### Install Required Libraries:
 ```bash
@@ -201,13 +172,11 @@ pip install tensorflow keras torch transformers
 pip install wandb  # Optional, for experiment tracking
 ```
 
----
 
 ## 🚀 Started On
 
 January 2026
 
----
 
 ## 📬 Connect With Me
 
