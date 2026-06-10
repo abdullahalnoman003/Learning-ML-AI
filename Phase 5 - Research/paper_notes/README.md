@@ -36,7 +36,7 @@ For each paper, create a file using this template:
 **Date Read:** YYYY-MM-DD
 **Tags:** #tag1 #tag2 #tag3
 **Priority:** High / Medium / Low
-**Status:** ✅ Read / 📖 Reading / 📋 To Read
+**Status:**  Read /  Reading /  To Read
 
 ---
 

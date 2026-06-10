@@ -1,33 +1,33 @@
-# 🔬 Phase 5: Research & Experiments — Detailed Guide
+#  Phase 5: Research & Experiments - Detailed Guide
 
 > This is where you go beyond courses and tutorials.  
 > You read real papers, reproduce results, build original projects, and contribute to the field.
 
 ---
 
-## 📋 Phase Overview
+##  Phase Overview
 
-**Prerequisites:** Complete Phases 1–4 first.
+**Prerequisites:** Complete Phases 1-4 first.
 
 **Status: ⏳ Not Started**
 
 ---
 
-## 📘 Topic 1: How to Read a Research Paper
+##  Topic 1: How to Read a Research Paper
 
-Research papers are dense — but you don't have to read them linearly.
+Research papers are dense - but you don't have to read them linearly.
 
 ### The 3-Pass Method
 
-**Pass 1 (5 minutes) — Bird's eye view:**
+**Pass 1 (5 minutes) - Bird's eye view:**
 - Read: Title, Abstract, Introduction, Conclusion, Figure captions
 - Answer: What problem does this solve? What is the main contribution?
 
-**Pass 2 (1 hour) — Understand the approach:**
+**Pass 2 (1 hour) - Understand the approach:**
 - Read: Rest of the paper, skip math proofs and code details
 - Answer: How does their method work? What datasets did they use? What were the results?
 
-**Pass 3 (Several hours) — Deep dive:**
+**Pass 3 (Several hours) - Deep dive:**
 - Read: Everything, including all math
 - Reproduce: Try to implement it yourself
 - Critique: What are the limitations? What would you try differently?
@@ -46,16 +46,16 @@ Research papers are dense — but you don't have to read them linearly.
 
 | Paper | Year | Why Read It |
 |-------|------|------------|
-| *A Few Useful Things to Know About ML* — Pedro Domingos | 2012 | Best intro to ML thinking |
-| *Attention Is All You Need* — Vaswani et al. | 2017 | The Transformer paper — basis of all LLMs |
-| *Deep Residual Learning* — He et al. (ResNet) | 2015 | Revolutionary CNN architecture |
-| *Dropout: Preventing Overfitting* — Srivastava et al. | 2014 | Simple but powerful technique |
-| *Adam Optimizer* — Kingma & Ba | 2014 | The optimizer used in almost every model |
-| *BERT* — Devlin et al. | 2018 | Language model that changed NLP |
+| *A Few Useful Things to Know About ML* - Pedro Domingos | 2012 | Best intro to ML thinking |
+| *Attention Is All You Need* - Vaswani et al. | 2017 | The Transformer paper - basis of all LLMs |
+| *Deep Residual Learning* - He et al. (ResNet) | 2015 | Revolutionary CNN architecture |
+| *Dropout: Preventing Overfitting* - Srivastava et al. | 2014 | Simple but powerful technique |
+| *Adam Optimizer* - Kingma & Ba | 2014 | The optimizer used in almost every model |
+| *BERT* - Devlin et al. | 2018 | Language model that changed NLP |
 
 ---
 
-## 📘 Topic 2: Experiment Tracking
+##  Topic 2: Experiment Tracking
 
 When training models, you need to track:
 - What hyperparameters did you use?
@@ -74,14 +74,14 @@ experiment = {
     "hyperparams": {"n_estimators": 100, "max_depth": 5},
     "train_accuracy": 0.95,
     "test_accuracy": 0.89,
-    "notes": "Overfitting — try reducing depth"
+    "notes": "Overfitting - try reducing depth"
 }
 
 with open("experiments_log.json", "a") as f:
     f.write(json.dumps(experiment) + "\n")
 ```
 
-### Option 2: Weights & Biases (WandB) — Professional Tool
+### Option 2: Weights & Biases (WandB) - Professional Tool
 
 ```bash
 pip install wandb
@@ -108,7 +108,7 @@ wandb.finish()
 
 ---
 
-## 📘 Topic 3: Working with Real Datasets
+##  Topic 3: Working with Real Datasets
 
 ### Finding Datasets
 
@@ -125,7 +125,7 @@ wandb.finish()
 When you can't find the right dataset, you collect your own:
 
 ```python
-# Label Studio — free open source annotation tool
+# Label Studio - free open source annotation tool
 # pip install label-studio
 # label-studio start
 
@@ -146,19 +146,19 @@ def check_dataset_structure(root_path):
 
 ---
 
-## 📘 Topic 4: Reproducing a Paper
+##  Topic 4: Reproducing a Paper
 
 This is the most valuable exercise in ML research.
 
 ### Steps
 
-1. **Choose a paper** — start with papers that have official code
+1. **Choose a paper** - start with papers that have official code
 2. **Read the paper** (all 3 passes)  
-3. **Choose a dataset** — use the same one from the paper if possible
-4. **Implement from description** — try BEFORE looking at official code
+3. **Choose a dataset** - use the same one from the paper if possible
+4. **Implement from description** - try BEFORE looking at official code
 5. **Compare your results** to the numbers in the paper
-6. **Look at official code** — see where your implementation differed
-7. **Experiment** — change something and see what happens
+6. **Look at official code** - see where your implementation differed
+7. **Experiment** - change something and see what happens
 
 ### Good Papers to Reproduce First
 
@@ -173,7 +173,7 @@ This is the most valuable exercise in ML research.
 
 ---
 
-## 📘 Topic 5: Kaggle Competitions
+##  Topic 5: Kaggle Competitions
 
 Kaggle is the best place to practice real ML skills.
 
@@ -213,7 +213,7 @@ submission.to_csv("submission.csv", index=False)
 
 ---
 
-## 📘 Topic 6: Writing Technical Documentation
+##  Topic 6: Writing Technical Documentation
 
 Good researchers communicate clearly. Document your experiments.
 
@@ -245,37 +245,37 @@ What are you trying to do or prove?
 What worked? What didn't? What would you try next?
 
 ## Files
-- `train.py` — Training script
-- `model.py` — Model definition
-- `results/` — Plots and saved models
+- `train.py` - Training script
+- `model.py` - Model definition
+- `results/` - Plots and saved models
 ```
 
 ---
 
-## 🏁 Phase 5 Project Ideas
+##  Phase 5 Project Ideas
 
 ### Beginner Research Projects
 
-1. **Reproduce AlexNet on CIFAR-10** — Classic CNN paper from 2012
-2. **Implement Word2Vec from scratch** — Word embeddings
-3. **Compare 5 ML algorithms on a dataset** — Write up results
+1. **Reproduce AlexNet on CIFAR-10** - Classic CNN paper from 2012
+2. **Implement Word2Vec from scratch** - Word embeddings
+3. **Compare 5 ML algorithms on a dataset** - Write up results
 
 ### Intermediate Projects
 
-4. **Build a mini ChatBot** — LSTM + seq2seq
-5. **Medical Image Classification** — X-ray / skin lesion datasets
-6. **Time Series Forecasting** — Stock prices or weather data
+4. **Build a mini ChatBot** - LSTM + seq2seq
+5. **Medical Image Classification** - X-ray / skin lesion datasets
+6. **Time Series Forecasting** - Stock prices or weather data
 
 ### Advanced / Research-Level Projects
 
-7. **Reproduce a 2024 research paper** — Find one on arXiv with code
-8. **Propose a modification** — Change something in a model and see if it works better
-9. **Submit to Kaggle** — Get competitive with your models
-10. **Write a technical blog post** — Explain what you learned
+7. **Reproduce a 2024 research paper** - Find one on arXiv with code
+8. **Propose a modification** - Change something in a model and see if it works better
+9. **Submit to Kaggle** - Get competitive with your models
+10. **Write a technical blog post** - Explain what you learned
 
 ---
 
-## 📚 Research Paper Templates
+##  Research Paper Templates
 
 ### How to summarize a paper (your notes format):
 
@@ -286,10 +286,10 @@ Year: [Year], Published: [Conference/Journal]
 Link: [URL]
 
 ─── WHAT PROBLEM ────────────────────────────────
-[1-2 sentences — what challenge are they tackling?]
+[1-2 sentences - what challenge are they tackling?]
 
 ─── THEIR SOLUTION ──────────────────────────────
-[2-3 sentences — what did they propose?]
+[2-3 sentences - what did they propose?]
 
 ─── KEY IDEA ────────────────────────────────────
 [The one thing that makes this paper special]
@@ -306,19 +306,6 @@ Link: [URL]
 
 ---
 
-## 📈 Progress Tracker
-
-```
-[░░░░░░░░░░░░░░░░] 0% Complete
-
-⏳ Paper notes/              — Research paper summaries
-⏳ experiments_log.json      — Experiment tracking
-⏳ kaggle/                   — Kaggle competition work
-⏳ reproductions/            — Paper reproductions
-⏳ projects/                 — Original research projects
-```
-
----
 
 *Go to [LEARNING_PATH.md](../LEARNING_PATH.md) for the complete AI/ML roadmap.*  
 *Previous phase: [Deep Learning](../Phase%204%20-%20Deep%20Learning/GUIDE.md)*

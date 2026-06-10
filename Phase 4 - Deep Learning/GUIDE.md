@@ -11,22 +11,22 @@
 - Python, NumPy, Pandas, Matplotlib
 - Supervised learning, gradient descent, model evaluation
 
-| Topic | Files | Status |
-|-------|-------|--------|
-| Neural Networks from Scratch | `neural_network_scratch.py` | ⏳ |
-| Backpropagation | `backpropagation.py` | ⏳ |
-| TensorFlow / Keras | `tensorflow_basics.py`, `first_nn.py` | ⏳ |
-| CNNs | `cnn_basics.py` | ⏳ |
-| RNNs | `rnn_basics.py` | ⏳ |
-| Transfer Learning | `transfer_learning.py` | ⏳ |
-| NLP Basics | `nlp_basics.py` | ⏳ |
-| Transformers | `transformers_intro.py` | ⏳ |
+| Topic | Files | 
+|-------|-------|
+| Neural Networks from Scratch | `neural_network_scratch.py` |
+| Backpropagation | `backpropagation.py` |
+| TensorFlow / Keras | `tensorflow_basics.py`, `first_nn.py` |
+| CNNs | `cnn_basics.py` |
+| RNNs | `rnn_basics.py` |
+| Transfer Learning | `transfer_learning.py` |
+| NLP Basics | `nlp_basics.py` |
+| Transformers | `transformers_intro.py` |
 
 **Status: ⏳ Not Started**
 
 ---
 
-## ⚙️ Setup
+##  Setup
 
 ```bash
 pip install tensorflow keras torch torchvision transformers
@@ -39,8 +39,8 @@ pip install tensorflow keras torch torchvision transformers
 
 ---
 
-## 📘 Topic 1: Neural Networks from Scratch
-📄 File to create: `neural_network_scratch.py`
+##  Topic 1: Neural Networks from Scratch
+ File to create: `neural_network_scratch.py`
 
 Before using TensorFlow, understand what it's doing under the hood.
 
@@ -112,8 +112,8 @@ def softmax(x):
 
 ---
 
-## 📘 Topic 2: Backpropagation
-📄 File to create: `backpropagation.py`
+##  Topic 2: Backpropagation
+ File to create: `backpropagation.py`
 
 **How does a neural network actually learn?**
 
@@ -154,8 +154,8 @@ bias    -= learning_rate * db
 
 ---
 
-## 📘 Topic 3: TensorFlow & Keras Basics
-📄 File to create: `tensorflow_basics.py`
+##  Topic 3: TensorFlow & Keras Basics
+ File to create: `tensorflow_basics.py`
 
 ```python
 import tensorflow as tf
@@ -182,8 +182,8 @@ print(dy_dx)   # 6.0  (derivative of x² at x=3)
 
 ---
 
-## 📘 Topic 4: First Neural Network with Keras
-📄 File to create: `first_nn.py`
+##  Topic 4: First Neural Network with Keras
+ File to create: `first_nn.py`
 
 **Task: Classify handwritten digits (MNIST)**
 
@@ -243,8 +243,8 @@ plt.show()
 
 ---
 
-## 📘 Topic 5: Convolutional Neural Networks (CNN)
-📄 File to create: `cnn_basics.py`
+##  Topic 5: Convolutional Neural Networks (CNN)
+ File to create: `cnn_basics.py`
 
 **Used for:** Images, video, any grid-like data.
 
@@ -274,8 +274,8 @@ model.summary()   # Shows architecture and parameter count
 
 ---
 
-## 📘 Topic 6: Recurrent Neural Networks (RNN)
-📄 File to create: `rnn_basics.py`
+##  Topic 6: Recurrent Neural Networks (RNN)
+ File to create: `rnn_basics.py`
 
 **Used for:** Text, time series, audio — anything where **order matters**.
 
@@ -292,8 +292,8 @@ It has a "memory cell" that can remember context from many steps ago.
 
 ---
 
-## 📘 Topic 7: Transfer Learning
-📄 File to create: `transfer_learning.py`
+##  Topic 7: Transfer Learning
+ File to create: `transfer_learning.py`
 
 **Don't train from scratch every time.**  
 Use a model already trained on millions of images (ImageNet), and fine-tune it for your task.
@@ -322,8 +322,8 @@ model = keras.Sequential([
 
 ---
 
-## 📘 Topic 8: NLP Basics
-📄 File to create: `nlp_basics.py`
+##  Topic 8: NLP Basics
+ File to create: `nlp_basics.py`
 
 **Natural Language Processing** = teaching computers to understand human language.
 
@@ -348,8 +348,8 @@ print(vectorizer.get_feature_names_out())
 
 ---
 
-## 📘 Topic 9: Transformers Introduction
-📄 File to create: `transformers_intro.py`
+##  Topic 9: Transformers Introduction
+ File to create: `transformers_intro.py`
 
 The architecture behind **GPT, BERT, ChatGPT, and all modern LLMs**.
 
@@ -372,7 +372,7 @@ print(output[0]["generated_text"])
 
 ---
 
-## 🏁 Phase 4 Mini-Project (Choose One)
+##  Phase 4 Mini-Project (Choose One)
 
 ### Option A: Handwritten Digit Recognizer
 - Dataset: MNIST (built into Keras)
@@ -390,24 +390,7 @@ print(output[0]["generated_text"])
 
 ---
 
-## 📈 Progress Tracker
 
-```
-[░░░░░░░░░░░░░░░░] 0% Complete
-
-⏳ neural_network_scratch.py — Perceptron from scratch
-⏳ backpropagation.py        — Manual backprop
-⏳ tensorflow_basics.py      — Tensors & GradientTape
-⏳ first_nn.py               — MNIST with Keras
-⏳ cnn_basics.py             — Image classification
-⏳ rnn_basics.py             — Sequence modeling
-⏳ transfer_learning.py      — Pretrained models
-⏳ nlp_basics.py             — Text processing
-⏳ transformers_intro.py     — Transformers & HuggingFace
-⏳ mini_project/             — Full deep learning project
-```
-
----
 
 *Go to [LEARNING_PATH.md](../LEARNING_PATH.md) for the complete AI/ML roadmap.*  
 *Previous phase: [Machine Learning](../Phase%203%20-%20Machine%20Learning/GUIDE.md)*  

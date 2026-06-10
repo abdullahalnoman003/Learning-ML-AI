@@ -1,25 +1,25 @@
-# 📊 Phase 2: Data Science Tools — Detailed Guide
+#  Phase 2: Data Science Tools — Detailed Guide
 
 > Before building ML models, you must know how to **load, clean, and visualize data**.  
 > These 3 libraries are used in every single AI/ML project.
 
 ---
 
-## 📋 Phase Overview
+##  Phase Overview
 
 **Prerequisites:** Complete Phase 1 (Python Foundations) first.
 
-| Library | Purpose | Status |
-|---------|---------|--------|
-| NumPy | Fast math, arrays, matrix operations | ⏳ |
-| Pandas | Data tables, cleaning, filtering | ⏳ |
-| Matplotlib + Seaborn | Charts, graphs, visualization | ⏳ |
+| Library | Purpose | 
+|---------|---------|
+| NumPy | Fast math, arrays, matrix operations |  
+| Pandas | Data tables, cleaning, filtering |  
+| Matplotlib + Seaborn | Charts, graphs, visualization |  
 
-**Status: ⏳ Not Started**
+**Status:  Not Started**
 
 ---
 
-## ⚙️ Setup — Install Everything First
+##  Setup — Install Everything First
 
 ```bash
 pip install numpy pandas matplotlib seaborn jupyter
@@ -37,8 +37,8 @@ print("All libraries ready!")
 
 ---
 
-## 📘 Topic 1: NumPy
-📄 File to create: `numpy_basics.py`
+##  Topic 1: NumPy
+ File to create: `numpy_basics.py`
 
 NumPy (Numerical Python) is the foundation of all ML math in Python.  
 It gives you fast, powerful **arrays** (like supercharged lists).
@@ -98,7 +98,7 @@ print(np.max(a))      # 3
 print(np.std(a))      # standard deviation
 ```
 
-📄 File to create: `numpy_math.py`
+ File to create: `numpy_math.py`
 
 **Matrix operations (critical for ML):**
 ```python
@@ -137,8 +137,8 @@ print(arr[arr > 5])  # Elements greater than 5
 
 ---
 
-## 📘 Topic 2: Pandas
-📄 File to create: `pandas_basics.py`
+##  Topic 2: Pandas
+ File to create: `pandas_basics.py`
 
 Pandas gives you **DataFrames** — spreadsheet-like tables in Python.  
 This is how you load, explore, and manipulate real datasets.
@@ -189,7 +189,7 @@ print(df.iloc[0:3])       # rows 0, 1, 2
 high_cgpa = df[df["cgpa"] > 3.7]
 ```
 
-📄 File to create: `pandas_cleaning.py`
+ File to create: `pandas_cleaning.py`
 
 **Handling missing data:**
 ```python
@@ -227,9 +227,9 @@ df.drop("unnecessary_column", axis=1, inplace=True)
 
 ---
 
-## 📘 Topic 3: Matplotlib & Seaborn
+##  Topic 3: Matplotlib & Seaborn
 
-📄 File to create: `matplotlib_basics.py`
+ File to create: `matplotlib_basics.py`
 
 **Visualization is understanding.** If you can't plot your data, you can't understand it.
 
@@ -261,7 +261,7 @@ plt.scatter(x, y, color="red")
 plt.show()
 ```
 
-📄 File to create: `matplotlib_advanced.py`
+ File to create: `matplotlib_advanced.py`
 
 **Subplots (multiple charts):**
 ```python
@@ -296,8 +296,8 @@ plt.show()
 
 ---
 
-## 📘 Topic 4: Full EDA Workflow
-📄 File to create: `data_exploration.py`
+##  Topic 4: Full EDA Workflow
+ File to create: `data_exploration.py`
 
 **EDA = Exploratory Data Analysis** — the first thing you do with any new dataset.
 
@@ -341,7 +341,7 @@ plt.show()
 
 ---
 
-## 🏁 Phase 2 Mini-Project: Real Dataset Analysis
+##  Phase 2 Mini-Project: Real Dataset Analysis
 
 **Use the Titanic or Iris dataset (free on Kaggle/scikit-learn).**
 
@@ -367,22 +367,7 @@ print(df.head())
 
 ---
 
-## 📈 Progress Tracker
 
-```
-[░░░░░░░░░░░░░░░░] 0% Complete
-
-⏳ numpy_basics.py       — NumPy Fundamentals
-⏳ numpy_math.py         — Matrix Operations
-⏳ pandas_basics.py      — Pandas DataFrames
-⏳ pandas_cleaning.py    — Data Cleaning
-⏳ matplotlib_basics.py  — Basic Plotting
-⏳ matplotlib_advanced.py— Advanced Visualization
-⏳ data_exploration.py   — Full EDA Workflow
-⏳ mini_project/         — Dataset Analysis
-```
-
----
 
 *Go to [LEARNING_PATH.md](../LEARNING_PATH.md) for the complete AI/ML roadmap.*  
 *Previous phase: [Python Foundation](../Python%20Foundation/GUIDE.md)*

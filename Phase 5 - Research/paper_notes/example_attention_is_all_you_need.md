@@ -6,7 +6,7 @@
 **Date Read:** 2024-01-15
 **Tags:** #transformers #attention #NLP #architecture #foundational
 **Priority:** High
-**Status:** ✅ Read (All 3 passes)
+**Status:**  Read (All 3 passes)
 
 ---
 
@@ -246,10 +246,10 @@ PE(pos, 2i+1) = cos(pos / 10000^(2i/d_model))
 
 #### Assumptions
 1. **Assumption:** Attention is sufficient for sequence modeling
-   - **Validity:** ✅ Proven empirically, but may depend on task
+   - **Validity:**  Proven empirically, but may depend on task
 
 2. **Assumption:** Sinusoidal positional encoding captures order
-   - **Validity:** ✅ Works well, but learned encodings might be better
+   - **Validity:**  Works well, but learned encodings might be better
 
 3. **Assumption:** Fixed number of layers (6) is appropriate
    - **Validity:** ⚠️ Task-dependent; deeper models explored later (GPT-3 has 96 layers)
@@ -273,10 +273,10 @@ PE(pos, 2i+1) = cos(pos / 10000^(2i/d_model))
 - Results are reproducible (code released)
 
 #### Reproducibility
-- ✅ Detailed hyperparameters provided
-- ✅ Code available (TensorFlow)
-- ✅ Architecture fully specified
-- ✅ Training procedure documented
+-  Detailed hyperparameters provided
+-  Code available (TensorFlow)
+-  Architecture fully specified
+-  Training procedure documented
 - ⚠️ Requires significant compute (8 GPUs)
 
 ### Innovation & Impact
@@ -394,7 +394,7 @@ Must-understand paper for any modern NLP work. Foundation for:
 ### Code/Implementation
 - **Official Code:** [tensor2tensor](https://github.com/tensorflow/tensor2tensor) - TensorFlow implementation
 - **Unofficial PyTorch:** [annotated-transformer](http://nlp.seas.harvard.edu/2018/04/03/attention.html) - Excellent line-by-line implementation
-- **My Implementation:** [github.com/myusername/transformer](link) - ✅ Completed, reproduces results
+- **My Implementation:** [github.com/myusername/transformer](link) -  Completed, reproduces results
 
 ---
 

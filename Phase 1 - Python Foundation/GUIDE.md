@@ -1,26 +1,18 @@
-# 🐍 Phase 1: Python Foundations — Detailed Guide
+#  Phase 1: Python Foundations — Detailed Guide
 
 > Python is the #1 language for AI and Machine Learning.  
 > Master this phase before moving to data science or ML libraries.
 
 ---
 
-## 📋 Phase Overview
 
-| Total Topics | Covered | Remaining |
-|-------------|---------|-----------|
-| 16 | 8 | 8 |
 
-**Status: 🟡 In Progress**
-
----
-
-## ✅ Topics Covered (With File References)
+##  Topics Covered (With File References)
 
 ---
 
 ### 1. Hello World & Print Basics
-📄 File: `first.py`
+ File: `first.py`
 
 **What you learned:**
 - How Python executes code line by line
@@ -35,7 +27,7 @@ print("Hello World!")   # This outputs text to the screen
 ---
 
 ### 2. Variables, Data Types & Input
-📄 File: `basics.py`
+ File: `basics.py`
 
 **What you learned:**
 - Variables store data (Python auto-detects the type)
@@ -63,7 +55,7 @@ print(type(name))       # <class 'str'>
 ---
 
 ### 3. Conditional Statements
-📄 File: `IfElse.py`
+ File: `IfElse.py`
 
 **What you learned:**
 - `if`, `elif`, `else` to make decisions
@@ -85,7 +77,7 @@ else:
 ---
 
 ### 4. Loops
-📄 File: `loop.py`
+ File: `loop.py`
 
 **What you learned:**
 - `for` loop: iterate a fixed number of times
@@ -111,7 +103,7 @@ while condition:
 ---
 
 ### 5. Functions
-📄 File: `functions.py`
+ File: `functions.py`
 
 **What you learned:**
 - Define reusable blocks of code with `def`
@@ -133,7 +125,7 @@ add(5, 7)      # Output: 12
 ---
 
 ### 6. Lists
-📄 File: `list.py`
+ File: `list.py`
 
 **What you learned:**
 - Lists store multiple values in order
@@ -162,7 +154,7 @@ for num in numbers:
 ---
 
 ### 7. Tuples & Sets
-📄 File: `touple.py`
+ File: `touple.py`
 
 **What you learned:**
 - **Tuple**: ordered, **immutable** (cannot change after creation)
@@ -185,7 +177,7 @@ print(nums)         # {1, 2, 3, 4}  — duplicates removed
 ---
 
 ### 8. Dictionaries
-📄 File: `dictionary.py`
+ File: `dictionary.py`
 
 **What you learned:**
 - Key → Value pairs (like JSON)
@@ -215,12 +207,12 @@ for key, value in student.items():
 
 ---
 
-## ⏳ Topics Remaining in Phase 1
+##  Topics Remaining in Phase 1
 
 ---
 
 ### 9. String Methods ← **Do This Next**
-📄 File to create: `strings.py`
+ File to create: `strings.py`
 
 **What to learn:**
 - String slicing, indexing
@@ -239,7 +231,7 @@ print(f"My name is {name.strip()}, I am {age} years old.")
 ---
 
 ### 10. Advanced Functions
-📄 File to create: `functions_advanced.py`
+ File to create: `functions_advanced.py`
 
 **What to learn:**
 - `return` — getting values back from functions
@@ -260,7 +252,7 @@ print(square(5))             # 25
 ---
 
 ### 11. List Comprehension
-📄 File to create: `list_comprehension.py`
+ File to create: `list_comprehension.py`
 
 **What to learn:**
 - Shorter way to create lists
@@ -287,7 +279,7 @@ evens = [x for x in range(20) if x % 2 == 0]
 ---
 
 ### 12. File Handling
-📄 File to create: `file_handling.py`
+ File to create: `file_handling.py`
 
 **What to learn:**
 - Write data to a file
@@ -313,7 +305,7 @@ with open("data.txt", "r") as f:
 ---
 
 ### 13. Error Handling
-📄 File to create: `error_handling.py`
+ File to create: `error_handling.py`
 
 **What to learn:**
 - `try` / `except` — catch and handle errors
@@ -338,7 +330,7 @@ finally:
 ---
 
 ### 14. OOP Basics (Classes & Objects)
-📄 File to create: `oop.py`
+ File to create: `oop.py`
 
 **What to learn:**
 - What is a class? What is an object?
@@ -366,7 +358,7 @@ s1.display()
 ---
 
 ### 15. OOP Advanced
-📄 File to create: `oop_advanced.py`
+ File to create: `oop_advanced.py`
 
 **What to learn:**
 - **Inheritance** — one class extends another
@@ -391,7 +383,7 @@ d.speak()   # Woof!
 ---
 
 ### 16. Modules & Imports
-📄 File to create: `modules.py`
+ File to create: `modules.py`
 
 **What to learn:**
 - `import` built-in modules: `math`, `random`, `os`, `datetime`
@@ -411,7 +403,7 @@ print(math.pi)                  # 3.14159...
 
 ---
 
-## 🏁 Phase 1 Mini-Project: Student Grade Calculator
+##  Phase 1 Mini-Project: Student Grade Calculator
 
 **Build this after completing all Phase 1 topics:**
 
@@ -435,34 +427,7 @@ print(math.pi)                  # 3.14159...
 
 ---
 
-## 📈 Progress Tracker
-
-```
-[████████░░░░░░░░] 50% Complete
-
-✅ first.py           — Hello World
-✅ basics.py          — Variables & Data Types
-✅ IfElse.py          — Conditional Statements
-✅ loop.py            — Loops
-✅ functions.py       — Functions (basic)
-✅ list.py            — Lists
-✅ touple.py          — Tuples & Sets
-✅ dictionary.py      — Dictionaries
-
-⏳ strings.py         — String Methods
-⏳ functions_advanced.py — Advanced Functions
-⏳ list_comprehension.py — Comprehensions
-⏳ file_handling.py   — File I/O
-⏳ error_handling.py  — Exception Handling
-⏳ oop.py             — OOP Basics
-⏳ oop_advanced.py    — OOP Advanced
-⏳ modules.py         — Modules & Imports
-⏳ mini_project/      — Grade Calculator
-```
-
----
-
-## 💬 Common Mistakes to Avoid
+##  Common Mistakes to Avoid
 
 | Mistake | Fix |
 |---------|-----|
