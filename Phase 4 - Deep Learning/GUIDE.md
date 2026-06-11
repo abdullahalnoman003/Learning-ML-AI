@@ -1,11 +1,11 @@
-# 🧠 Phase 4: Deep Learning — Detailed Guide
+#  Phase 4: Deep Learning — Detailed Guide
 
 > Deep Learning is a subset of ML that uses **neural networks** with many layers.  
 > It powers image recognition, language models, speech, game AI, and generative AI.
 
 ---
 
-## 📋 Phase Overview
+##  Phase Overview
 
 **Prerequisites:** Complete Phases 1–3 first. You must understand:
 - Python, NumPy, Pandas, Matplotlib
@@ -22,7 +22,7 @@
 | NLP Basics | `nlp_basics.py` |
 | Transformers | `transformers_intro.py` |
 
-**Status: ⏳ Not Started**
+**Status:  Not Started**
 
 ---
 

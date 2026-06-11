@@ -9,7 +9,7 @@
 
 **Prerequisites:** Complete Phases 1-4 first.
 
-**Status: ⏳ Not Started**
+**Status:  Not Started**
 
 ---
 

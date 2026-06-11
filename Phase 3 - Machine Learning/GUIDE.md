@@ -1,11 +1,11 @@
-# 🤖 Phase 3: Machine Learning - Detailed Guide
+#  Phase 3: Machine Learning - Detailed Guide
 
 > Machine Learning = giving computers the ability to learn from data **without being explicitly programmed**.  
 > This phase takes you from ML theory all the way to trained, evaluated models.
 
 ---
 
-## 📋 Phase Overview
+##  Phase Overview
 
 **Prerequisites:** Complete Phase 1 (Python) and Phase 2 (Data Science Tools) first.
 

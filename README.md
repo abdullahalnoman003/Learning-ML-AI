@@ -136,7 +136,7 @@ Learning-ML-AI/
 ---
 
 ###  Phase 5: Research & Experiments — `Phase 5 - Research/`
- [Detailed Guide](Phase%205%20-%20Research/GUIDE.md) | ⚡ [Quick Start](Phase%205%20-%20Research/QUICKSTART.md) | 📋 [Summary](Phase%205%20-%20Research/SUMMARY.md)
+ [Detailed Guide](Phase%205%20-%20Research/GUIDE.md) |  [Quick Start](Phase%205%20-%20Research/QUICKSTART.md) |  [Summary](Phase%205%20-%20Research/SUMMARY.md)
 
 | File / Folder | Description |
 |---------------|-------------|
@@ -227,5 +227,5 @@ pip install wandb
 
 If you're also learning AI/ML or interested in research, feel free to connect or follow this repository for reference.
 
-> ⚠️ This repository is a **learning log**, not a tutorial series.  
+> ️ This repository is a **learning log**, not a tutorial series.  
 > Mistakes, experiments, and improvements are all part of the journey. Every file represents real learning, not perfection.
