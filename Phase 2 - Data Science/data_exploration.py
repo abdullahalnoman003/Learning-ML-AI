@@ -59,13 +59,13 @@ print(f"   Purpose: Predict survival based on passenger features")
 print("\n STEP 2: First Look at the Data")
 print("-" * 70)
 
-print("\n👀 First 5 rows:")
+print("\n First 5 rows:")
 print(titanic.head())
 
-print("\n👀 Last 5 rows:")
+print("\n Last 5 rows:")
 print(titanic.tail())
 
-print("\n👀 Random 3 rows:")
+print("\n Random 3 rows:")
 print(titanic.sample(3))
 
 # ============================================================
@@ -74,19 +74,19 @@ print(titanic.sample(3))
 print("\n\n STEP 3: Understanding Data Structure")
 print("-" * 70)
 
-print(f"\n📏 Dataset Dimensions:")
+print(f"\n Dataset Dimensions:")
 print(f"   Rows (samples): {titanic.shape[0]}")
 print(f"   Columns (features): {titanic.shape[1]}")
 print(f"   Total cells: {titanic.size}")
 
-print(f"\n📋 Column Names:")
+print(f"\n Column Names:")
 print(f"   {titanic.columns.tolist()}")
 
 print(f"\n Data Types:")
 print(titanic.dtypes)
 print("\n int64/float64 = numbers, object = text, bool = True/False, category = categories")
 
-print(f"\n📋 Detailed Info:")
+print(f"\n Detailed Info:")
 titanic.info()
 
 # ============================================================
@@ -122,7 +122,7 @@ print(f"\n Duplicate rows: {duplicates}")
 print("\n\n STEP 5: Statistical Summary")
 print("-" * 70)
 
-print("\n📈 Numeric Columns Summary:")
+print("\n Numeric Columns Summary:")
 print(titanic.describe())
 print("\n Shows: count, mean, std, min, 25%, 50%, 75%, max")
 
@@ -276,12 +276,12 @@ print("-" * 70)
 fig, axes = plt.subplots(1, 2, figsize=(14, 6))
 fig.suptitle('Outlier Detection (Box Plots)', fontsize=16, fontweight='bold')
 
-axes[0].boxplot([titanic['age'].dropna()], labels=['Age'])
+axes[0].boxplot([titanic['age'].dropna()], tick_labels=['Age'])
 axes[0].set_ylabel('Years')
 axes[0].set_title('Age Outliers')
 axes[0].grid(axis='y', alpha=0.3)
 
-axes[1].boxplot([titanic['fare'].dropna()], labels=['Fare'])
+axes[1].boxplot([titanic['fare'].dropna()], tick_labels=['Fare'])
 axes[1].set_ylabel('Fare ($)')
 axes[1].set_title('Fare Outliers')
 axes[1].grid(axis='y', alpha=0.3)

@@ -1,5 +1,5 @@
 """
-📊 MATPLOTLIB ADVANCED - Subplots, Heatmaps, and Complex Visualizations
+ MATPLOTLIB ADVANCED - Subplots, Heatmaps, and Complex Visualizations
 ===========================================================================
 
 What You'll Learn:
@@ -31,7 +31,7 @@ plt.rcParams['figure.figsize'] = (12, 8)
 # ============================================================
 # PART 1: Subplots - Multiple Plots in One Figure
 # ============================================================
-print("\n📌 PART 1: Subplots - Multiple Plots Together")
+print("\n PART 1: Subplots - Multiple Plots Together")
 print("-" * 60)
 
 # Create sample data
@@ -63,13 +63,13 @@ axes[1, 1].grid(True, alpha=0.3)
 
 plt.tight_layout()
 plt.savefig('subplots_2x2.png', dpi=300, bbox_inches='tight')
-print("✓ Created: subplots_2x2.png")
+print(" Created: subplots_2x2.png")
 plt.close()
 
 # ============================================================
 # PART 2: Heatmap - Correlation Matrix
 # ============================================================
-print("\n📌 PART 2: Heatmaps - Visualize Correlations")
+print("\n PART 2: Heatmaps - Visualize Correlations")
 print("-" * 60)
 
 # Create sample dataset
@@ -95,14 +95,14 @@ sns.heatmap(corr_matrix, annot=True, cmap='coolwarm', center=0,
 plt.title('Correlation Matrix Heatmap', fontsize=16, fontweight='bold', pad=20)
 plt.tight_layout()
 plt.savefig('heatmap_correlation.png', dpi=300, bbox_inches='tight')
-print("✓ Created: heatmap_correlation.png")
-print("   💡 Red = positive correlation, Blue = negative, White = no correlation")
+print(" Created: heatmap_correlation.png")
+print("    Red = positive correlation, Blue = negative, White = no correlation")
 plt.close()
 
 # ============================================================
 # PART 3: Seaborn Advanced Plots
 # ============================================================
-print("\n📌 PART 3: Seaborn - Statistical Visualizations")
+print("\n PART 3: Seaborn - Statistical Visualizations")
 print("-" * 60)
 
 # Violin plot - distribution with scatter
@@ -111,7 +111,7 @@ tips = sns.load_dataset('tips')  # Built-in dataset
 sns.violinplot(data=tips, x='day', y='total_bill', hue='sex', split=True, palette='Set2')
 plt.title('Restaurant Bills by Day and Gender', fontsize=16, fontweight='bold')
 plt.savefig('violin_plot.png', dpi=300, bbox_inches='tight')
-print("✓ Created: violin_plot.png")
+print(" Created: violin_plot.png")
 plt.close()
 
 # Pair plot - relationships between all variables
@@ -120,13 +120,13 @@ iris = sns.load_dataset('iris')
 pairplot = sns.pairplot(iris, hue='species', palette='husl', diag_kind='kde')
 pairplot.fig.suptitle('Iris Dataset - All Pairwise Relationships', y=1.02, fontsize=16, fontweight='bold')
 plt.savefig('pairplot.png', dpi=300, bbox_inches='tight')
-print("✓ Created: pairplot.png")
+print(" Created: pairplot.png")
 plt.close()
 
 # ============================================================
 # PART 4: 3D Plots
 # ============================================================
-print("\n📌 PART 4: 3D Visualizations")
+print("\n PART 4: 3D Visualizations")
 print("-" * 60)
 
 # Create 3D surface plot
@@ -149,13 +149,13 @@ ax.set_title('3D Surface Plot - sin(√(x²+y²))', fontsize=14, fontweight='bol
 
 fig.colorbar(surf, shrink=0.5, aspect=5)
 plt.savefig('3d_surface.png', dpi=300, bbox_inches='tight')
-print("✓ Created: 3d_surface.png")
+print(" Created: 3d_surface.png")
 plt.close()
 
 # ============================================================
 # PART 5: Complex Multi-Panel Dashboard
 # ============================================================
-print("\n📌 PART 5: Dashboard-Style Layout")
+print("\n PART 5: Dashboard-Style Layout")
 print("-" * 60)
 
 # Create data
@@ -204,7 +204,7 @@ ax4.set_title('Quarterly Sales')
 ax5 = fig.add_subplot(gs[2, :])
 ax5.axis('off')
 stats_text = f"""
-📊 KEY STATISTICS
+ KEY STATISTICS
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Total Sales:      ${data['Sales'].sum():,.2f}
 Average Sales:    ${data['Sales'].mean():,.2f}
@@ -217,13 +217,13 @@ ax5.text(0.1, 0.5, stats_text, fontsize=12, family='monospace',
          verticalalignment='center')
 
 plt.savefig('dashboard.png', dpi=300, bbox_inches='tight')
-print("✓ Created: dashboard.png")
+print(" Created: dashboard.png")
 plt.close()
 
 # ============================================================
 # PART 6: Annotation and Arrows
 # ============================================================
-print("\n📌 PART 6: Annotations - Highlight Important Points")
+print("\n PART 6: Annotations - Highlight Important Points")
 print("-" * 60)
 
 # Stock price simulation
@@ -260,13 +260,13 @@ ax.set_ylabel('Price ($)', fontsize=12)
 ax.grid(True, alpha=0.3)
 
 plt.savefig('annotated_plot.png', dpi=300, bbox_inches='tight')
-print("✓ Created: annotated_plot.png")
+print(" Created: annotated_plot.png")
 plt.close()
 
 # ============================================================
 # PART 7: Custom Color Palettes and Styling
 # ============================================================
-print("\n📌 PART 7: Professional Styling")
+print("\n PART 7: Professional Styling")
 print("-" * 60)
 
 # Create styled plot with custom colors
@@ -300,16 +300,16 @@ for bar in bars:
             ha='center', va='bottom', fontsize=12, fontweight='bold')
 
 plt.savefig('professional_styled.png', dpi=300, bbox_inches='tight')
-print("✓ Created: professional_styled.png")
+print(" Created: professional_styled.png")
 plt.close()
 
 # ============================================================
 # SUMMARY
 # ============================================================
-print("\n\n🎯 ADVANCED VISUALIZATION SUMMARY")
+print("\n\n ADVANCED VISUALIZATION SUMMARY")
 print("=" * 60)
 print("""
-✅ Advanced Techniques You Learned:
+ Advanced Techniques You Learned:
 
 1️⃣ SUBPLOTS - Multiple plots in one figure
    fig, axes = plt.subplots(rows, cols)
@@ -337,7 +337,7 @@ print("""
    • Remove spines
    • Add gradients
 
-🎨 Pro Tips for Publication-Quality Plots:
+ Pro Tips for Publication-Quality Plots:
    • Use consistent color schemes
    • Remove unnecessary chart junk
    • Add clear titles and labels
@@ -345,17 +345,17 @@ print("""
    • Save at high DPI (300+)
    • Use white space effectively
 
-📊 Seaborn vs Matplotlib:
+ Seaborn vs Matplotlib:
    Matplotlib: Full control, detailed customization
    Seaborn: Quick statistical plots, beautiful defaults
    → Use both! Seaborn is built on Matplotlib
 
-🚀 Next Steps:
+ Next Steps:
    - Open all the PNG files to see your visualizations
    - Try modifying colors and layouts
    - Apply these to your own datasets
    - Move to data_exploration.py for full EDA workflow
 """)
 
-print("\n✅ Matplotlib Advanced Complete!")
+print("\n Matplotlib Advanced Complete!")
 print("Next file: data_exploration.py - Full exploratory data analysis workflow")

@@ -1,5 +1,5 @@
 """
-📊 MATPLOTLIB BASICS - Data Visualization Fundamentals
+ MATPLOTLIB BASICS - Data Visualization Fundamentals
 =======================================================
 
 Why Visualize Data?
@@ -28,7 +28,7 @@ plt.style.use('seaborn-v0_8-darkgrid')  # Makes plots prettier
 # ============================================================
 #  PART 1: Line Plot (Trends Over Time)
 # ============================================================
-print("\n📌 PART 1: Line Plots - Show Trends")
+print("\n PART 1: Line Plots - Show Trends")
 print("-" * 60)
 
 # Data: Monthly sales
@@ -49,14 +49,14 @@ plt.grid(True, alpha=0.3)
 
 # Save the plot
 plt.savefig('line_plot.png', dpi=300, bbox_inches='tight')
-print("✓ Created: line_plot.png")
-print("   💡 Use line plots for: Time series, trends, continuous data")
+print(" Created: line_plot.png")
+print("    Use line plots for: Time series, trends, continuous data")
 plt.close()  # Close to save memory
 
 # ============================================================
 # PART 2: Bar Chart (Compare Categories)
 # ============================================================
-print("\n📌 PART 2: Bar Charts - Compare Categories")
+print("\n PART 2: Bar Charts - Compare Categories")
 print("-" * 60)
 
 # Data: Department employee counts
@@ -80,8 +80,8 @@ plt.ylabel('Number of Employees', fontsize=12)
 plt.ylim(0, max(employees) * 1.1)  # Add space on top
 
 plt.savefig('bar_chart.png', dpi=300, bbox_inches='tight')
-print("✓ Created: bar_chart.png")
-print("   💡 Use bar charts for: Comparing categories, counts, rankings")
+print(" Created: bar_chart.png")
+print("    Use bar charts for: Comparing categories, counts, rankings")
 plt.close()
 
 # Horizontal bar chart (better for long labels)
@@ -91,13 +91,13 @@ plt.title('Employees by Department (Horizontal)', fontsize=16, fontweight='bold'
 plt.xlabel('Number of Employees', fontsize=12)
 plt.ylabel('Department', fontsize=12)
 plt.savefig('bar_chart_horizontal.png', dpi=300, bbox_inches='tight')
-print("✓ Created: bar_chart_horizontal.png")
+print(" Created: bar_chart_horizontal.png")
 plt.close()
 
 # ============================================================
 # PART 3: Histogram (Distribution of Data)
 # ============================================================
-print("\n📌 PART 3: Histograms - Show Distribution")
+print("\n PART 3: Histograms - Show Distribution")
 print("-" * 60)
 
 # Generate random age data
@@ -118,14 +118,14 @@ plt.legend()
 plt.grid(axis='y', alpha=0.3)
 
 plt.savefig('histogram.png', dpi=300, bbox_inches='tight')
-print("✓ Created: histogram.png")
-print("   💡 Use histograms for: Understanding distribution, checking normality")
+print(" Created: histogram.png")
+print("    Use histograms for: Understanding distribution, checking normality")
 plt.close()
 
 # ============================================================
 # PART 4: Scatter Plot (Relationships)
 # ============================================================
-print("\n📌 PART 4: Scatter Plots - Find Relationships")
+print("\n PART 4: Scatter Plots - Find Relationships")
 print("-" * 60)
 
 # Data: Study hours vs exam scores
@@ -147,14 +147,14 @@ plt.legend()
 plt.grid(True, alpha=0.3)
 
 plt.savefig('scatter_plot.png', dpi=300, bbox_inches='tight')
-print("✓ Created: scatter_plot.png")
-print("   💡 Use scatter plots for: Correlations, relationships between 2 variables")
+print(" Created: scatter_plot.png")
+print("    Use scatter plots for: Correlations, relationships between 2 variables")
 plt.close()
 
 # ============================================================
 # PART 5: Pie Chart (Part-to-Whole)
 # ============================================================
-print("\n📌 PART 5: Pie Charts - Show Proportions")
+print("\n PART 5: Pie Charts - Show Proportions")
 print("-" * 60)
 
 # Data: Market share
@@ -183,15 +183,15 @@ plt.title('Market Share Distribution', fontsize=16, fontweight='bold')
 plt.axis('equal')  # Equal aspect ratio ensures circular pie
 
 plt.savefig('pie_chart.png', dpi=300, bbox_inches='tight')
-print("✓ Created: pie_chart.png")
-print("   💡 Use pie charts for: Proportions, market share (max 5-6 categories)")
-print("   ⚠️  Avoid pie charts if you have >6 categories - use bar chart instead!")
+print(" Created: pie_chart.png")
+print("    Use pie charts for: Proportions, market share (max 5-6 categories)")
+print("   ️  Avoid pie charts if you have >6 categories - use bar chart instead!")
 plt.close()
 
 # ============================================================
 # PART 6: Box Plot (Statistical Summary)
 # ============================================================
-print("\n📌 PART 6: Box Plots - Show Statistical Distribution")
+print("\n PART 6: Box Plots - Show Statistical Distribution")
 print("-" * 60)
 
 # Generate salary data for different departments
@@ -216,15 +216,15 @@ plt.xlabel('Department', fontsize=12)
 plt.grid(axis='y', alpha=0.3)
 
 plt.savefig('box_plot.png', dpi=300, bbox_inches='tight')
-print("✓ Created: box_plot.png")
-print("   💡 Box plot shows: Min, Q1 (25%), Median (50%), Q3 (75%), Max, Outliers")
-print("   💡 Use for: Comparing distributions, finding outliers")
+print(" Created: box_plot.png")
+print("    Box plot shows: Min, Q1 (25%), Median (50%), Q3 (75%), Max, Outliers")
+print("    Use for: Comparing distributions, finding outliers")
 plt.close()
 
 # ============================================================
 # PART 7: Multiple Lines
 # ============================================================
-print("\n📌 PART 7: Multiple Lines - Compare Multiple Trends")
+print("\n PART 7: Multiple Lines - Compare Multiple Trends")
 print("-" * 60)
 
 # Data: Sales for 3 products over months
@@ -246,14 +246,14 @@ plt.grid(True, alpha=0.3)
 plt.xticks(months)
 
 plt.savefig('multiple_lines.png', dpi=300, bbox_inches='tight')
-print("✓ Created: multiple_lines.png")
-print("   💡 Use for: Comparing multiple trends over time")
+print(" Created: multiple_lines.png")
+print("    Use for: Comparing multiple trends over time")
 plt.close()
 
 # ============================================================
 # PART 8: Customization Examples
 # ============================================================
-print("\n📌 PART 8: Customization - Making Plots Publication-Ready")
+print("\n PART 8: Customization - Making Plots Publication-Ready")
 print("-" * 60)
 
 # Create an impressive customized plot
@@ -280,17 +280,17 @@ ax.axhline(y=0, color='k', linewidth=0.8)
 ax.axvline(x=0, color='k', linewidth=0.8)
 
 plt.savefig('customized_plot.png', dpi=300, bbox_inches='tight')
-print("✓ Created: customized_plot.png")
-print("   💡 Professional plots have: titles, labels, legends, grids, colors")
+print(" Created: customized_plot.png")
+print("    Professional plots have: titles, labels, legends, grids, colors")
 plt.close()
 
 # ============================================================
 # SUMMARY AND CHEAT SHEET
 # ============================================================
-print("\n\n🎯 MATPLOTLIB BASICS SUMMARY")
+print("\n\n MATPLOTLIB BASICS SUMMARY")
 print("=" * 60)
 print("""
-✅ Plot Types You Learned:
+ Plot Types You Learned:
    1. Line Plot - plt.plot() → Trends over time
    2. Bar Chart - plt.bar() / plt.barh() → Compare categories
    3. Histogram - plt.hist() → Distribution of continuous data
@@ -299,7 +299,7 @@ print("""
    6. Box Plot - plt.boxplot() → Statistical distribution + outliers
    7. Multiple Lines - Multiple plt.plot() → Compare trends
 
-🎨 Common Customizations:
+ Common Customizations:
    • plt.figure(figsize=(width, height)) - Set plot size
    • plt.title() - Add title
    • plt.xlabel() / plt.ylabel() - Add axis labels
@@ -308,7 +308,7 @@ print("""
    • plt.savefig() - Save to file
    • plt.close() - Close plot to free memory
 
-🔑 Quick Reference:
+ Quick Reference:
    • color='blue' or color='#FF6B6B' - Set color
    • linewidth=2 - Line thickness
    • marker='o' - Add markers
@@ -316,7 +316,7 @@ print("""
    • linestyle='--' - Dash style
    • s=100 - Marker size (scatter)
 
-📊 When to Use Each Plot:
+ When to Use Each Plot:
    • Line → Time series, trends
    • Bar → Comparing categories
    • Histogram → Distribution of numbers
@@ -324,18 +324,18 @@ print("""
    • Pie → Parts of a whole (max 6 slices)
    • Box → Statistical summary, outliers
 
-💡 Pro Tips:
+ Pro Tips:
    1. Always label your axes!
    2. Add a title
    3. Use appropriate colors (not too many!)
    4. Save as PNG with dpi=300 for presentations
    5. Close plots after saving (plt.close())
 
-🚀 Next Steps:
+ Next Steps:
    - Open the PNG files to see your plots!
    - Experiment with colors and styles
    - Learn matplotlib_advanced.py for subplots and complex visualizations
 """)
 
-print("\n✅ Matplotlib Basics Complete!")
+print("\n Matplotlib Basics Complete!")
 print("Next file: matplotlib_advanced.py - Multiple plots, heatmaps, and more")
