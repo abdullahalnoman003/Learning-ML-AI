@@ -262,7 +262,7 @@ print("Unique count:",        len(unique_students))
 print(colors[0])
 print(colors[-1])
 
-## Tuple Cannot Be Modified ❌
+## Tuple Cannot Be Modified 
 
 #colors[0] = "yellow"   # ERROR
 
