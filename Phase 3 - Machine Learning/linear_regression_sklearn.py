@@ -1,5 +1,5 @@
 """
-📊 LINEAR REGRESSION WITH SCIKIT-LEARN - Professional ML
+ LINEAR REGRESSION WITH SCIKIT-LEARN - Professional ML
 ==========================================================
 
 What is Scikit-Learn?
@@ -37,7 +37,7 @@ print("=" * 70)
 # ============================================================
 # PART 1: Simple Linear Regression (One Feature)
 # ============================================================
-print("\n📌 PART 1: Simple Linear Regression (One Feature)")
+print("\n PART 1: Simple Linear Regression (One Feature)")
 print("-" * 70)
 
 # Generate sample data: house prices based on size
@@ -55,23 +55,23 @@ print(f"Target: Price ($)")
 X = house_sizes.reshape(-1, 1)  # -1 means "figure out the size"
 y = house_prices
 
-print(f"\n🔧 Data shape:")
-print(f"   X shape: {X.shape}  👈 (samples, features)")
-print(f"   y shape: {y.shape}  👈 (samples,)")
-print(f"   💡 sklearn needs X to be 2D: (n_samples, n_features)")
+print(f"\n Data shape:")
+print(f"   X shape: {X.shape}   (samples, features)")
+print(f"   y shape: {y.shape}   (samples,)")
+print(f"    sklearn needs X to be 2D: (n_samples, n_features)")
 
 # Create and train the model
-print("\n🏗️ Creating Linear Regression model...")
+print("\n️ Creating Linear Regression model...")
 model = LinearRegression()
-print("   Model created! ✓")
+print("   Model created! ")
 
-print("\n🎓 Training the model...")
+print("\n Training the model...")
 model.fit(X, y)
-print("   Training complete! ✓")
-print("   💡 Behind the scenes: gradient descent optimized the parameters")
+print("   Training complete! ")
+print("    Behind the scenes: gradient descent optimized the parameters")
 
 # Get learned parameters
-print(f"\n📊 Learned Parameters:")
+print(f"\n Learned Parameters:")
 print(f"   Coefficient (slope): {model.coef_[0]:.2f}")
 print(f"   Intercept (bias): {model.intercept_:.2f}")
 print(f"   Equation: Price = {model.coef_[0]:.2f} × Size + {model.intercept_:.2f}")
@@ -84,7 +84,7 @@ r2 = r2_score(y, predictions)
 rmse = np.sqrt(mean_squared_error(y, predictions))
 mae = mean_absolute_error(y, predictions)
 
-print(f"\n📈 Model Performance:")
+print(f"\n Model Performance:")
 print(f"   R² Score: {r2:.4f} ({r2*100:.2f}% variance explained)")
 print(f"   RMSE: ${rmse:,.2f}")
 print(f"   MAE: ${mae:,.2f}")
@@ -99,17 +99,17 @@ plt.title('Simple Linear Regression with Scikit-Learn', fontsize=14, fontweight=
 plt.legend(fontsize=11)
 plt.grid(True, alpha=0.3)
 plt.tight_layout()
-plt.savefig('D:/Language Learning/AI ML/Learning-ML-AI/Phase 3 - Machine Learning/sklearn_simple_regression.png', dpi=150)
-print("\n✓ Saved plot: sklearn_simple_regression.png")
+plt.savefig('sklearn_simple_regression.png', dpi=150)
+print("\n Saved plot: sklearn_simple_regression.png")
 
 # ============================================================
 # PART 2: Multiple Linear Regression (Multiple Features)
 # ============================================================
-print("\n\n📌 PART 2: Multiple Linear Regression (Multiple Features)")
+print("\n\n PART 2: Multiple Linear Regression (Multiple Features)")
 print("-" * 70)
 
 print("""
-💡 Real World Example: Predicting house prices with multiple factors!
+ Real World Example: Predicting house prices with multiple factors!
 
 Now we'll use:
 - Size (sq ft)
@@ -142,22 +142,22 @@ df['Price'] = (
     np.random.randn(n_samples) * 15000  # Add noise
 )
 
-print(f"\n📊 Dataset Preview:")
+print(f"\n Dataset Preview:")
 print(df.head(10))
-print(f"\n🔍 Dataset Info:")
+print(f"\n Dataset Info:")
 print(f"   Samples: {len(df)}")
 print(f"   Features: {len(df.columns) - 1}")
-print(f"\n📈 Statistical Summary:")
+print(f"\n Statistical Summary:")
 print(df.describe())
 
 # ============================================================
 # PART 3: Train-Test Split (CRUCIAL!)
 # ============================================================
-print("\n\n📌 PART 3: Train-Test Split")
+print("\n\n PART 3: Train-Test Split")
 print("-" * 70)
 
 print("""
-🎯 WHY Split Data?
+ WHY Split Data?
 
 Problem: If we test on the same data we trained on, the model might
          just MEMORIZE the answers instead of learning patterns!
@@ -183,33 +183,33 @@ X_train, X_test, y_train, y_test = train_test_split(
     random_state=42    # For reproducibility
 )
 
-print(f"\n✂️ After splitting:")
+print(f"\n️ After splitting:")
 print(f"   Training set: {X_train.shape[0]} samples ({X_train.shape[0]/len(X)*100:.0f}%)")
 print(f"   Test set: {X_test.shape[0]} samples ({X_test.shape[0]/len(X)*100:.0f}%)")
-print(f"   💡 Model will train on {X_train.shape[0]} houses")
-print(f"   💡 Model will be tested on {X_test.shape[0]} NEW houses")
+print(f"    Model will train on {X_train.shape[0]} houses")
+print(f"    Model will be tested on {X_test.shape[0]} NEW houses")
 
 # ============================================================
 # PART 4: Training the Multiple Regression Model
 # ============================================================
-print("\n\n📌 PART 4: Training Multiple Linear Regression")
+print("\n\n PART 4: Training Multiple Linear Regression")
 print("-" * 70)
 
 # Create and train model
 model_multi = LinearRegression()
-print("\n🎓 Training on multiple features...")
+print("\n Training on multiple features...")
 model_multi.fit(X_train, y_train)
-print("   Training complete! ✓")
+print("   Training complete! ")
 
 # Display learned parameters
-print(f"\n📊 Learned Parameters:")
+print(f"\n Learned Parameters:")
 print(f"   Intercept: ${model_multi.intercept_:,.2f}")
 print(f"\n   Feature Coefficients:")
 feature_names = ['Size', 'Bedrooms', 'Age', 'Distance_to_City']
 for name, coef in zip(feature_names, model_multi.coef_):
     print(f"   - {name:20s}: {coef:10.2f}")
 
-print(f"\n💡 Interpretation:")
+print(f"\n Interpretation:")
 print(f"   - Each extra sq ft adds: ${model_multi.coef_[0]:.2f}")
 print(f"   - Each extra bedroom adds: ${model_multi.coef_[1]:,.2f}")
 print(f"   - Each year older reduces: ${abs(model_multi.coef_[2]):,.2f}")
@@ -218,7 +218,7 @@ print(f"   - Each mile from city reduces: ${abs(model_multi.coef_[3]):,.2f}")
 # ============================================================
 # PART 5: Making Predictions
 # ============================================================
-print("\n\n📌 PART 5: Making Predictions")
+print("\n\n PART 5: Making Predictions")
 print("-" * 70)
 
 # Predict on training data
@@ -227,7 +227,7 @@ y_train_pred = model_multi.predict(X_train)
 # Predict on test data (UNSEEN!)
 y_test_pred = model_multi.predict(X_test)
 
-print("\n🏠 Example Predictions (Test Set):")
+print("\n Example Predictions (Test Set):")
 print(f"{'Size':<8} {'Beds':<6} {'Age':<6} {'Dist':<8} {'Actual':<12} {'Predicted':<12} {'Error':<10}")
 print("-" * 80)
 for i in range(min(10, len(X_test))):
@@ -240,7 +240,7 @@ for i in range(min(10, len(X_test))):
 # ============================================================
 # PART 6: Model Evaluation
 # ============================================================
-print("\n\n📌 PART 6: Model Evaluation")
+print("\n\n PART 6: Model Evaluation")
 print("-" * 70)
 
 # Training metrics
@@ -253,35 +253,35 @@ test_r2 = r2_score(y_test, y_test_pred)
 test_rmse = np.sqrt(mean_squared_error(y_test, y_test_pred))
 test_mae = mean_absolute_error(y_test, y_test_pred)
 
-print(f"\n📊 Training Set Performance:")
+print(f"\n Training Set Performance:")
 print(f"   R² Score: {train_r2:.4f}")
 print(f"   RMSE: ${train_rmse:,.2f}")
 print(f"   MAE: ${train_mae:,.2f}")
 
-print(f"\n📊 Test Set Performance (UNSEEN DATA!):")
+print(f"\n Test Set Performance (UNSEEN DATA!):")
 print(f"   R² Score: {test_r2:.4f}")
 print(f"   RMSE: ${test_rmse:,.2f}")
 print(f"   MAE: ${test_mae:,.2f}")
 
-print(f"\n🔍 Analysis:")
+print(f"\n Analysis:")
 if abs(train_r2 - test_r2) < 0.05:
-    print(f"   ✅ Train and test scores are similar!")
-    print(f"   ✅ Model generalizes well (not overfitting)")
+    print(f"    Train and test scores are similar!")
+    print(f"    Model generalizes well (not overfitting)")
 else:
-    print(f"   ⚠️ Train and test scores differ")
+    print(f"   ️ Train and test scores differ")
     if train_r2 > test_r2:
-        print(f"   ⚠️ Possible overfitting (memorizing training data)")
+        print(f"   ️ Possible overfitting (memorizing training data)")
     else:
-        print(f"   ⚠️ Possible underfitting (model too simple)")
+        print(f"   ️ Possible underfitting (model too simple)")
 
 # ============================================================
 # PART 7: Residual Analysis
 # ============================================================
-print("\n\n📌 PART 7: Residual Analysis (Error Analysis)")
+print("\n\n PART 7: Residual Analysis (Error Analysis)")
 print("-" * 70)
 
 print("""
-🔍 What are Residuals?
+ What are Residuals?
    Residual = Actual - Predicted (the error for each prediction)
 
    Good model: Residuals are:
@@ -293,7 +293,7 @@ print("""
 # Calculate residuals
 residuals = y_test - y_test_pred
 
-print(f"\n📊 Residual Statistics:")
+print(f"\n Residual Statistics:")
 print(f"   Mean: ${np.mean(residuals):,.2f} (should be close to 0)")
 print(f"   Std Dev: ${np.std(residuals):,.2f}")
 print(f"   Min: ${np.min(residuals):,.2f}")
@@ -319,15 +319,15 @@ axes[1].axvline(x=0, color='r', linestyle='--', linewidth=2)
 axes[1].grid(True, alpha=0.3)
 
 plt.tight_layout()
-plt.savefig('D:/Language Learning/AI ML/Learning-ML-AI/Phase 3 - Machine Learning/sklearn_residual_analysis.png', dpi=150)
-print("\n✓ Saved plot: sklearn_residual_analysis.png")
+plt.savefig('sklearn_residual_analysis.png', dpi=150)
+print("\n Saved plot: sklearn_residual_analysis.png")
 print("  Left plot: Points should fall near the red line")
 print("  Right plot: Should look like a bell curve centered at 0")
 
 # ============================================================
 # PART 8: Feature Importance
 # ============================================================
-print("\n\n📌 PART 8: Feature Importance")
+print("\n\n PART 8: Feature Importance")
 print("-" * 70)
 
 # Get absolute coefficients (importance)
@@ -338,9 +338,9 @@ feature_importance = pd.DataFrame({
 })
 feature_importance = feature_importance.sort_values('Abs_Coefficient', ascending=False)
 
-print("\n📊 Feature Importance (by absolute coefficient):")
+print("\n Feature Importance (by absolute coefficient):")
 print(feature_importance.to_string(index=False))
-print(f"\n💡 Most important feature: {feature_importance.iloc[0]['Feature']}")
+print(f"\n Most important feature: {feature_importance.iloc[0]['Feature']}")
 print(f"   It has the largest impact on price!")
 
 # Visualize
@@ -351,13 +351,13 @@ plt.ylabel('Feature', fontsize=12)
 plt.title('Feature Importance in House Price Prediction', fontsize=14, fontweight='bold')
 plt.grid(axis='x', alpha=0.3)
 plt.tight_layout()
-plt.savefig('D:/Language Learning/AI ML/Learning-ML-AI/Phase 3 - Machine Learning/sklearn_feature_importance.png', dpi=150)
-print("\n✓ Saved plot: sklearn_feature_importance.png")
+plt.savefig('sklearn_feature_importance.png', dpi=150)
+print("\n Saved plot: sklearn_feature_importance.png")
 
 # ============================================================
 # PART 9: Making Predictions on New Data
 # ============================================================
-print("\n\n📌 PART 9: Making Predictions on Completely New Houses")
+print("\n\n PART 9: Making Predictions on Completely New Houses")
 print("-" * 70)
 
 # Create new house data
@@ -369,7 +369,7 @@ new_houses = np.array([
 
 predictions_new = model_multi.predict(new_houses)
 
-print("\n🏠 New House Predictions:")
+print("\n New House Predictions:")
 print(f"{'Size':<8} {'Beds':<6} {'Age':<6} {'Distance':<12} {'Predicted Price':<15}")
 print("-" * 60)
 for i, house in enumerate(new_houses):
@@ -378,34 +378,34 @@ for i, house in enumerate(new_houses):
 # ============================================================
 # PART 10: Saving and Loading Models
 # ============================================================
-print("\n\n📌 PART 10: Saving Your Trained Model")
+print("\n\n PART 10: Saving Your Trained Model")
 print("-" * 70)
 
 import pickle
 
 # Save model to file
-model_filename = 'D:/Language Learning/AI ML/Learning-ML-AI/Phase 3 - Machine Learning/house_price_model.pkl'
+model_filename = 'house_price_model.pkl'
 with open(model_filename, 'wb') as file:
     pickle.dump(model_multi, file)
 
-print(f"\n💾 Model saved to: house_price_model.pkl")
+print(f"\n Model saved to: house_price_model.pkl")
 print("   You can now load it anytime without retraining!")
 
 # Load model back
 with open(model_filename, 'rb') as file:
     loaded_model = pickle.load(file)
 
-print(f"\n📂 Model loaded successfully!")
+print(f"\n Model loaded successfully!")
 
 # Test loaded model
 test_prediction = loaded_model.predict([[2000, 4, 10, 5.0]])
 print(f"   Test prediction: ${test_prediction[0]:,.2f}")
-print("   ✓ Loaded model works perfectly!")
+print("    Loaded model works perfectly!")
 
 # ============================================================
 # WHY THIS MATTERS
 # ============================================================
-print("\n\n🎯 WHY SCIKIT-LEARN MATTERS")
+print("\n\n WHY SCIKIT-LEARN MATTERS")
 print("=" * 70)
 print("""
 1. PRODUCTION READY:
@@ -435,20 +435,20 @@ print("""
    - Can be saved with pickle or joblib
    - Easily deployed to web servers (Flask, FastAPI)
 
-🔑 KEY TAKEAWAYS:
-   ✓ Always split your data (train/test)
-   ✓ Evaluate on test set (unseen data)
-   ✓ Check for overfitting (train vs test performance)
-   ✓ Analyze residuals to diagnose problems
-   ✓ Feature importance helps understand your model
-   ✓ Save trained models for reuse
+ KEY TAKEAWAYS:
+    Always split your data (train/test)
+    Evaluate on test set (unseen data)
+    Check for overfitting (train vs test performance)
+    Analyze residuals to diagnose problems
+    Feature importance helps understand your model
+    Save trained models for reuse
 
-🚀 Next Steps:
+ Next Steps:
    - Learn other regression types (Ridge, Lasso, ElasticNet)
    - Try polynomial features for non-linear relationships
    - Learn cross-validation for better evaluation
    - Move to classification problems (Logistic Regression)
 """)
 
-print("\n✅ Scikit-Learn Linear Regression Complete!")
+print("\n Scikit-Learn Linear Regression Complete!")
 print("Next: logistic_regression.py - Binary classification problems")

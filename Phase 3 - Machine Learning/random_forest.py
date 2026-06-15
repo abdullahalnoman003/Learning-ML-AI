@@ -1,5 +1,5 @@
 """
-🌲🌲🌲 RANDOM FOREST - Wisdom of the Crowd
+ RANDOM FOREST - Wisdom of the Crowd
 ===========================================
 
 What is a Random Forest?
@@ -43,11 +43,11 @@ print("=" * 70)
 # ============================================================
 # PART 1: Understanding Ensemble Learning
 # ============================================================
-print("\n📌 PART 1: The Power of Ensemble Learning")
+print("\n PART 1: The Power of Ensemble Learning")
 print("-" * 70)
 
 print("""
-🎯 Core Idea: Combine Multiple Weak Models → Strong Model!
+ Core Idea: Combine Multiple Weak Models → Strong Model!
 
 Types of Ensemble Methods:
 
@@ -75,7 +75,7 @@ Why Ensemble Works:
 # ============================================================
 # PART 2: Single Tree vs Random Forest
 # ============================================================
-print("\n\n📌 PART 2: Single Tree vs Random Forest Comparison")
+print("\n\n PART 2: Single Tree vs Random Forest Comparison")
 print("-" * 70)
 
 # Load iris dataset
@@ -90,7 +90,7 @@ X_train, X_test, y_train, y_test = train_test_split(
     X, y, test_size=0.3, random_state=42
 )
 
-print(f"📊 Dataset: Iris Flowers")
+print(f" Dataset: Iris Flowers")
 print(f"   Training samples: {len(X_train)}")
 print(f"   Test samples: {len(X_test)}")
 print(f"   Features: {len(feature_names)}")
@@ -104,33 +104,33 @@ dt_test_acc = dt.score(X_test, y_test)
 
 # Train a random forest
 rf = RandomForestClassifier(n_estimators=100, random_state=42)
-print("\n🌲 Training Random Forest (100 trees)...")
+print("\n Training Random Forest (100 trees)...")
 rf.fit(X_train, y_train)
 rf_train_acc = rf.score(X_train, y_train)
 rf_test_acc = rf.score(X_test, y_test)
-print("   Training complete! ✓")
+print("   Training complete! ")
 
-print(f"\n📊 Performance Comparison:")
+print(f"\n Performance Comparison:")
 print(f"{'Model':<20} {'Train Accuracy':<18} {'Test Accuracy':<18} {'Difference':<12}")
 print("-" * 70)
 print(f"{'Single Tree':<20} {dt_train_acc:<18.4f} {dt_test_acc:<18.4f} {abs(dt_train_acc - dt_test_acc):<12.4f}")
 print(f"{'Random Forest':<20} {rf_train_acc:<18.4f} {rf_test_acc:<18.4f} {abs(rf_train_acc - rf_test_acc):<12.4f}")
 
-print(f"\n💡 Analysis:")
+print(f"\n Analysis:")
 if rf_test_acc > dt_test_acc:
-    print(f"   ✅ Random Forest is more accurate!")
+    print(f"    Random Forest is more accurate!")
     print(f"   Improvement: {(rf_test_acc - dt_test_acc)*100:.1f}%")
 if abs(rf_train_acc - rf_test_acc) < abs(dt_train_acc - dt_test_acc):
-    print(f"   ✅ Random Forest generalizes better (less overfitting)!")
+    print(f"    Random Forest generalizes better (less overfitting)!")
 
 # ============================================================
 # PART 3: How Random Forest Works (Bootstrap + Random Features)
 # ============================================================
-print("\n\n📌 PART 3: How Random Forest Creates Diversity")
+print("\n\n PART 3: How Random Forest Creates Diversity")
 print("-" * 70)
 
 print("""
-🎲 Two Sources of Randomness:
+ Two Sources of Randomness:
 
 1. BOOTSTRAP SAMPLING (Row Sampling):
    Original dataset: 100 samples
@@ -155,7 +155,7 @@ print("""
 """)
 
 # Demonstrate with a simple example
-print(f"\n📊 Random Forest Configuration:")
+print(f"\n Random Forest Configuration:")
 print(f"   Number of trees: {rf.n_estimators}")
 print(f"   Max features per split: {rf.max_features}")
 print(f"   Bootstrap sampling: {rf.bootstrap}")
@@ -164,7 +164,7 @@ print(f"   Out-of-bag samples used: {rf.oob_score if hasattr(rf, 'oob_score_') e
 # ============================================================
 # PART 4: Detailed Classification Example
 # ============================================================
-print("\n\n📌 PART 4: Detailed Classification with Random Forest")
+print("\n\n PART 4: Detailed Classification with Random Forest")
 print("-" * 70)
 
 # Make predictions
@@ -172,18 +172,18 @@ y_pred = rf.predict(X_test)
 y_pred_proba = rf.predict_proba(X_test)
 
 # Show some predictions
-print(f"\n🎯 Sample Predictions:")
+print(f"\n Sample Predictions:")
 print(f"{'Actual':<15} {'Predicted':<15} {'Confidence':<12} {'Correct':<8}")
 print("-" * 60)
 for i in range(min(10, len(X_test))):
     actual_name = target_names[y_test[i]]
     pred_name = target_names[y_pred[i]]
     confidence = np.max(y_pred_proba[i])
-    correct = '✓' if y_test[i] == y_pred[i] else '✗'
+    correct = '' if y_test[i] == y_pred[i] else ''
     print(f"{actual_name:<15} {pred_name:<15} {confidence:<12.4f} {correct:<8}")
 
 # Classification report
-print(f"\n📋 Classification Report:")
+print(f"\n Classification Report:")
 print(classification_report(y_test, y_pred, target_names=target_names))
 
 # Confusion matrix
@@ -195,17 +195,17 @@ plt.xlabel('Predicted', fontsize=12)
 plt.ylabel('Actual', fontsize=12)
 plt.title('Confusion Matrix - Random Forest', fontsize=14, fontweight='bold')
 plt.tight_layout()
-plt.savefig('D:/Language Learning/AI ML/Learning-ML-AI/Phase 3 - Machine Learning/random_forest_confusion_matrix.png', dpi=150)
-print("\n✓ Saved plot: random_forest_confusion_matrix.png")
+plt.savefig('random_forest_confusion_matrix.png', dpi=150)
+print("\n Saved plot: random_forest_confusion_matrix.png")
 
 # ============================================================
 # PART 5: Feature Importance in Random Forest
 # ============================================================
-print("\n\n📌 PART 5: Feature Importance - Aggregated Across All Trees")
+print("\n\n PART 5: Feature Importance - Aggregated Across All Trees")
 print("-" * 70)
 
 print("""
-🔍 How Feature Importance is Calculated:
+ How Feature Importance is Calculated:
 
 For each tree:
 1. Calculate how much each feature reduces impurity
@@ -221,7 +221,7 @@ Random Forest:
 importances = rf.feature_importances_
 indices = np.argsort(importances)[::-1]
 
-print(f"\n📊 Feature Importance Ranking:")
+print(f"\n Feature Importance Ranking:")
 for i, idx in enumerate(indices):
     print(f"   {i+1}. {feature_names[idx]:25s}: {importances[idx]:.4f}")
 
@@ -234,27 +234,27 @@ plt.ylabel('Feature', fontsize=12)
 plt.title('Feature Importance in Random Forest', fontsize=14, fontweight='bold')
 plt.grid(axis='x', alpha=0.3)
 plt.tight_layout()
-plt.savefig('D:/Language Learning/AI ML/Learning-ML-AI/Phase 3 - Machine Learning/random_forest_feature_importance.png', dpi=150)
-print("\n✓ Saved plot: random_forest_feature_importance.png")
+plt.savefig('random_forest_feature_importance.png', dpi=150)
+print("\n Saved plot: random_forest_feature_importance.png")
 
-print(f"\n💡 Most important feature: {feature_names[indices[0]]}")
+print(f"\n Most important feature: {feature_names[indices[0]]}")
 print(f"   This feature is consistently important across all 100 trees!")
 
 # ============================================================
 # PART 6: Number of Trees - How Many is Enough?
 # ============================================================
-print("\n\n📌 PART 6: Choosing the Number of Trees")
+print("\n\n PART 6: Choosing the Number of Trees")
 print("-" * 70)
 
 print("""
-🤔 How many trees should we use?
+ How many trees should we use?
 
 More trees:
-   ✅ More stable predictions
-   ✅ Better accuracy (up to a point)
-   ✅ Less variance
-   ❌ Slower training
-   ❌ More memory
+    More stable predictions
+    Better accuracy (up to a point)
+    Less variance
+    Slower training
+    More memory
 
 General Rule:
    - Start with 100 trees (default)
@@ -268,7 +268,7 @@ n_trees_list = [1, 5, 10, 25, 50, 100, 200, 500]
 train_scores = []
 test_scores = []
 
-print(f"\n📊 Testing Different Numbers of Trees:")
+print(f"\n Testing Different Numbers of Trees:")
 print(f"{'Trees':<10} {'Train Acc':<12} {'Test Acc':<12} {'Time (rel)':<12}")
 print("-" * 55)
 
@@ -299,18 +299,18 @@ plt.xscale('log')
 plt.legend(fontsize=11)
 plt.grid(True, alpha=0.3)
 plt.tight_layout()
-plt.savefig('D:/Language Learning/AI ML/Learning-ML-AI/Phase 3 - Machine Learning/random_forest_n_trees.png', dpi=150)
-print("\n✓ Saved plot: random_forest_n_trees.png")
+plt.savefig('random_forest_n_trees.png', dpi=150)
+print("\n Saved plot: random_forest_n_trees.png")
 print("  Notice: Accuracy improves quickly, then plateaus")
 print("  Diminishing returns after ~100 trees!")
 
 # ============================================================
 # PART 7: Visualizing Individual Trees
 # ============================================================
-print("\n\n📌 PART 7: Looking Inside: Individual Trees in the Forest")
+print("\n\n PART 7: Looking Inside: Individual Trees in the Forest")
 print("-" * 70)
 
-print(f"\n🌲 Let's examine the first 3 trees:")
+print(f"\n Let's examine the first 3 trees:")
 
 # Get first 3 trees
 from sklearn.tree import plot_tree
@@ -329,19 +329,19 @@ for i in range(3):
     axes[i].set_title(f'Tree {i+1} (of 100)', fontsize=12, fontweight='bold')
 
 plt.tight_layout()
-plt.savefig('D:/Language Learning/AI ML/Learning-ML-AI/Phase 3 - Machine Learning/random_forest_individual_trees.png', dpi=150)
-print("\n✓ Saved plot: random_forest_individual_trees.png")
+plt.savefig('random_forest_individual_trees.png', dpi=150)
+print("\n Saved plot: random_forest_individual_trees.png")
 print("  Each tree is different due to randomness!")
 print("  Together, they make better predictions!")
 
 # ============================================================
 # PART 8: Hyperparameters
 # ============================================================
-print("\n\n📌 PART 8: Important Hyperparameters")
+print("\n\n PART 8: Important Hyperparameters")
 print("-" * 70)
 
 print("""
-🎛️ Key Hyperparameters to Tune:
+️ Key Hyperparameters to Tune:
 
 1. n_estimators (default: 100)
    - Number of trees
@@ -393,18 +393,18 @@ rf_tuned.fit(X_train, y_train)
 tuned_train_acc = rf_tuned.score(X_train, y_train)
 tuned_test_acc = rf_tuned.score(X_test, y_test)
 
-print(f"\n📊 Tuned Random Forest:")
+print(f"\n Tuned Random Forest:")
 print(f"   Training Accuracy: {tuned_train_acc:.4f}")
 print(f"   Test Accuracy: {tuned_test_acc:.4f}")
 
 # ============================================================
 # PART 9: Random Forest for Regression
 # ============================================================
-print("\n\n📌 PART 9: Random Forest for Regression")
+print("\n\n PART 9: Random Forest for Regression")
 print("-" * 70)
 
 print("""
-💡 Random Forest works for regression too!
+ Random Forest works for regression too!
 
 Instead of voting:
 - Each tree predicts a number
@@ -445,7 +445,7 @@ from sklearn.metrics import mean_squared_error, r2_score
 rf_r2 = r2_score(y_test_reg, rf_reg.predict(X_test_reg))
 dt_r2 = r2_score(y_test_reg, dt_reg.predict(X_test_reg))
 
-print(f"\n📊 Regression Performance:")
+print(f"\n Regression Performance:")
 print(f"   Single Tree R²: {dt_r2:.4f}")
 print(f"   Random Forest R²: {rf_r2:.4f}")
 print(f"   Improvement: {(rf_r2 - dt_r2)*100:.1f}%")
@@ -462,19 +462,19 @@ plt.title('Random Forest Regression vs Single Tree', fontsize=14, fontweight='bo
 plt.legend(fontsize=11)
 plt.grid(True, alpha=0.3)
 plt.tight_layout()
-plt.savefig('D:/Language Learning/AI ML/Learning-ML-AI/Phase 3 - Machine Learning/random_forest_regression.png', dpi=150)
-print("\n✓ Saved plot: random_forest_regression.png")
+plt.savefig('random_forest_regression.png', dpi=150)
+print("\n Saved plot: random_forest_regression.png")
 print("  Random Forest (green) = smoother, more stable")
 print("  Single Tree (orange) = jagged, overfits")
 
 # ============================================================
 # PART 10: Out-of-Bag (OOB) Evaluation
 # ============================================================
-print("\n\n📌 PART 10: Out-of-Bag (OOB) Score - Free Validation!")
+print("\n\n PART 10: Out-of-Bag (OOB) Score - Free Validation!")
 print("-" * 70)
 
 print("""
-🎁 FREE Validation Set!
+ FREE Validation Set!
 
 Remember: Each tree trains on a bootstrap sample (sampling WITH replacement)
 → About 37% of samples are NOT used for each tree
@@ -492,17 +492,17 @@ Benefit: Like having a validation set WITHOUT splitting your data!
 rf_oob = RandomForestClassifier(n_estimators=100, oob_score=True, random_state=42)
 rf_oob.fit(X_train, y_train)
 
-print(f"\n📊 Out-of-Bag Evaluation:")
+print(f"\n Out-of-Bag Evaluation:")
 print(f"   OOB Score: {rf_oob.oob_score_:.4f}")
 print(f"   Test Score: {rf_oob.score(X_test, y_test):.4f}")
 print(f"   Difference: {abs(rf_oob.oob_score_ - rf_oob.score(X_test, y_test)):.4f}")
-print(f"\n💡 OOB score is close to test score!")
+print(f"\n OOB score is close to test score!")
 print(f"   This validates our model without a separate validation set!")
 
 # ============================================================
 # WHY THIS MATTERS
 # ============================================================
-print("\n\n🎯 WHY RANDOM FOREST MATTERS")
+print("\n\n WHY RANDOM FOREST MATTERS")
 print("=" * 70)
 print("""
 1. PRODUCTION READY:
@@ -543,33 +543,33 @@ print("""
    - Customer churn prediction
    - Recommendation systems
 
-🔑 KEY TAKEAWAYS:
-   ✓ Random Forest = Ensemble of Decision Trees
-   ✓ Uses bootstrap sampling + feature randomness
-   ✓ Majority vote (classification) or average (regression)
-   ✓ More accurate and stable than single tree
-   ✓ Less prone to overfitting
-   ✓ Feature importance shows what matters
-   ✓ OOB score provides free validation
-   ✓ Parallelizable (fast with multiple cores)
+ KEY TAKEAWAYS:
+    Random Forest = Ensemble of Decision Trees
+    Uses bootstrap sampling + feature randomness
+    Majority vote (classification) or average (regression)
+    More accurate and stable than single tree
+    Less prone to overfitting
+    Feature importance shows what matters
+    OOB score provides free validation
+    Parallelizable (fast with multiple cores)
 
-⚠️ LIMITATIONS:
+️ LIMITATIONS:
    - Slower than single tree (trains many trees)
    - More memory (stores all trees)
    - Less interpretable than single tree (black box)
    - Predictions can be slow (query all trees)
    - Not great for very high dimensional data (>1000 features)
 
-💡 When to use Random Forest:
-   ✓ Tabular data (not images/text)
-   ✓ Need high accuracy
-   ✓ Have mixed feature types
-   ✓ Want feature importance
-   ✓ Need robust model (production)
-   ✗ Need single interpretable rule
-   ✗ Need real-time predictions (milliseconds)
+ When to use Random Forest:
+    Tabular data (not images/text)
+    Need high accuracy
+    Have mixed feature types
+    Want feature importance
+    Need robust model (production)
+    Need single interpretable rule
+    Need real-time predictions (milliseconds)
 
-🚀 Next Steps:
+ Next Steps:
    - Learn Gradient Boosting (XGBoost, LightGBM)
    - Learn hyperparameter tuning (GridSearch, RandomSearch)
    - Practice with Kaggle competitions
@@ -577,5 +577,5 @@ print("""
    - Compare with neural networks for your data
 """)
 
-print("\n✅ Random Forest Complete!")
+print("\n Random Forest Complete!")
 print("Next: model_evaluation.py - Comprehensive model evaluation techniques")

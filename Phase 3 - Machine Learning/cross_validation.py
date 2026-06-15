@@ -1,5 +1,5 @@
 """
-🔄 CROSS-VALIDATION - Robust Model Evaluation
+ CROSS-VALIDATION - Robust Model Evaluation
 ==============================================
 
 What is Cross-Validation?
@@ -52,11 +52,11 @@ print("=" * 70)
 # ============================================================
 # PART 1: The Problem with Single Train-Test Split
 # ============================================================
-print("\n📌 PART 1: Why Single Split is Unreliable")
+print("\n PART 1: Why Single Split is Unreliable")
 print("-" * 70)
 
 print("""
-🎲 The Randomness Problem:
+ The Randomness Problem:
 
 Imagine splitting data 10 times and getting these accuracies:
    Split 1: 95%  ← Got lucky!
@@ -86,7 +86,7 @@ X, y = make_classification(
 # Demonstrate variability in single splits
 from sklearn.model_selection import train_test_split
 
-print(f"\n📊 Testing with 10 Different Random Splits:")
+print(f"\n Testing with 10 Different Random Splits:")
 print(f"{'Split':<8} {'Train Acc':<12} {'Test Acc':<12} {'Difference':<12}")
 print("-" * 50)
 
@@ -104,22 +104,22 @@ for i in range(10):
 
     print(f"{i+1:<8} {train_acc:<12.4f} {test_acc:<12.4f} {abs(train_acc - test_acc):<12.4f}")
 
-print(f"\n📊 Statistics:")
+print(f"\n Statistics:")
 print(f"   Mean test accuracy: {np.mean(test_accuracies):.4f}")
 print(f"   Std deviation: {np.std(test_accuracies):.4f}")
 print(f"   Min: {np.min(test_accuracies):.4f}")
 print(f"   Max: {np.max(test_accuracies):.4f}")
 print(f"   Range: {np.max(test_accuracies) - np.min(test_accuracies):.4f}")
-print(f"\n⚠️ Huge variability! Which score do you trust?")
+print(f"\n️ Huge variability! Which score do you trust?")
 
 # ============================================================
 # PART 2: K-Fold Cross-Validation Explained
 # ============================================================
-print("\n\n📌 PART 2: K-Fold Cross-Validation Step-by-Step")
+print("\n\n PART 2: K-Fold Cross-Validation Step-by-Step")
 print("-" * 70)
 
 print("""
-🔄 How K-Fold Works (Example: K=5):
+ How K-Fold Works (Example: K=5):
 
 Original data: [■■■■■■■■■■■■■■■■■■■■] (20 samples)
 
@@ -145,7 +145,7 @@ Common K values:
 # Demonstrate K-Fold
 kfold = KFold(n_splits=5, shuffle=True, random_state=42)
 
-print(f"\n🔍 5-Fold Cross-Validation Splits:")
+print(f"\n 5-Fold Cross-Validation Splits:")
 print(f"{'Fold':<8} {'Train Size':<15} {'Test Size':<15} {'Test Indices':<30}")
 print("-" * 75)
 
@@ -155,32 +155,32 @@ for fold, (train_idx, test_idx) in enumerate(kfold.split(X), 1):
 # ============================================================
 # PART 3: Performing Cross-Validation
 # ============================================================
-print("\n\n📌 PART 3: Performing Cross-Validation with Scikit-Learn")
+print("\n\n PART 3: Performing Cross-Validation with Scikit-Learn")
 print("-" * 70)
 
 # Simple cross-validation
 model = RandomForestClassifier(n_estimators=100, random_state=42)
 cv_scores = cross_val_score(model, X, y, cv=5, scoring='accuracy')
 
-print(f"\n📊 5-Fold Cross-Validation Results:")
+print(f"\n 5-Fold Cross-Validation Results:")
 for fold, score in enumerate(cv_scores, 1):
     print(f"   Fold {fold}: {score:.4f} ({score*100:.2f}%)")
 
-print(f"\n📈 Summary Statistics:")
+print(f"\n Summary Statistics:")
 print(f"   Mean: {cv_scores.mean():.4f} ({cv_scores.mean()*100:.2f}%)")
 print(f"   Std Dev: {cv_scores.std():.4f}")
 print(f"   95% Confidence Interval: {cv_scores.mean():.4f} ± {1.96 * cv_scores.std():.4f}")
-print(f"\n✓ Much more reliable than single split!")
+print(f"\n Much more reliable than single split!")
 print(f"   We can say: 'Model accuracy is {cv_scores.mean()*100:.1f}% ± {cv_scores.std()*100:.1f}%'")
 
 # ============================================================
 # PART 4: Stratified K-Fold (For Imbalanced Data)
 # ============================================================
-print("\n\n📌 PART 4: Stratified K-Fold - Better for Imbalanced Data")
+print("\n\n PART 4: Stratified K-Fold - Better for Imbalanced Data")
 print("-" * 70)
 
 print("""
-⚖️ Stratified K-Fold:
+️ Stratified K-Fold:
 
 Problem with regular K-Fold:
    If you have imbalanced classes (90% class A, 10% class B),
@@ -191,8 +191,8 @@ Stratified K-Fold:
    → Each fold has ~90% class A, ~10% class B
 
 When to use:
-   ✓ Classification with imbalanced classes (always!)
-   ✗ Regression (stratification doesn't make sense)
+    Classification with imbalanced classes (always!)
+    Regression (stratification doesn't make sense)
 """)
 
 # Create imbalanced dataset
@@ -204,13 +204,13 @@ X_imb, y_imb = make_classification(
     random_state=42
 )
 
-print(f"\n📊 Imbalanced Dataset:")
+print(f"\n Imbalanced Dataset:")
 unique, counts = np.unique(y_imb, return_counts=True)
 for cls, count in zip(unique, counts):
     print(f"   Class {cls}: {count} samples ({count/len(y_imb)*100:.1f}%)")
 
 # Compare regular vs stratified
-print(f"\n🔍 Regular K-Fold Class Distribution:")
+print(f"\n Regular K-Fold Class Distribution:")
 kfold_regular = KFold(n_splits=5, shuffle=True, random_state=42)
 
 for fold, (train_idx, test_idx) in enumerate(kfold_regular.split(X_imb), 1):
@@ -218,7 +218,7 @@ for fold, (train_idx, test_idx) in enumerate(kfold_regular.split(X_imb), 1):
     class_1_pct = (y_test_fold == 1).sum() / len(y_test_fold) * 100
     print(f"   Fold {fold}: {class_1_pct:.1f}% class 1 (should be 10%)")
 
-print(f"\n✓ Stratified K-Fold Class Distribution:")
+print(f"\n Stratified K-Fold Class Distribution:")
 skfold = StratifiedKFold(n_splits=5, shuffle=True, random_state=42)
 
 for fold, (train_idx, test_idx) in enumerate(skfold.split(X_imb, y_imb), 1):
@@ -230,19 +230,19 @@ for fold, (train_idx, test_idx) in enumerate(skfold.split(X_imb, y_imb), 1):
 scores_regular = cross_val_score(model, X_imb, y_imb, cv=kfold_regular)
 scores_stratified = cross_val_score(model, X_imb, y_imb, cv=skfold)
 
-print(f"\n📊 Performance Comparison:")
+print(f"\n Performance Comparison:")
 print(f"   Regular K-Fold: {scores_regular.mean():.4f} ± {scores_regular.std():.4f}")
 print(f"   Stratified K-Fold: {scores_stratified.mean():.4f} ± {scores_stratified.std():.4f}")
-print(f"\n💡 Stratified is more reliable for imbalanced data!")
+print(f"\n Stratified is more reliable for imbalanced data!")
 
 # ============================================================
 # PART 5: Multiple Metrics with cross_validate
 # ============================================================
-print("\n\n📌 PART 5: Evaluating Multiple Metrics")
+print("\n\n PART 5: Evaluating Multiple Metrics")
 print("-" * 70)
 
 print("""
-📊 cross_validate: Get multiple metrics at once!
+ cross_validate: Get multiple metrics at once!
 
 Instead of just accuracy, get:
 - Accuracy
@@ -258,7 +258,7 @@ data = load_breast_cancer()
 X_real = data.data
 y_real = data.target
 
-print(f"\n📊 Dataset: Breast Cancer Wisconsin")
+print(f"\n Dataset: Breast Cancer Wisconsin")
 print(f"   Samples: {X_real.shape[0]}")
 print(f"   Features: {X_real.shape[1]}")
 print(f"   Classes: {len(np.unique(y_real))} (Malignant, Benign)")
@@ -272,7 +272,7 @@ cv_results = cross_validate(
     return_train_score=True
 )
 
-print(f"\n📊 Cross-Validation Results (5-fold):")
+print(f"\n Cross-Validation Results (5-fold):")
 print(f"{'Metric':<20} {'Mean':<12} {'Std':<10}")
 print("-" * 45)
 
@@ -280,18 +280,18 @@ for metric in scoring:
     test_scores = cv_results[f'test_{metric}']
     print(f"{'Test ' + metric:<20} {test_scores.mean():<12.4f} {test_scores.std():<10.4f}")
 
-print(f"\n⏱️ Timing:")
+print(f"\n️ Timing:")
 print(f"   Fit time: {cv_results['fit_time'].mean():.4f}s ± {cv_results['fit_time'].std():.4f}s")
 print(f"   Score time: {cv_results['score_time'].mean():.4f}s ± {cv_results['score_time'].std():.4f}s")
 
 # ============================================================
 # PART 6: Comparing Multiple Models
 # ============================================================
-print("\n\n📌 PART 6: Comparing Multiple Models")
+print("\n\n PART 6: Comparing Multiple Models")
 print("-" * 70)
 
 print("""
-🎯 Use cross-validation to choose the best model!
+ Use cross-validation to choose the best model!
 
 Fair comparison:
 - Same data splits for all models
@@ -310,7 +310,7 @@ models = {
 # Create pipeline with scaling (important for LR and SVM)
 results = []
 
-print(f"\n📊 Model Comparison (5-Fold CV):")
+print(f"\n Model Comparison (5-Fold CV):")
 print(f"{'Model':<25} {'Accuracy':<20} {'Precision':<20} {'Recall':<15}")
 print("-" * 85)
 
@@ -342,11 +342,11 @@ for name, model in models.items():
         'Recall': rec_mean
     })
 
-    print(f"{name:<25} {acc_mean:.4f}±{acc_std:.4f:<11} {prec_mean:.4f}±{prec_std:.4f:<11} {rec_mean:.4f}±{rec_std:.4f}")
+    print(f"{name:<25} {acc_mean:.4f}±{acc_std:.4f} "f"{prec_mean:.4f}±{prec_std:.4f} "f"{rec_mean:.4f}±{rec_std:.4f}")
 
 # Find best model
 best_model = max(results, key=lambda x: x['Accuracy'])
-print(f"\n🏆 Best Model: {best_model['Model']}")
+print(f"\n Best Model: {best_model['Model']}")
 print(f"   Accuracy: {best_model['Accuracy']:.4f}")
 
 # Visualize comparison
@@ -367,17 +367,17 @@ ax.set_xticklabels(results_df['Model'], rotation=45, ha='right')
 ax.legend()
 ax.grid(axis='y', alpha=0.3)
 plt.tight_layout()
-plt.savefig('D:/Language Learning/AI ML/Learning-ML-AI/Phase 3 - Machine Learning/cross_validation_model_comparison.png', dpi=150)
-print("\n✓ Saved plot: cross_validation_model_comparison.png")
+plt.savefig('D:/', dpi=150)
+print("\n Saved plot: cross_validation_model_comparison.png")
 
 # ============================================================
 # PART 7: Hyperparameter Tuning with GridSearchCV
 # ============================================================
-print("\n\n📌 PART 7: Hyperparameter Tuning with GridSearchCV")
+print("\n\n PART 7: Hyperparameter Tuning with GridSearchCV")
 print("-" * 70)
 
 print("""
-🎛️ GridSearchCV: Find the best hyperparameters!
+️ GridSearchCV: Find the best hyperparameters!
 
 Process:
 1. Define parameter grid (all combinations to try)
@@ -400,7 +400,7 @@ param_grid = {
     'min_samples_split': [2, 5]
 }
 
-print(f"\n🔍 Parameter Grid:")
+print(f"\n Parameter Grid:")
 for param, values in param_grid.items():
     print(f"   {param}: {values}")
 
@@ -418,23 +418,23 @@ grid_search = GridSearchCV(
     verbose=0
 )
 
-print(f"\n🔄 Running GridSearchCV...")
+print(f"\n Running GridSearchCV...")
 grid_search.fit(X_real, y_real)
-print(f"   Search complete! ✓")
+print(f"   Search complete! ")
 
 # Results
-print(f"\n🏆 Best Parameters:")
+print(f"\n Best Parameters:")
 for param, value in grid_search.best_params_.items():
     print(f"   {param}: {value}")
 
-print(f"\n📊 Best Cross-Validation Score: {grid_search.best_score_:.4f}")
-print(f"\n💡 These are the optimal hyperparameters!")
+print(f"\n Best Cross-Validation Score: {grid_search.best_score_:.4f}")
+print(f"\n These are the optimal hyperparameters!")
 
 # Show top 5 parameter combinations
 results_df = pd.DataFrame(grid_search.cv_results_)
 top_5 = results_df.nsmallest(5, 'rank_test_score')[['params', 'mean_test_score', 'std_test_score', 'rank_test_score']]
 
-print(f"\n📊 Top 5 Parameter Combinations:")
+print(f"\n Top 5 Parameter Combinations:")
 for idx, row in top_5.iterrows():
     print(f"   Rank {int(row['rank_test_score'])}: Score={row['mean_test_score']:.4f}±{row['std_test_score']:.4f}")
     print(f"      Params: {row['params']}")
@@ -442,14 +442,14 @@ for idx, row in top_5.iterrows():
 # ============================================================
 # PART 8: RandomizedSearchCV (Faster Alternative)
 # ============================================================
-print("\n\n📌 PART 8: RandomizedSearchCV - When GridSearch is Too Slow")
+print("\n\n PART 8: RandomizedSearchCV - When GridSearch is Too Slow")
 print("-" * 70)
 
 print("""
-⚡ RandomizedSearchCV: Sample random combinations!
+ RandomizedSearchCV: Sample random combinations!
 
 Problem with GridSearch:
-   100 parameters → 100^5 = 10 billion combinations! 😱
+   100 parameters → 100^5 = 10 billion combinations! 
 
 RandomizedSearchCV:
    - Randomly sample N combinations (e.g., 50)
@@ -472,7 +472,7 @@ param_distributions = {
     'min_samples_leaf': randint(1, 10)
 }
 
-print(f"\n🎲 Parameter Distributions:")
+print(f"\n Parameter Distributions:")
 for param, dist in param_distributions.items():
     print(f"   {param}: Random integers or uniform distribution")
 
@@ -488,31 +488,31 @@ random_search = RandomizedSearchCV(
     verbose=0
 )
 
-print(f"\n🔄 Running RandomizedSearchCV (20 iterations)...")
+print(f"\n Running RandomizedSearchCV (20 iterations)...")
 random_search.fit(X_real, y_real)
-print(f"   Search complete! ✓")
+print(f"   Search complete! ")
 
-print(f"\n🏆 Best Parameters Found:")
+print(f"\n Best Parameters Found:")
 for param, value in random_search.best_params_.items():
     print(f"   {param}: {value}")
 
-print(f"\n📊 Best Cross-Validation Score: {random_search.best_score_:.4f}")
+print(f"\n Best Cross-Validation Score: {random_search.best_score_:.4f}")
 
 # Compare with GridSearch
-print(f"\n⚖️ GridSearch vs RandomizedSearch:")
+print(f"\n️ GridSearch vs RandomizedSearch:")
 print(f"   GridSearch best score: {grid_search.best_score_:.4f}")
 print(f"   RandomSearch best score: {random_search.best_score_:.4f}")
 print(f"   Difference: {abs(grid_search.best_score_ - random_search.best_score_):.4f}")
-print(f"\n💡 RandomSearch found similar results much faster!")
+print(f"\n RandomSearch found similar results much faster!")
 
 # ============================================================
 # PART 9: Nested Cross-Validation (The Right Way)
 # ============================================================
-print("\n\n📌 PART 9: Nested Cross-Validation - Unbiased Performance Estimate")
+print("\n\n PART 9: Nested Cross-Validation - Unbiased Performance Estimate")
 print("-" * 70)
 
 print("""
-⚠️ IMPORTANT: GridSearchCV gives OPTIMISTIC estimates!
+️ IMPORTANT: GridSearchCV gives OPTIMISTIC estimates!
 
 Problem:
    1. GridSearch finds best params on CV
@@ -534,7 +534,7 @@ inner_cv = KFold(n_splits=3, shuffle=True, random_state=42)
 
 nested_scores = []
 
-print(f"\n🔄 Performing Nested Cross-Validation...")
+print(f"\n Performing Nested Cross-Validation...")
 print(f"   Outer folds: 5")
 print(f"   Inner folds: 3")
 
@@ -557,15 +557,15 @@ for fold, (train_idx, test_idx) in enumerate(outer_cv.split(X_real), 1):
 
     print(f"   Fold {fold}: {score:.4f}")
 
-print(f"\n📊 Nested CV Results:")
+print(f"\n Nested CV Results:")
 print(f"   Mean: {np.mean(nested_scores):.4f}")
 print(f"   Std: {np.std(nested_scores):.4f}")
-print(f"\n💡 This is the UNBIASED estimate of your model's performance!")
+print(f"\n This is the UNBIASED estimate of your model's performance!")
 
 # ============================================================
 # WHY THIS MATTERS
 # ============================================================
-print("\n\n🎯 WHY CROSS-VALIDATION MATTERS")
+print("\n\n WHY CROSS-VALIDATION MATTERS")
 print("=" * 70)
 print("""
 1. RELIABLE PERFORMANCE ESTIMATES:
@@ -598,39 +598,39 @@ print("""
    - Know the variance (± std dev)
    - Better than cherry-picking best split
 
-🔑 KEY TAKEAWAYS:
-   ✓ Always use cross-validation (not single split!)
-   ✓ Use StratifiedKFold for classification
-   ✓ Report mean ± std dev
-   ✓ K=5 or K=10 is standard
-   ✓ Use GridSearchCV to find best hyperparameters
-   ✓ Use nested CV for unbiased performance estimate
-   ✓ Compare models on same CV splits
-   ✓ More folds = More reliable, but slower
+ KEY TAKEAWAYS:
+    Always use cross-validation (not single split!)
+    Use StratifiedKFold for classification
+    Report mean ± std dev
+    K=5 or K=10 is standard
+    Use GridSearchCV to find best hyperparameters
+    Use nested CV for unbiased performance estimate
+    Compare models on same CV splits
+    More folds = More reliable, but slower
 
-💡 Best Practices:
-   ✓ Start with 5-fold CV (good balance)
-   ✓ Use stratified for imbalanced data
-   ✓ Scale inside CV (prevent data leakage!)
-   ✓ Use same CV splits for model comparison
-   ✓ Report confidence intervals
-   ✓ Use nested CV for publication-ready results
+ Best Practices:
+    Start with 5-fold CV (good balance)
+    Use stratified for imbalanced data
+    Scale inside CV (prevent data leakage!)
+    Use same CV splits for model comparison
+    Report confidence intervals
+    Use nested CV for publication-ready results
 
-⚠️ Common Mistakes:
-   ❌ Not using CV (just single train-test split)
-   ❌ Using GridSearch CV score as final estimate (optimistic!)
-   ❌ Scaling before CV (data leakage!)
-   ❌ Not using stratified CV for imbalanced data
-   ❌ Using K=n (leave-one-out) on large datasets (too slow)
-   ❌ Not reporting standard deviation
+️ Common Mistakes:
+    Not using CV (just single train-test split)
+    Using GridSearch CV score as final estimate (optimistic!)
+    Scaling before CV (data leakage!)
+    Not using stratified CV for imbalanced data
+    Using K=n (leave-one-out) on large datasets (too slow)
+    Not reporting standard deviation
 
-⏱️ Computational Cost:
+️ Computational Cost:
    - K=5: 5× slower than single split
    - K=10: 10× slower
    - GridSearch × CV: Very slow!
    - Use n_jobs=-1 for parallel processing
 
-🚀 Next Steps:
+ Next Steps:
    - Practice on real datasets
    - Learn about time series CV (different!)
    - Learn about bootstrap sampling
@@ -638,11 +638,11 @@ print("""
    - Use cross-validation in ALL your projects!
 """)
 
-print("\n✅ Cross-Validation Complete!")
-print("\n🎉 Congratulations! You've completed all 9 ML files!")
+print("\n Cross-Validation Complete!")
+print("\n Congratulations! You've completed all 9 ML files!")
 print("=" * 70)
 print("""
-📚 What You've Learned:
+ What You've Learned:
 
 1. linear_regression_scratch.py → How ML really works (gradient descent!)
 2. linear_regression_sklearn.py → Using professional tools
@@ -654,11 +654,11 @@ print("""
 8. feature_engineering.py → Preparing data (80% of ML!)
 9. cross_validation.py → Robust evaluation
 
-🚀 You're now ready to:
-   ✓ Build real ML projects
-   ✓ Participate in Kaggle competitions
-   ✓ Apply ML to your own problems
-   ✓ Move on to deep learning (neural networks)
+ You're now ready to:
+    Build real ML projects
+    Participate in Kaggle competitions
+    Apply ML to your own problems
+    Move on to deep learning (neural networks)
 
 Next recommended steps:
    1. Practice with Kaggle datasets
@@ -667,5 +667,5 @@ Next recommended steps:
    4. Read research papers
    5. Contribute to open source
 
-Happy Learning! 🎓
+Happy Learning! 
 """)

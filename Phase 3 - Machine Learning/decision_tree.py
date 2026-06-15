@@ -1,5 +1,5 @@
 """
-🌳 DECISION TREES - Making Decisions Like a Human
+ DECISION TREES - Making Decisions Like a Human
 ===================================================
 
 What is a Decision Tree?
@@ -45,11 +45,11 @@ print("=" * 70)
 # ============================================================
 # PART 1: Understanding Information Gain and Entropy
 # ============================================================
-print("\n📌 PART 1: How Trees Choose the Best Split")
+print("\n PART 1: How Trees Choose the Best Split")
 print("-" * 70)
 
 print("""
-🤔 How does the tree decide which question to ask first?
+ How does the tree decide which question to ask first?
 
 Key Concept: ENTROPY (measure of impurity/disorder)
 
@@ -82,21 +82,21 @@ dataset2 = np.array([0, 0, 0, 1, 1])  # Mixed
 dataset3 = np.array([0, 0, 1, 1, 1])  # More mixed
 dataset4 = np.array([0, 1, 0, 1, 0])  # Very mixed
 
-print(f"\n🔢 Entropy Examples:")
+print(f"\n Entropy Examples:")
 print(f"   All class 0: {dataset1} → Entropy = {calculate_entropy(dataset1):.4f} (pure!)")
 print(f"   Mostly 0: {dataset2} → Entropy = {calculate_entropy(dataset2):.4f}")
 print(f"   More mixed: {dataset3} → Entropy = {calculate_entropy(dataset3):.4f}")
 print(f"   Very mixed: {dataset4} → Entropy = {calculate_entropy(dataset4):.4f}")
-print(f"\n💡 Lower entropy = More pure = Better for classification!")
+print(f"\n Lower entropy = More pure = Better for classification!")
 
 # ============================================================
 # PART 2: Simple Classification Example
 # ============================================================
-print("\n\n📌 PART 2: Building Your First Decision Tree")
+print("\n\n PART 2: Building Your First Decision Tree")
 print("-" * 70)
 
 print("""
-🎯 Problem: Should I Play Tennis Today?
+ Problem: Should I Play Tennis Today?
 
 Features:
 - Outlook: Sunny, Overcast, Rainy
@@ -121,7 +121,7 @@ weather_data = pd.DataFrame({
              'No', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'No']
 })
 
-print(f"\n📊 Weather Dataset:")
+print(f"\n Weather Dataset:")
 print(weather_data)
 
 # Convert categorical to numerical (Decision Trees can handle this, but let's encode)
@@ -133,7 +133,7 @@ le = LabelEncoder()
 for col in ['Outlook', 'Temperature', 'Humidity', 'Windy', 'Play']:
     weather_encoded[col] = le.fit_transform(weather_data[col])
 
-print(f"\n🔢 Encoded Dataset (for ML):")
+print(f"\n Encoded Dataset (for ML):")
 print(weather_encoded)
 
 # Prepare data
@@ -144,7 +144,7 @@ y = weather_encoded['Play'].values
 dt_clf = DecisionTreeClassifier(max_depth=3, random_state=42)
 dt_clf.fit(X, y)
 
-print(f"\n🌳 Decision Tree Created!")
+print(f"\n Decision Tree Created!")
 print(f"   Tree depth: {dt_clf.get_depth()}")
 print(f"   Number of leaves: {dt_clf.get_n_leaves()}")
 
@@ -158,18 +158,18 @@ plot_tree(dt_clf,
           fontsize=10)
 plt.title('Decision Tree: Play Tennis?', fontsize=16, fontweight='bold')
 plt.tight_layout()
-plt.savefig('D:/Language Learning/AI ML/Learning-ML-AI/Phase 3 - Machine Learning/decision_tree_simple.png', dpi=150)
-print("\n✓ Saved plot: decision_tree_simple.png")
+plt.savefig('decision_tree_simple.png', dpi=150)
+print("\n Saved plot: decision_tree_simple.png")
 print("  Look at the tree! It learned to make decisions automatically!")
 
 # ============================================================
 # PART 3: Real Dataset - Iris Flowers
 # ============================================================
-print("\n\n📌 PART 3: Real World Example - Iris Flower Classification")
+print("\n\n PART 3: Real World Example - Iris Flower Classification")
 print("-" * 70)
 
 print("""
-🌸 Famous Dataset: Iris Flowers
+ Famous Dataset: Iris Flowers
 
 3 Species:
 - Setosa
@@ -196,9 +196,9 @@ target_names = iris.target_names
 iris_df = pd.DataFrame(X_iris, columns=feature_names)
 iris_df['species'] = [target_names[i] for i in y_iris]
 
-print(f"\n📊 Iris Dataset:")
+print(f"\n Iris Dataset:")
 print(iris_df.head(10))
-print(f"\n📈 Dataset Info:")
+print(f"\n Dataset Info:")
 print(f"   Samples: {len(X_iris)}")
 print(f"   Features: {len(feature_names)}")
 print(f"   Classes: {len(target_names)}")
@@ -208,32 +208,32 @@ X_train, X_test, y_train, y_test = train_test_split(
     X_iris, y_iris, test_size=0.3, random_state=42
 )
 
-print(f"\n✂️ Data Split:")
+print(f"\n️ Data Split:")
 print(f"   Training: {len(X_train)} samples")
 print(f"   Testing: {len(X_test)} samples")
 
 # ============================================================
 # PART 4: Training Decision Tree
 # ============================================================
-print("\n\n📌 PART 4: Training Decision Tree on Iris")
+print("\n\n PART 4: Training Decision Tree on Iris")
 print("-" * 70)
 
 # Train tree with limited depth
 dt = DecisionTreeClassifier(max_depth=3, random_state=42)
-print("\n🎓 Training Decision Tree...")
+print("\n Training Decision Tree...")
 dt.fit(X_train, y_train)
-print("   Training complete! ✓")
+print("   Training complete! ")
 
 # Make predictions
 y_pred = dt.predict(X_test)
 
 # Evaluate
 accuracy = accuracy_score(y_test, y_pred)
-print(f"\n📊 Model Performance:")
+print(f"\n Model Performance:")
 print(f"   Accuracy: {accuracy:.4f} ({accuracy*100:.2f}%)")
 
 # Detailed report
-print(f"\n📋 Classification Report:")
+print(f"\n Classification Report:")
 print(classification_report(y_test, y_pred, target_names=target_names))
 
 # Confusion matrix
@@ -245,13 +245,13 @@ plt.xlabel('Predicted', fontsize=12)
 plt.ylabel('Actual', fontsize=12)
 plt.title('Confusion Matrix - Iris Classification', fontsize=14, fontweight='bold')
 plt.tight_layout()
-plt.savefig('D:/Language Learning/AI ML/Learning-ML-AI/Phase 3 - Machine Learning/decision_tree_confusion_matrix.png', dpi=150)
-print("\n✓ Saved plot: decision_tree_confusion_matrix.png")
+plt.savefig('decision_tree_confusion_matrix.png', dpi=150)
+print("\n Saved plot: decision_tree_confusion_matrix.png")
 
 # ============================================================
 # PART 5: Visualizing the Decision Tree
 # ============================================================
-print("\n\n📌 PART 5: Visualizing the Decision Tree")
+print("\n\n PART 5: Visualizing the Decision Tree")
 print("-" * 70)
 
 plt.figure(figsize=(25, 12))
@@ -263,10 +263,10 @@ plot_tree(dt,
           fontsize=11)
 plt.title('Decision Tree for Iris Classification', fontsize=18, fontweight='bold')
 plt.tight_layout()
-plt.savefig('D:/Language Learning/AI ML/Learning-ML-AI/Phase 3 - Machine Learning/decision_tree_iris.png', dpi=150)
-print("\n✓ Saved plot: decision_tree_iris.png")
+plt.savefig('decision_tree_iris.png', dpi=150)
+print("\n Saved plot: decision_tree_iris.png")
 
-print(f"\n🔍 Understanding the Tree Visualization:")
+print(f"\n Understanding the Tree Visualization:")
 print(f"""
 Each box shows:
    - Decision rule (e.g., "petal length <= 2.45")
@@ -288,7 +288,7 @@ Example: A flower with petal length 1.5 cm
 # ============================================================
 # PART 6: Feature Importance
 # ============================================================
-print("\n\n📌 PART 6: Feature Importance - Which Features Matter Most?")
+print("\n\n PART 6: Feature Importance - Which Features Matter Most?")
 print("-" * 70)
 
 # Get feature importances
@@ -298,7 +298,7 @@ importance_df = pd.DataFrame({
     'Importance': feature_importance
 }).sort_values('Importance', ascending=False)
 
-print(f"\n📊 Feature Importance:")
+print(f"\n Feature Importance:")
 print(importance_df.to_string(index=False))
 
 # Visualize
@@ -309,20 +309,20 @@ plt.ylabel('Feature', fontsize=12)
 plt.title('Feature Importance in Decision Tree', fontsize=14, fontweight='bold')
 plt.grid(axis='x', alpha=0.3)
 plt.tight_layout()
-plt.savefig('D:/Language Learning/AI ML/Learning-ML-AI/Phase 3 - Machine Learning/decision_tree_feature_importance.png', dpi=150)
-print("\n✓ Saved plot: decision_tree_feature_importance.png")
+plt.savefig('decision_tree_feature_importance.png', dpi=150)
+print("\n Saved plot: decision_tree_feature_importance.png")
 
-print(f"\n💡 Most Important Feature: {importance_df.iloc[0]['Feature']}")
+print(f"\n Most Important Feature: {importance_df.iloc[0]['Feature']}")
 print(f"   This feature provides the most information for classification!")
 
 # ============================================================
 # PART 7: Overfitting Problem
 # ============================================================
-print("\n\n📌 PART 7: The Overfitting Problem")
+print("\n\n PART 7: The Overfitting Problem")
 print("-" * 70)
 
 print("""
-⚠️ DANGER: Decision Trees Can Memorize!
+️ DANGER: Decision Trees Can Memorize!
 
 Without constraints, a tree will grow until every training sample
 is in its own leaf. This is OVERFITTING!
@@ -341,7 +341,7 @@ train_accuracies = []
 test_accuracies = []
 n_leaves = []
 
-print(f"\n📊 Effect of Tree Depth:")
+print(f"\n Effect of Tree Depth:")
 print(f"{'Depth':<10} {'Leaves':<10} {'Train Acc':<12} {'Test Acc':<12} {'Status':<20}")
 print("-" * 70)
 
@@ -359,11 +359,11 @@ for depth in depths:
 
     # Determine status
     if abs(train_acc - test_acc) < 0.05:
-        status = "Good balance ✓"
+        status = "Good balance "
     elif train_acc > test_acc + 0.1:
-        status = "Overfitting ⚠️"
+        status = "Overfitting ️"
     else:
-        status = "Underfitting ⚠️"
+        status = "Underfitting ️"
 
     depth_str = "Unlimited" if depth is None else str(depth)
     print(f"{depth_str:<10} {leaves:<10} {train_acc:<12.4f} {test_acc:<12.4f} {status:<20}")
@@ -394,18 +394,18 @@ ax2.set_title('Tree Complexity (Leaf Count)', fontsize=13, fontweight='bold')
 ax2.grid(axis='y', alpha=0.3)
 
 plt.tight_layout()
-plt.savefig('D:/Language Learning/AI ML/Learning-ML-AI/Phase 3 - Machine Learning/decision_tree_overfitting.png', dpi=150)
-print("\n✓ Saved plot: decision_tree_overfitting.png")
+plt.savefig('decision_tree_overfitting.png', dpi=150)
+print("\n Saved plot: decision_tree_overfitting.png")
 print("  Notice: Unlimited depth has perfect training but lower test accuracy!")
 
 # ============================================================
 # PART 8: Hyperparameters for Controlling Trees
 # ============================================================
-print("\n\n📌 PART 8: Hyperparameters - Controlling Tree Growth")
+print("\n\n PART 8: Hyperparameters - Controlling Tree Growth")
 print("-" * 70)
 
 print("""
-🎛️ Key Hyperparameters:
+️ Key Hyperparameters:
 
 1. max_depth: Maximum tree depth
    - Lower = simpler tree (may underfit)
@@ -437,7 +437,7 @@ dt_pruned.fit(X_train, y_train)
 train_acc_pruned = dt_pruned.score(X_train, y_train)
 test_acc_pruned = dt_pruned.score(X_test, y_test)
 
-print(f"\n📊 Well-Tuned Tree:")
+print(f"\n Well-Tuned Tree:")
 print(f"   Parameters: max_depth=4, min_samples_split=10, min_samples_leaf=5")
 print(f"   Training Accuracy: {train_acc_pruned:.4f}")
 print(f"   Test Accuracy: {test_acc_pruned:.4f}")
@@ -447,11 +447,11 @@ print(f"   Number of Leaves: {dt_pruned.get_n_leaves()}")
 # ============================================================
 # PART 9: Decision Trees for Regression
 # ============================================================
-print("\n\n📌 PART 9: Decision Trees for Regression")
+print("\n\n PART 9: Decision Trees for Regression")
 print("-" * 70)
 
 print("""
-💡 Trees Work for Regression Too!
+ Trees Work for Regression Too!
 
 Instead of voting for a class, leaves contain the AVERAGE value
 of training samples in that leaf.
@@ -480,7 +480,7 @@ y_pred_train_reg = dt_reg.predict(X_reg)
 mse = mean_squared_error(y_reg, y_pred_train_reg)
 r2 = r2_score(y_reg, y_pred_train_reg)
 
-print(f"\n📊 Regression Tree Performance:")
+print(f"\n Regression Tree Performance:")
 print(f"   R² Score: {r2:.4f}")
 print(f"   MSE: {mse:.4f}")
 
@@ -494,15 +494,15 @@ plt.title('Decision Tree Regression', fontsize=14, fontweight='bold')
 plt.legend(fontsize=11)
 plt.grid(True, alpha=0.3)
 plt.tight_layout()
-plt.savefig('D:/Language Learning/AI ML/Learning-ML-AI/Phase 3 - Machine Learning/decision_tree_regression.png', dpi=150)
-print("\n✓ Saved plot: decision_tree_regression.png")
+plt.savefig('decision_tree_regression.png', dpi=150)
+print("\n Saved plot: decision_tree_regression.png")
 print("  Notice: The prediction is piecewise constant (step function)")
 print("  Each horizontal segment = one leaf node's prediction")
 
 # ============================================================
 # WHY THIS MATTERS
 # ============================================================
-print("\n\n🎯 WHY DECISION TREES MATTER")
+print("\n\n WHY DECISION TREES MATTER")
 print("=" * 70)
 print("""
 1. INTERPRETABILITY:
@@ -537,36 +537,36 @@ print("""
    - Fraud detection
    - Recommendation systems
 
-🔑 KEY TAKEAWAYS:
-   ✓ Decision trees ask YES/NO questions to classify
-   ✓ Information gain determines best splits
-   ✓ Feature importance shows which features matter
-   ✓ Must control tree depth to prevent overfitting
-   ✓ Works for both classification and regression
-   ✓ No feature scaling needed!
-   ✓ Highly interpretable (you can see the logic)
+ KEY TAKEAWAYS:
+    Decision trees ask YES/NO questions to classify
+    Information gain determines best splits
+    Feature importance shows which features matter
+    Must control tree depth to prevent overfitting
+    Works for both classification and regression
+    No feature scaling needed!
+    Highly interpretable (you can see the logic)
 
-⚠️ LIMITATIONS:
+️ LIMITATIONS:
    - Prone to overfitting (grows too complex)
    - Unstable (small data changes → different tree)
    - Biased toward features with many values
    - Creates step functions (not smooth predictions)
    - Can create overly complex trees (hard to interpret)
 
-💡 Best Practices:
-   ✓ Always limit max_depth (start with 3-5)
-   ✓ Use min_samples_split and min_samples_leaf
-   ✓ Compare train vs test accuracy (check overfitting)
-   ✓ Visualize the tree (if small enough)
-   ✓ Check feature importance
-   ✗ Don't use unlimited depth trees in production!
+ Best Practices:
+    Always limit max_depth (start with 3-5)
+    Use min_samples_split and min_samples_leaf
+    Compare train vs test accuracy (check overfitting)
+    Visualize the tree (if small enough)
+    Check feature importance
+    Don't use unlimited depth trees in production!
 
-🚀 Next Steps:
+ Next Steps:
    - Learn Random Forests (ensemble of trees = more stable!)
    - Learn Gradient Boosting (sequential improvement)
    - Practice with real datasets
    - Learn about tree pruning techniques
 """)
 
-print("\n✅ Decision Trees Complete!")
+print("\n Decision Trees Complete!")
 print("Next: random_forest.py - Ensemble learning with multiple trees")

@@ -1,5 +1,5 @@
 """
-🤖 MACHINE LEARNING CONCEPTS - Understanding the Fundamentals
+ MACHINE LEARNING CONCEPTS - Understanding the Fundamentals
 ===============================================================
 
 What is Machine Learning?
@@ -31,11 +31,11 @@ print("=" * 70)
 # ============================================================
 # PART 1: Types of Machine Learning
 # ============================================================
-print("\n📌 PART 1: Three Types of Machine Learning")
+print("\n PART 1: Three Types of Machine Learning")
 print("-" * 70)
 
 print("""
-1️⃣ SUPERVISED LEARNING (Learn from labeled examples)
+ SUPERVISED LEARNING (Learn from labeled examples)
    You have: Input + Correct Output
    Goal: Learn to predict output for new inputs
 
@@ -55,7 +55,7 @@ print("""
       • Disease diagnosis (symptoms → disease/healthy)
       • Image recognition (pixels → cat/dog/bird)
 
-2️⃣ UNSUPERVISED LEARNING (Find patterns without labels)
+ UNSUPERVISED LEARNING (Find patterns without labels)
    You have: Input only (no correct answers)
    Goal: Find hidden structure in data
 
@@ -68,7 +68,7 @@ print("""
       • PCA: Reduce 100 features to 10
       • t-SNE: Visualize high-D data in 2D
 
-3️⃣ REINFORCEMENT LEARNING (Learn through trial & error)
+ REINFORCEMENT LEARNING (Learn through trial & error)
    Agent takes actions → gets rewards/penalties → learns optimal behavior
 
    Examples:
@@ -76,13 +76,13 @@ print("""
    • Robot control (walking, grasping)
    • Self-driving cars
 
-   💡 This course focuses on SUPERVISED LEARNING (most common in practice)
+    This course focuses on SUPERVISED LEARNING (most common in practice)
 """)
 
 # ============================================================
 # PART 2: Key Terminology
 # ============================================================
-print("\n📌 PART 2: Essential ML Vocabulary")
+print("\n PART 2: Essential ML Vocabulary")
 print("-" * 70)
 
 vocab = {
@@ -104,7 +104,7 @@ vocab = {
     "Loss/Cost": "How wrong the model's predictions are"
 }
 
-print("\n📚 ML Dictionary:")
+print("\n ML Dictionary:")
 for term, definition in vocab.items():
     print(f"\n• {term}:")
     print(f"  → {definition}")
@@ -112,7 +112,7 @@ for term, definition in vocab.items():
 # ============================================================
 # PART 3: The ML Workflow
 # ============================================================
-print("\n\n📌 PART 3: The Complete ML Workflow (Always Follow This!)")
+print("\n\n PART 3: The Complete ML Workflow (Always Follow This!)")
 print("-" * 70)
 
 workflow = """
@@ -120,56 +120,55 @@ workflow = """
 │                  MACHINE LEARNING WORKFLOW                  │
 └─────────────────────────────────────────────────────────────┘
 
-1️⃣ DEFINE THE PROBLEM
+ DEFINE THE PROBLEM
    • What are you trying to predict?
    • Regression or classification?
    • What's the business goal?
 
-2️⃣ COLLECT DATA
+ COLLECT DATA
    • Gather relevant data
    • More data = better model (usually!)
    • Quality > Quantity
 
-3️⃣ EXPLORE DATA (EDA)
+ EXPLORE DATA (EDA)
    • Load and inspect data
    • Visualize distributions
    • Find relationships
    • Check for missing values
-
-4️⃣ PREPARE DATA
+ PREPARE DATA
    • Handle missing values
    • Remove outliers
    • Encode categorical variables (text → numbers)
    • Scale/normalize features
    • Feature engineering (create new features)
 
-5️⃣ SPLIT DATA
+ SPLIT DATA
    • Training set (to learn)
    • Test set (to evaluate)
    • Optional: Validation set (to tune)
 
-6️⃣ CHOOSE MODEL
+ CHOOSE MODEL
    • Start simple (Linear/Logistic Regression)
    • Try multiple algorithms
    • Consider: interpretability vs performance
 
-7️⃣ TRAIN MODEL
+ TRAIN MODEL
    • Feed training data to model
    • Model adjusts parameters to minimize error
    • This is where "learning" happens!
 
-8️⃣ EVALUATE MODEL
+ EVALUATE MODEL
    • Test on unseen test data
    • Calculate metrics (accuracy, precision, recall)
    • Check for overfitting/underfitting
 
-9️⃣ IMPROVE MODEL
+ IMPROVE MODEL
    • Try different algorithms
    • Feature engineering
    • Hyperparameter tuning
    • Get more/better data
 
-🔟 DEPLOY MODEL
+ DEPLOY MODEL
    • Put model into production
    • Monitor performance
    • Retrain when needed
@@ -180,10 +179,10 @@ print(workflow)
 # ============================================================
 # PART 4: Practical Example - The Workflow in Action
 # ============================================================
-print("\n📌 PART 4: Hands-On Example - Predicting Student Performance")
+print("\n PART 4: Hands-On Example - Predicting Student Performance")
 print("-" * 70)
 
-print("\n🎯 Problem: Predict if a student will pass based on study hours")
+print("\n Problem: Predict if a student will pass based on study hours")
 
 # Step 1: Create sample data
 np.random.seed(42)
@@ -197,7 +196,7 @@ df = pd.DataFrame({
     'Passed': passed
 })
 
-print("\n📊 Our Dataset:")
+print("\n Our Dataset:")
 print(df.head(10))
 
 # Step 2: Visualize
@@ -211,7 +210,7 @@ plt.title('Study Hours vs Exam Score')
 plt.legend(['Passing Line', 'Failed', 'Passed'])
 plt.grid(True, alpha=0.3)
 plt.savefig('ml_example_data.png', dpi=300, bbox_inches='tight')
-print("\n✓ Created: ml_example_data.png")
+print("\n Created: ml_example_data.png")
 print("   Red = Failed, Green = Passed")
 plt.close()
 
@@ -219,7 +218,7 @@ plt.close()
 X = df[['Study_Hours']].values  # Features (input)
 y = df['Passed'].values  # Target (output)
 
-print(f"\n📊 Data Shape:")
+print(f"\n Data Shape:")
 print(f"   X (features): {X.shape} → {X.shape[0]} samples, {X.shape[1]} feature(s)")
 print(f"   y (target): {y.shape} → {y.shape[0]} labels")
 
@@ -228,40 +227,40 @@ X_train, X_test, y_train, y_test = train_test_split(
     X, y, test_size=0.3, random_state=42
 )
 
-print(f"\n📊 Train/Test Split:")
+print(f"\n Train/Test Split:")
 print(f"   Training samples: {len(X_train)} ({len(X_train)/len(X)*100:.0f}%)")
 print(f"   Test samples: {len(X_test)} ({len(X_test)/len(X)*100:.0f}%)")
-print(f"   💡 Train on 70%, evaluate on remaining 30%")
+print(f"    Train on 70%, evaluate on remaining 30%")
 
 # ============================================================
 # PART 5: Overfitting vs Underfitting
 # ============================================================
-print("\n\n📌 PART 5: Overfitting vs Underfitting (CRITICAL CONCEPT!)")
+print("\n\n PART 5: Overfitting vs Underfitting (CRITICAL CONCEPT!)")
 print("-" * 70)
 
 print("""
-🎯 THE GOLDILOCKS PROBLEM:
+ THE GOLDILOCKS PROBLEM:
 
-❌ UNDERFITTING (Too Simple)
+ UNDERFITTING (Too Simple)
    • Model too basic to capture patterns
    • High error on BOTH training and test data
    • Example: Predicting house prices using only "number of bedrooms"
    • Fix: Use more features, more complex model
 
-✅ JUST RIGHT (Good Fit)
+ JUST RIGHT (Good Fit)
    • Model captures real patterns
    • Good performance on training data
    • Good performance on test data
    • This is our goal!
 
-❌ OVERFITTING (Too Complex)
+ OVERFITTING (Too Complex)
    • Model memorizes training data (including noise)
    • Great on training data
    • Terrible on test data
    • Example: Model memorizes every house price perfectly but fails on new houses
    • Fix: More data, simpler model, regularization
 
-💡 Think of it like studying for an exam:
+ Think of it like studying for an exam:
    • Underfitting = didn't study enough, fail both practice and real exam
    • Just right = understood concepts, do well on both
    • Overfitting = memorized answers to practice problems,
@@ -299,17 +298,17 @@ axes[2].grid(True, alpha=0.3)
 
 plt.tight_layout()
 plt.savefig('overfitting_underfitting.png', dpi=300, bbox_inches='tight')
-print("\n✓ Created: overfitting_underfitting.png")
+print("\n Created: overfitting_underfitting.png")
 plt.close()
 
 # ============================================================
 # PART 6: Bias-Variance Tradeoff
 # ============================================================
-print("\n\n📌 PART 6: Bias-Variance Tradeoff")
+print("\n\n PART 6: Bias-Variance Tradeoff")
 print("-" * 70)
 
 print("""
-📊 TOTAL ERROR = Bias² + Variance + Irreducible Error
+ TOTAL ERROR = Bias² + Variance + Irreducible Error
 
 • BIAS = Error from wrong assumptions
   - High bias → underfitting
@@ -324,7 +323,7 @@ print("""
 • IRREDUCIBLE ERROR = Random noise in data
   - Can't be reduced (it's in the data itself)
 
-💡 THE TRADEOFF:
+ THE TRADEOFF:
    ↓ More complex model → ↓ Bias (good!) but ↑ Variance (bad!)
    ↓ Simpler model → ↑ Bias (bad!) but ↓ Variance (good!)
 
@@ -334,38 +333,38 @@ print("""
 # ============================================================
 # SUMMARY
 # ============================================================
-print("\n\n🎯 ML CONCEPTS SUMMARY")
+print("\n\n ML CONCEPTS SUMMARY")
 print("=" * 70)
 print("""
-✅ KEY TAKEAWAYS:
+ KEY TAKEAWAYS:
 
-1️⃣ ML Types:
+ ML Types:
    • Supervised (labeled data) - MOST COMMON
      - Regression (predict numbers)
      - Classification (predict categories)
    • Unsupervised (no labels)
    • Reinforcement (rewards/penalties)
 
-2️⃣ ML Workflow (ALWAYS follow):
+ ML Workflow (ALWAYS follow):
    Define → Collect → Explore → Prepare → Split →
    Choose → Train → Evaluate → Improve → Deploy
 
-3️⃣ Train/Test Split:
+ Train/Test Split:
    • Train: Learn patterns (~70%)
    • Test: Evaluate generalization (~30%)
    • NEVER touch test data during training!
 
-4️⃣ Overfitting vs Underfitting:
+ Overfitting vs Underfitting:
    • Underfitting: Too simple
    • Overfitting: Too complex (memorizes)
    • Goal: Just right (generalizes)
 
-5️⃣ Evaluation:
-   • Training accuracy HIGH, Test accuracy HIGH ✓
-   • Training accuracy HIGH, Test accuracy LOW → Overfitting ✗
-   • Training accuracy LOW, Test accuracy LOW → Underfitting ✗
+ Evaluation:
+   • Training accuracy HIGH, Test accuracy HIGH 
+   • Training accuracy HIGH, Test accuracy LOW → Overfitting 
+   • Training accuracy LOW, Test accuracy LOW → Underfitting 
 
-🎓 YOU'RE READY FOR ML ALGORITHMS!
+ YOU'RE READY FOR ML ALGORITHMS!
 
 Next files to learn actual ML algorithms:
    • linear_regression_scratch.py - Build from scratch
@@ -374,5 +373,5 @@ Next files to learn actual ML algorithms:
    • knn.py, decision_tree.py, random_forest.py
 """)
 
-print("\n✅ ML Concepts Complete!")
+print("\n ML Concepts Complete!")
 print("Next: linear_regression_scratch.py - Build your first ML algorithm from scratch!")

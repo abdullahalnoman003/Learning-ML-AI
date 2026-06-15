@@ -1,5 +1,5 @@
 """
-🔧 FEATURE ENGINEERING - Preparing Data for ML Success
+ FEATURE ENGINEERING - Preparing Data for ML Success
 =======================================================
 
 What is Feature Engineering?
@@ -43,11 +43,11 @@ print("=" * 70)
 # ============================================================
 # PART 1: Creating Sample Dataset with Common Issues
 # ============================================================
-print("\n📌 PART 1: Real-World Messy Data")
+print("\n PART 1: Real-World Messy Data")
 print("-" * 70)
 
 print("""
-📊 Example: Customer Purchase Prediction
+ Example: Customer Purchase Prediction
 
 Features:
 - Age (numeric, has missing values)
@@ -84,28 +84,28 @@ df.loc[missing_indices, 'Age'] = np.nan
 outlier_indices = np.random.choice(df.index, size=5, replace=False)
 df.loc[outlier_indices, 'Income'] = df.loc[outlier_indices, 'Income'] * 5
 
-print(f"\n📊 Dataset Preview:")
+print(f"\n Dataset Preview:")
 print(df.head(10))
 
-print(f"\n🔍 Dataset Info:")
+print(f"\n Dataset Info:")
 print(f"   Samples: {len(df)}")
 print(f"   Features: {df.shape[1] - 1}")
 print(f"   Missing values: {df.isnull().sum().sum()}")
 
-print(f"\n📈 Missing Values per Column:")
+print(f"\n Missing Values per Column:")
 print(df.isnull().sum())
 
-print(f"\n📊 Data Types:")
+print(f"\n Data Types:")
 print(df.dtypes)
 
 # ============================================================
 # PART 2: Handling Missing Values
 # ============================================================
-print("\n\n📌 PART 2: Handling Missing Values")
+print("\n\n PART 2: Handling Missing Values")
 print("-" * 70)
 
 print("""
-❓ Strategies for Missing Values:
+ Strategies for Missing Values:
 
 1. REMOVE:
    - Drop rows with missing values
@@ -133,7 +133,7 @@ print("""
 """)
 
 # Show missing data
-print(f"\n📊 Rows with Missing Age:")
+print(f"\n Rows with Missing Age:")
 print(df[df['Age'].isnull()][['Age', 'Income', 'Education']])
 
 # Strategy 1: Mean imputation
@@ -150,18 +150,18 @@ df['Age_Was_Missing'] = df['Age'].isnull().astype(int)
 # Fill the original Age column
 df['Age'] = df['Age_Median_Imputed']
 
-print(f"\n✓ Missing values handled!")
+print(f"\n Missing values handled!")
 print(f"   Strategy: Median imputation (robust to outliers)")
 print(f"   Added indicator: Age_Was_Missing (preserves information)")
 
 # ============================================================
 # PART 3: Encoding Categorical Variables
 # ============================================================
-print("\n\n📌 PART 3: Encoding Categorical Variables")
+print("\n\n PART 3: Encoding Categorical Variables")
 print("-" * 70)
 
 print("""
-🎨 Problem: ML models only understand numbers!
+ Problem: ML models only understand numbers!
 
 Categorical Variables:
 - Education: ['High School', 'Bachelor', 'Master', 'PhD']
@@ -171,26 +171,26 @@ Encoding Strategies:
 
 1. LABEL ENCODING:
    Convert to integers: High School=0, Bachelor=1, Master=2, PhD=3
-   ⚠️ Problem: Implies order (Bachelor > High School)
-   ✓ Use when: Ordinal data (Small < Medium < Large)
-   ❌ Don't use when: Nominal data (no order)
+   ️ Problem: Implies order (Bachelor > High School)
+    Use when: Ordinal data (Small < Medium < Large)
+    Don't use when: Nominal data (no order)
 
 2. ONE-HOT ENCODING:
    Create binary column for each category:
    City_NewYork  City_London  City_Paris  City_Tokyo
    1             0            0           0
    0             1            0           0
-   ✓ Use when: Nominal data (no order)
-   ⚠️ Problem: Many categories → Many columns (curse of dimensionality)
+    Use when: Nominal data (no order)
+   ️ Problem: Many categories → Many columns (curse of dimensionality)
 
 3. ORDINAL ENCODING:
    Like label encoding but YOU specify the order
    Small=0, Medium=1, Large=2
-   ✓ Use when: Clear ordering exists
+    Use when: Clear ordering exists
 """)
 
 # Education: Ordinal (has order)
-print(f"\n📚 Education Encoding (Ordinal):")
+print(f"\n Education Encoding (Ordinal):")
 print(f"   Original values: {df['Education'].unique()}")
 
 education_order = {'High School': 0, 'Bachelor': 1, 'Master': 2, 'PhD': 3}
@@ -201,7 +201,7 @@ print(f"\nSample:")
 print(df[['Education', 'Education_Encoded']].head())
 
 # City: Nominal (no order) → One-Hot Encoding
-print(f"\n\n🌆 City Encoding (One-Hot):")
+print(f"\n\n City Encoding (One-Hot):")
 print(f"   Original values: {df['City'].unique()}")
 
 # One-hot encode
@@ -210,33 +210,33 @@ df = pd.concat([df, city_dummies], axis=1)
 
 print(f"   Created {len(city_dummies.columns)} new binary columns:")
 print(f"   {city_dummies.columns.tolist()}")
-print(f"\n💡 drop_first=True: Avoid multicollinearity (one column is redundant)")
+print(f"\n drop_first=True: Avoid multicollinearity (one column is redundant)")
 print(f"\nSample:")
 print(df[['City'] + city_dummies.columns.tolist()].head())
 
 # ============================================================
 # PART 4: Feature Scaling
 # ============================================================
-print("\n\n📌 PART 4: Feature Scaling - CRITICAL for Many Algorithms!")
+print("\n\n PART 4: Feature Scaling - CRITICAL for Many Algorithms!")
 print("-" * 70)
 
 print("""
-⚖️ Why Scale Features?
+️ Why Scale Features?
 
 Problem: Different features have different ranges
 - Age: 18-70 (range ≈ 50)
 - Income: 20,000-300,000 (range ≈ 280,000)
 
 Algorithms affected by scale:
-   ✓ KNN (uses distance)
-   ✓ SVM (uses distance)
-   ✓ Neural Networks (gradient descent)
-   ✓ Linear/Logistic Regression (when using regularization)
+    KNN (uses distance)
+    SVM (uses distance)
+    Neural Networks (gradient descent)
+    Linear/Logistic Regression (when using regularization)
 
 Algorithms NOT affected:
-   ✗ Decision Trees
-   ✗ Random Forest
-   ✗ Gradient Boosting
+    Decision Trees
+    Random Forest
+    Gradient Boosting
 
 Scaling Methods:
 
@@ -245,23 +245,23 @@ Scaling Methods:
    Result: Mean=0, Std=1
    Range: Typically -3 to +3
    Use when: Data is normally distributed
-   ✓ Most common! Works well in general
+    Most common! Works well in general
 
 2. MIN-MAX SCALING (Normalization):
    Formula: x_scaled = (x - min) / (max - min)
    Result: Values between 0 and 1
    Use when: Need bounded range (e.g., neural networks)
-   ⚠️ Sensitive to outliers!
+   ️ Sensitive to outliers!
 
 3. ROBUST SCALING:
    Formula: x_scaled = (x - median) / IQR
    Result: Robust to outliers
    Use when: Data has many outliers
-   ✓ Best for messy real-world data
+    Best for messy real-world data
 """)
 
 # Compare scaling methods
-print(f"\n📊 Original Data Statistics:")
+print(f"\n Original Data Statistics:")
 print(f"   Age: mean={df['Age'].mean():.1f}, std={df['Age'].std():.1f}, min={df['Age'].min():.1f}, max={df['Age'].max():.1f}")
 print(f"   Income: mean={df['Income'].mean():.1f}, std={df['Income'].std():.1f}, min={df['Income'].min():.1f}, max={df['Income'].max():.1f}")
 
@@ -284,15 +284,15 @@ scaler_robust = RobustScaler()
 X_robust = scaler_robust.fit_transform(X_original)
 X_robust_df = pd.DataFrame(X_robust, columns=[f'{col}_Robust' for col in features_to_scale])
 
-print(f"\n📊 After StandardScaler (mean=0, std=1):")
+print(f"\n After StandardScaler (mean=0, std=1):")
 print(f"   Age: mean={X_standard[:, 0].mean():.4f}, std={X_standard[:, 0].std():.4f}")
 print(f"   Income: mean={X_standard[:, 1].mean():.4f}, std={X_standard[:, 1].std():.4f}")
 
-print(f"\n📊 After MinMaxScaler (range: 0-1):")
+print(f"\n After MinMaxScaler (range: 0-1):")
 print(f"   Age: min={X_minmax[:, 0].min():.4f}, max={X_minmax[:, 0].max():.4f}")
 print(f"   Income: min={X_minmax[:, 1].min():.4f}, max={X_minmax[:, 1].max():.4f}")
 
-print(f"\n📊 After RobustScaler (uses median and IQR):")
+print(f"\n After RobustScaler (uses median and IQR):")
 print(f"   Age: median={np.median(X_robust[:, 0]):.4f}")
 print(f"   Income: median={np.median(X_robust[:, 1]):.4f}")
 
@@ -320,17 +320,17 @@ axes[1, 1].set_title('RobustScaler', fontweight='bold')
 axes[1, 1].set_xlabel('Robust Scaled Income')
 
 plt.tight_layout()
-plt.savefig('D:/Language Learning/AI ML/Learning-ML-AI/Phase 3 - Machine Learning/feature_scaling_comparison.png', dpi=150)
-print("\n✓ Saved plot: feature_scaling_comparison.png")
+plt.savefig('feature_scaling_comparison.png', dpi=150)
+print("\n Saved plot: feature_scaling_comparison.png")
 
 # ============================================================
 # PART 5: Handling Outliers
 # ============================================================
-print("\n\n📌 PART 5: Handling Outliers")
+print("\n\n PART 5: Handling Outliers")
 print("-" * 70)
 
 print("""
-🎯 Outliers: Data points that are FAR from others
+ Outliers: Data points that are FAR from others
 
 Detection Methods:
 
@@ -361,7 +361,7 @@ upper_bound = Q3 + 1.5 * IQR
 
 outliers = df[(df['Income'] < lower_bound) | (df['Income'] > upper_bound)]
 
-print(f"\n📊 Outlier Detection (IQR Method):")
+print(f"\n Outlier Detection (IQR Method):")
 print(f"   Q1 (25th percentile): ${Q1:,.0f}")
 print(f"   Q3 (75th percentile): ${Q3:,.0f}")
 print(f"   IQR: ${IQR:,.0f}")
@@ -370,7 +370,7 @@ print(f"   Upper bound: ${upper_bound:,.0f}")
 print(f"   Number of outliers: {len(outliers)}")
 
 if len(outliers) > 0:
-    print(f"\n🔍 Outliers found:")
+    print(f"\n Outliers found:")
     print(outliers[['Age', 'Income', 'Education']])
 
 # Visualize outliers
@@ -393,23 +393,23 @@ axes[1].legend()
 axes[1].grid(axis='y', alpha=0.3)
 
 plt.tight_layout()
-plt.savefig('D:/Language Learning/AI ML/Learning-ML-AI/Phase 3 - Machine Learning/feature_outliers.png', dpi=150)
-print("\n✓ Saved plot: feature_outliers.png")
+plt.savefig('feature_outliers.png', dpi=150)
+print("\n Saved plot: feature_outliers.png")
 
 # Strategy: Cap outliers
 df['Income_Capped'] = df['Income'].clip(lower=lower_bound, upper=upper_bound)
-print(f"\n✓ Outliers capped!")
+print(f"\n Outliers capped!")
 print(f"   Values below ${lower_bound:,.0f} → ${lower_bound:,.0f}")
 print(f"   Values above ${upper_bound:,.0f} → ${upper_bound:,.0f}")
 
 # ============================================================
 # PART 6: Feature Creation (Feature Engineering)
 # ============================================================
-print("\n\n📌 PART 6: Creating New Features")
+print("\n\n PART 6: Creating New Features")
 print("-" * 70)
 
 print("""
-💡 Sometimes the magic is in CREATING new features!
+ Sometimes the magic is in CREATING new features!
 
 Common Techniques:
 
@@ -444,28 +444,28 @@ df['Age_Group'] = pd.cut(df['Age'],
                          bins=[0, 30, 50, 100],
                          labels=['Young', 'Middle', 'Senior'])
 
-print(f"\n📊 New Features Created:")
+print(f"\n New Features Created:")
 print(f"   1. Income_Per_Age: Income divided by Age")
 print(f"   2. High_Spender: Binary (1 if above median purchase history)")
 print(f"   3. Age_Group: Categorical bins (Young, Middle, Senior)")
 
-print(f"\n📈 Sample of new features:")
+print(f"\n Sample of new features:")
 print(df[['Age', 'Income', 'Income_Per_Age', 'Purchase_History', 'High_Spender', 'Age_Group']].head())
 
 # ============================================================
 # PART 7: Feature Selection
 # ============================================================
-print("\n\n📌 PART 7: Feature Selection - Less is More!")
+print("\n\n PART 7: Feature Selection - Less is More!")
 print("-" * 70)
 
 print("""
-🎯 Why Remove Features?
+ Why Remove Features?
 
 Problems with too many features:
-   ❌ Overfitting (model memorizes noise)
-   ❌ Slower training
-   ❌ Curse of dimensionality
-   ❌ Harder to interpret
+    Overfitting (model memorizes noise)
+    Slower training
+    Curse of dimensionality
+    Harder to interpret
 
 Methods:
 
@@ -505,12 +505,12 @@ X_train, X_test, y_train, y_test = train_test_split(
     X, y, test_size=0.3, random_state=42
 )
 
-print(f"\n📊 Feature Selection Setup:")
+print(f"\n Feature Selection Setup:")
 print(f"   Total features: {X.shape[1]}")
 print(f"   Features: {all_features}")
 
 # Method 1: SelectKBest (Filter method)
-print(f"\n🔍 Method 1: SelectKBest (ANOVA F-value)")
+print(f"\n Method 1: SelectKBest (ANOVA F-value)")
 selector = SelectKBest(score_func=f_classif, k=5)
 selector.fit(X_train, y_train)
 
@@ -520,16 +520,16 @@ feature_scores = pd.DataFrame({
     'Score': selector.scores_
 }).sort_values('Score', ascending=False)
 
-print(f"\n📊 Feature Importance Scores:")
+print(f"\n Feature Importance Scores:")
 print(feature_scores.to_string(index=False))
 
 selected_features = feature_scores.head(5)['Feature'].tolist()
-print(f"\n✓ Top 5 features selected:")
+print(f"\n Top 5 features selected:")
 for i, feat in enumerate(selected_features, 1):
     print(f"   {i}. {feat}")
 
 # Method 2: Feature importance from Random Forest
-print(f"\n\n🌳 Method 2: Random Forest Feature Importance")
+print(f"\n\n Method 2: Random Forest Feature Importance")
 rf = RandomForestClassifier(n_estimators=100, random_state=42)
 rf.fit(X_train, y_train)
 
@@ -538,7 +538,7 @@ feature_importance_rf = pd.DataFrame({
     'Importance': rf.feature_importances_
 }).sort_values('Importance', ascending=False)
 
-print(f"\n📊 Feature Importance from Random Forest:")
+print(f"\n Feature Importance from Random Forest:")
 print(feature_importance_rf.to_string(index=False))
 
 # Visualize
@@ -549,17 +549,17 @@ plt.ylabel('Feature', fontsize=12)
 plt.title('Top 10 Most Important Features', fontsize=14, fontweight='bold')
 plt.grid(axis='x', alpha=0.3)
 plt.tight_layout()
-plt.savefig('D:/Language Learning/AI ML/Learning-ML-AI/Phase 3 - Machine Learning/feature_importance.png', dpi=150)
-print("\n✓ Saved plot: feature_importance.png")
+plt.savefig('feature_importance.png', dpi=150)
+print("\n Saved plot: feature_importance.png")
 
 # ============================================================
 # PART 8: Complete Pipeline Example
 # ============================================================
-print("\n\n📌 PART 8: Putting It All Together - Complete Pipeline")
+print("\n\n PART 8: Putting It All Together - Complete Pipeline")
 print("-" * 70)
 
 print("""
-🔄 Complete Feature Engineering Pipeline:
+ Complete Feature Engineering Pipeline:
 
 1. Handle missing values → Impute
 2. Detect and handle outliers → Cap or remove
@@ -577,7 +577,7 @@ This is what you do in EVERY real ML project!
 from sklearn.pipeline import Pipeline
 from sklearn.compose import ColumnTransformer
 
-print(f"\n🔧 Building sklearn Pipeline...")
+print(f"\n Building sklearn Pipeline...")
 
 # Define transformers
 numeric_transformer = Pipeline(steps=[
@@ -614,16 +614,16 @@ pipeline.fit(X_train_s, y_train_s)
 train_score = pipeline.score(X_train_s, y_train_s)
 test_score = pipeline.score(X_test_s, y_test_s)
 
-print(f"\n📊 Pipeline Performance:")
+print(f"\n Pipeline Performance:")
 print(f"   Training Accuracy: {train_score:.4f}")
 print(f"   Test Accuracy: {test_score:.4f}")
-print(f"\n✓ Pipeline successfully applies all transformations automatically!")
+print(f"\n Pipeline successfully applies all transformations automatically!")
 print(f"   This is production-ready code!")
 
 # ============================================================
 # WHY THIS MATTERS
 # ============================================================
-print("\n\n🎯 WHY FEATURE ENGINEERING MATTERS")
+print("\n\n WHY FEATURE ENGINEERING MATTERS")
 print("=" * 70)
 print("""
 1. MOST IMPORTANT STEP:
@@ -653,33 +653,33 @@ print("""
    - Save fitted transformers (same transform on new data)
    - Document all transformations
 
-🔑 KEY TAKEAWAYS:
-   ✓ Handle missing values (don't just drop!)
-   ✓ Encode categorical variables properly
-   ✓ Scale features for distance-based algorithms
-   ✓ Create new features from domain knowledge
-   ✓ Remove unimportant features (less is more)
-   ✓ Handle outliers (detect and treat)
-   ✓ Use sklearn Pipeline for reproducibility
-   ✓ 80% of ML is data preparation!
+ KEY TAKEAWAYS:
+    Handle missing values (don't just drop!)
+    Encode categorical variables properly
+    Scale features for distance-based algorithms
+    Create new features from domain knowledge
+    Remove unimportant features (less is more)
+    Handle outliers (detect and treat)
+    Use sklearn Pipeline for reproducibility
+    80% of ML is data preparation!
 
-💡 Best Practices:
-   ✓ Always split data BEFORE scaling (prevent data leakage!)
-   ✓ Fit transformers on training set only
-   ✓ Apply same transformation to test set
-   ✓ Document all decisions
-   ✓ Create reproducible pipelines
-   ✓ Start simple, add complexity if needed
+ Best Practices:
+    Always split data BEFORE scaling (prevent data leakage!)
+    Fit transformers on training set only
+    Apply same transformation to test set
+    Document all decisions
+    Create reproducible pipelines
+    Start simple, add complexity if needed
 
-⚠️ Common Mistakes:
-   ❌ Scaling before train-test split (DATA LEAKAGE!)
-   ❌ Using mean imputation without checking distribution
-   ❌ One-hot encoding high cardinality features (too many columns)
-   ❌ Not handling outliers
-   ❌ Ignoring domain knowledge
-   ❌ Over-engineering features (keep it simple!)
+️ Common Mistakes:
+    Scaling before train-test split (DATA LEAKAGE!)
+    Using mean imputation without checking distribution
+    One-hot encoding high cardinality features (too many columns)
+    Not handling outliers
+    Ignoring domain knowledge
+    Over-engineering features (keep it simple!)
 
-🚀 Next Steps:
+ Next Steps:
    - Learn about data leakage (next: cross_validation.py)
    - Practice with real messy datasets
    - Learn about time series features
@@ -687,5 +687,5 @@ print("""
    - Learn about image features (CNNs)
 """)
 
-print("\n✅ Feature Engineering Complete!")
+print("\n Feature Engineering Complete!")
 print("Next: cross_validation.py - Robust model evaluation")

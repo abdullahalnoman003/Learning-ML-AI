@@ -1,5 +1,5 @@
 """
-📊 MODEL EVALUATION - Measuring Success the Right Way
+ MODEL EVALUATION - Measuring Success the Right Way
 ======================================================
 
 What is Model Evaluation?
@@ -21,8 +21,8 @@ We need:
 
 Real World Analogy:
 Judging a chef:
-- Don't just count how many dishes they made ❌
-- Taste the food, check presentation, speed, consistency ✓
+- Don't just count how many dishes they made 
+- Taste the food, check presentation, speed, consistency 
 
 This file covers ALL the evaluation techniques you need!
 """
@@ -50,11 +50,11 @@ print("=" * 70)
 # ============================================================
 # PART 1: Classification Metrics Overview
 # ============================================================
-print("\n📌 PART 1: Understanding Classification Metrics")
+print("\n PART 1: Understanding Classification Metrics")
 print("-" * 70)
 
 print("""
-🎯 The Confusion Matrix - Foundation of All Metrics
+ The Confusion Matrix - Foundation of All Metrics
 
                     Predicted
                     Negative  Positive
@@ -62,10 +62,10 @@ Actual  Negative  [   TN   |   FP   ]
                   [---------+--------]
         Positive  [   FN   |   TP   ]
 
-TN = True Negative (correctly predicted negative) ✓
-FP = False Positive (predicted positive, actually negative) ✗ Type I Error
-FN = False Negative (predicted negative, actually positive) ✗ Type II Error
-TP = True Positive (correctly predicted positive) ✓
+TN = True Negative (correctly predicted negative) 
+FP = False Positive (predicted positive, actually negative)  Type I Error
+FN = False Negative (predicted negative, actually positive)  Type II Error
+TP = True Positive (correctly predicted positive) 
 
 From these 4 numbers, we derive ALL classification metrics!
 """)
@@ -73,11 +73,11 @@ From these 4 numbers, we derive ALL classification metrics!
 # ============================================================
 # PART 2: Creating Example Dataset
 # ============================================================
-print("\n\n📌 PART 2: Binary Classification Example")
+print("\n\n PART 2: Binary Classification Example")
 print("-" * 70)
 
 print("""
-🎯 Problem: Email Spam Detection
+ Problem: Email Spam Detection
 
 - Positive class: Spam (1)
 - Negative class: Not Spam (0)
@@ -103,7 +103,7 @@ X_train, X_test, y_train, y_test = train_test_split(
     X, y, test_size=0.3, random_state=42
 )
 
-print(f"\n📊 Dataset Info:")
+print(f"\n Dataset Info:")
 print(f"   Total samples: {len(y)}")
 print(f"   Training samples: {len(y_train)}")
 print(f"   Test samples: {len(y_test)}")
@@ -111,7 +111,7 @@ print(f"   Features: {X.shape[1]}")
 
 # Check class distribution
 unique, counts = np.unique(y, return_counts=True)
-print(f"\n📈 Class Distribution:")
+print(f"\n Class Distribution:")
 for cls, count in zip(unique, counts):
     label = "Not Spam" if cls == 0 else "Spam"
     print(f"   {label}: {count} ({count/len(y)*100:.1f}%)")
@@ -122,36 +122,36 @@ model.fit(X_train, y_train)
 y_pred = model.predict(X_test)
 y_pred_proba = model.predict_proba(X_test)[:, 1]
 
-print(f"\n✓ Model trained!")
+print(f"\n Model trained!")
 
 # ============================================================
 # PART 3: The Confusion Matrix
 # ============================================================
-print("\n\n📌 PART 3: Confusion Matrix - Detailed Error Analysis")
+print("\n\n PART 3: Confusion Matrix - Detailed Error Analysis")
 print("-" * 70)
 
 cm = confusion_matrix(y_test, y_pred)
 tn, fp, fn, tp = cm.ravel()
 
-print(f"\n📊 Confusion Matrix:")
+print(f"\n Confusion Matrix:")
 print(f"\n                  Predicted")
 print(f"                  Not Spam   Spam")
 print(f"Actual Not Spam   {tn:^10d} {fp:^8d}")
 print(f"       Spam       {fn:^10d} {tp:^8d}")
 
-print(f"\n🔍 Breaking it Down:")
+print(f"\n Breaking it Down:")
 print(f"   True Negatives (TN): {tn}")
-print(f"      → Correctly identified {tn} non-spam emails ✓")
+print(f"      → Correctly identified {tn} non-spam emails ")
 print(f"\n   False Positives (FP): {fp}")
-print(f"      → Wrongly flagged {fp} good emails as spam ✗")
+print(f"      → Wrongly flagged {fp} good emails as spam ")
 print(f"      → TYPE I ERROR: False alarm!")
 print(f"      → COST: User misses important emails!")
 print(f"\n   False Negatives (FN): {fn}")
-print(f"      → Missed {fn} spam emails (they reached inbox) ✗")
+print(f"      → Missed {fn} spam emails (they reached inbox) ")
 print(f"      → TYPE II ERROR: Missed detection!")
 print(f"      → COST: User sees spam!")
 print(f"\n   True Positives (TP): {tp}")
-print(f"      → Correctly caught {tp} spam emails ✓")
+print(f"      → Correctly caught {tp} spam emails ")
 
 # Visualize
 plt.figure(figsize=(8, 6))
@@ -162,13 +162,13 @@ plt.xlabel('Predicted Label', fontsize=12)
 plt.ylabel('True Label', fontsize=12)
 plt.title('Confusion Matrix - Email Spam Detection', fontsize=14, fontweight='bold')
 plt.tight_layout()
-plt.savefig('D:/Language Learning/AI ML/Learning-ML-AI/Phase 3 - Machine Learning/eval_confusion_matrix.png', dpi=150)
-print("\n✓ Saved plot: eval_confusion_matrix.png")
+plt.savefig('eval_confusion_matrix.png', dpi=150)
+print("\n Saved plot: eval_confusion_matrix.png")
 
 # ============================================================
 # PART 4: Core Metrics Explained
 # ============================================================
-print("\n\n📌 PART 4: Core Classification Metrics")
+print("\n\n PART 4: Core Classification Metrics")
 print("-" * 70)
 
 accuracy = accuracy_score(y_test, y_pred)
@@ -177,61 +177,61 @@ recall = recall_score(y_test, y_pred)
 f1 = f1_score(y_test, y_pred)
 
 print("""
-📐 ACCURACY: Overall correctness
+ ACCURACY: Overall correctness
    Formula: (TP + TN) / (TP + TN + FP + FN)
    Question: "What percentage of predictions are correct?"
 """)
 print(f"   Accuracy = ({tp} + {tn}) / {len(y_test)} = {accuracy:.4f} ({accuracy*100:.2f}%)")
-print(f"   ⚠️ Can be misleading with imbalanced data!")
+print(f"   ️ Can be misleading with imbalanced data!")
 
 print(f"""
 
-🎯 PRECISION: When we predict positive, how often are we right?
+ PRECISION: When we predict positive, how often are we right?
    Formula: TP / (TP + FP)
    Question: "Of all spam predictions, how many are actually spam?"
    High precision = Few false alarms
 """)
 print(f"   Precision = {tp} / ({tp} + {fp}) = {precision:.4f} ({precision*100:.2f}%)")
-print(f"   💡 When we flag an email as spam, we're right {precision*100:.1f}% of the time")
+print(f"    When we flag an email as spam, we're right {precision*100:.1f}% of the time")
 
 print(f"""
 
-🔍 RECALL (Sensitivity, True Positive Rate): Of all actual positives, how many did we catch?
+ RECALL (Sensitivity, True Positive Rate): Of all actual positives, how many did we catch?
    Formula: TP / (TP + FN)
    Question: "Of all actual spam, how many did we detect?"
    High recall = We catch most spam
 """)
 print(f"   Recall = {tp} / ({tp} + {fn}) = {recall:.4f} ({recall*100:.2f}%)")
-print(f"   💡 We catch {recall*100:.1f}% of all spam emails")
+print(f"    We catch {recall*100:.1f}% of all spam emails")
 
 print(f"""
 
-⚖️ F1-SCORE: Harmonic mean of precision and recall
+️ F1-SCORE: Harmonic mean of precision and recall
    Formula: 2 × (Precision × Recall) / (Precision + Recall)
    Question: "What's the balance between precision and recall?"
    Use when: You need both precision and recall to be good
 """)
 print(f"   F1 = 2 × ({precision:.4f} × {recall:.4f}) / ({precision:.4f} + {recall:.4f}) = {f1:.4f}")
-print(f"   💡 Overall balance score: {f1*100:.1f}%")
+print(f"    Overall balance score: {f1*100:.1f}%")
 
 print(f"""
 
-🎭 SPECIFICITY (True Negative Rate): Of all actual negatives, how many did we correctly identify?
+ SPECIFICITY (True Negative Rate): Of all actual negatives, how many did we correctly identify?
    Formula: TN / (TN + FP)
    Question: "Of all good emails, how many did we correctly leave alone?"
 """)
 specificity = tn / (tn + fp) if (tn + fp) > 0 else 0
 print(f"   Specificity = {tn} / ({tn} + {fp}) = {specificity:.4f} ({specificity*100:.2f}%)")
-print(f"   💡 We correctly identify {specificity*100:.1f}% of legitimate emails")
+print(f"    We correctly identify {specificity*100:.1f}% of legitimate emails")
 
 # ============================================================
 # PART 5: The Precision-Recall Trade-off
 # ============================================================
-print("\n\n📌 PART 5: The Precision-Recall Trade-off")
+print("\n\n PART 5: The Precision-Recall Trade-off")
 print("-" * 70)
 
 print("""
-⚖️ The Fundamental Trade-off:
+️ The Fundamental Trade-off:
 
 Can't maximize both precision and recall simultaneously!
 
@@ -269,12 +269,12 @@ plt.axhline(y=precision, color='r', linestyle='--', alpha=0.7, label=f'Current (
 plt.axvline(x=recall, color='r', linestyle='--', alpha=0.7)
 plt.legend(fontsize=11)
 plt.tight_layout()
-plt.savefig('D:/Language Learning/AI ML/Learning-ML-AI/Phase 3 - Machine Learning/eval_precision_recall_curve.png', dpi=150)
-print("\n✓ Saved plot: eval_precision_recall_curve.png")
+plt.savefig('eval_precision_recall_curve.png', dpi=150)
+print("\n Saved plot: eval_precision_recall_curve.png")
 
 # Show effect of different thresholds
 thresholds_to_test = [0.3, 0.5, 0.7, 0.9]
-print(f"\n📊 Effect of Different Thresholds:")
+print(f"\n Effect of Different Thresholds:")
 print(f"{'Threshold':<12} {'Precision':<12} {'Recall':<10} {'F1-Score':<10} {'Best For':<30}")
 print("-" * 80)
 
@@ -296,11 +296,11 @@ for thresh in thresholds_to_test:
 # ============================================================
 # PART 6: ROC Curve and AUC
 # ============================================================
-print("\n\n📌 PART 6: ROC Curve - Overall Discrimination Ability")
+print("\n\n PART 6: ROC Curve - Overall Discrimination Ability")
 print("-" * 70)
 
 print("""
-📈 ROC Curve (Receiver Operating Characteristic):
+ ROC Curve (Receiver Operating Characteristic):
 
 Plots:
    X-axis: False Positive Rate (FPR) = FP / (FP + TN)
@@ -317,7 +317,7 @@ AUC (Area Under Curve):
 
    AUC Interpretation:
    - 0.9-1.0: Excellent ⭐
-   - 0.8-0.9: Very good ✓
+   - 0.8-0.9: Very good 
    - 0.7-0.8: Good
    - 0.6-0.7: Fair
    - 0.5-0.6: Poor
@@ -327,11 +327,11 @@ AUC (Area Under Curve):
 fpr, tpr, thresholds_roc = roc_curve(y_test, y_pred_proba)
 roc_auc = roc_auc_score(y_test, y_pred_proba)
 
-print(f"\n🎯 AUC Score: {roc_auc:.4f}")
+print(f"\n AUC Score: {roc_auc:.4f}")
 if roc_auc >= 0.9:
     print(f"   ⭐ Excellent! Model has outstanding discriminative ability!")
 elif roc_auc >= 0.8:
-    print(f"   ✓ Very good! Model distinguishes classes well!")
+    print(f"    Very good! Model distinguishes classes well!")
 elif roc_auc >= 0.7:
     print(f"   Good! Model has useful predictive power")
 else:
@@ -348,20 +348,20 @@ plt.title('ROC Curve - Model Discrimination Ability', fontsize=14, fontweight='b
 plt.legend(fontsize=11, loc='lower right')
 plt.grid(True, alpha=0.3)
 plt.tight_layout()
-plt.savefig('D:/Language Learning/AI ML/Learning-ML-AI/Phase 3 - Machine Learning/eval_roc_curve.png', dpi=150)
-print("\n✓ Saved plot: eval_roc_curve.png")
+plt.savefig('eval_roc_curve.png', dpi=150)
+print("\n Saved plot: eval_roc_curve.png")
 
 # ============================================================
 # PART 7: Classification Report
 # ============================================================
-print("\n\n📌 PART 7: Complete Classification Report")
+print("\n\n PART 7: Complete Classification Report")
 print("-" * 70)
 
-print(f"\n📋 Scikit-Learn Classification Report:")
+print(f"\n Scikit-Learn Classification Report:")
 print(classification_report(y_test, y_pred, target_names=['Not Spam', 'Spam']))
 
 print("""
-💡 Understanding the Report:
+ Understanding the Report:
 
 Precision: "When we predict this class, how often are we right?"
 Recall: "Of all actual instances of this class, how many did we find?"
@@ -378,11 +378,11 @@ For imbalanced data: Focus on weighted average!
 # ============================================================
 # PART 8: Regression Metrics
 # ============================================================
-print("\n\n📌 PART 8: Regression Metrics (Predicting Numbers)")
+print("\n\n PART 8: Regression Metrics (Predicting Numbers)")
 print("-" * 70)
 
 print("""
-📊 Regression Metrics:
+ Regression Metrics:
 
 When predicting continuous values (house prices, temperature, etc.),
 we use different metrics!
@@ -409,28 +409,28 @@ rmse = np.sqrt(mse)
 r2 = r2_score(y_test_reg, y_pred_reg)
 
 print(f"""
-🎯 Mean Absolute Error (MAE):
+ Mean Absolute Error (MAE):
    Formula: (1/n) × Σ|actual - predicted|
    Meaning: Average absolute difference
    Units: Same as target variable
    Value: {mae:.2f}
-   💡 On average, predictions are off by {mae:.2f} units
+    On average, predictions are off by {mae:.2f} units
 
-📐 Mean Squared Error (MSE):
+ Mean Squared Error (MSE):
    Formula: (1/n) × Σ(actual - predicted)²
    Meaning: Average squared difference
    Units: Squared target units
    Value: {mse:.2f}
-   💡 Penalizes large errors more than MAE
+    Penalizes large errors more than MAE
 
-📏 Root Mean Squared Error (RMSE):
+ Root Mean Squared Error (RMSE):
    Formula: √MSE
    Meaning: Square root of MSE (back to original units)
    Units: Same as target variable
    Value: {rmse:.2f}
-   💡 Standard deviation of prediction errors
+    Standard deviation of prediction errors
 
-🎯 R² Score (Coefficient of Determination):
+ R² Score (Coefficient of Determination):
    Formula: 1 - (SS_residual / SS_total)
    Range: -∞ to 1.0
    Value: {r2:.4f}
@@ -438,7 +438,7 @@ print(f"""
    - 1.0 = Perfect predictions
    - 0.0 = No better than predicting the mean
    - Negative = Worse than predicting the mean!
-   💡 Our model explains {r2*100:.1f}% of the variance
+    Our model explains {r2*100:.1f}% of the variance
 """)
 
 # Visualize predictions
@@ -453,8 +453,8 @@ plt.title(f'Regression Predictions (R² = {r2:.3f})', fontsize=14, fontweight='b
 plt.legend(fontsize=11)
 plt.grid(True, alpha=0.3)
 plt.tight_layout()
-plt.savefig('D:/Language Learning/AI ML/Learning-ML-AI/Phase 3 - Machine Learning/eval_regression_scatter.png', dpi=150)
-print("\n✓ Saved plot: eval_regression_scatter.png")
+plt.savefig('eval_regression_scatter.png', dpi=150)
+print("\n Saved plot: eval_regression_scatter.png")
 
 # Residual plot
 residuals = y_test_reg - y_pred_reg
@@ -466,19 +466,19 @@ plt.ylabel('Residuals (Actual - Predicted)', fontsize=12)
 plt.title('Residual Plot - Check for Patterns', fontsize=14, fontweight='bold')
 plt.grid(True, alpha=0.3)
 plt.tight_layout()
-plt.savefig('D:/Language Learning/AI ML/Learning-ML-AI/Phase 3 - Machine Learning/eval_residual_plot.png', dpi=150)
-print("✓ Saved plot: eval_residual_plot.png")
+plt.savefig('eval_residual_plot.png', dpi=150)
+print(" Saved plot: eval_residual_plot.png")
 print("  Good model: Residuals randomly scattered around zero")
 print("  Bad model: Patterns in residuals (curved, fanning out)")
 
 # ============================================================
 # PART 9: Learning Curves - Diagnosing Overfitting/Underfitting
 # ============================================================
-print("\n\n📌 PART 9: Learning Curves - Diagnosing Your Model")
+print("\n\n PART 9: Learning Curves - Diagnosing Your Model")
 print("-" * 70)
 
 print("""
-📚 Learning Curves: Train vs Validation Score as Dataset Size Increases
+ Learning Curves: Train vs Validation Score as Dataset Size Increases
 
 Use to diagnose:
 1. OVERFITTING: Train score >> Val score
@@ -526,21 +526,21 @@ plt.title('Learning Curve - Diagnosing Model Performance', fontsize=14, fontweig
 plt.legend(fontsize=11)
 plt.grid(True, alpha=0.3)
 plt.tight_layout()
-plt.savefig('D:/Language Learning/AI ML/Learning-ML-AI/Phase 3 - Machine Learning/eval_learning_curve.png', dpi=150)
-print("\n✓ Saved plot: eval_learning_curve.png")
+plt.savefig('eval_learning_curve.png', dpi=150)
+print("\n Saved plot: eval_learning_curve.png")
 
 gap = train_mean[-1] - val_mean[-1]
 if gap < 0.05:
-    print(f"  ✓ Good fit! Train and validation scores are close")
+    print(f"   Good fit! Train and validation scores are close")
 elif gap < 0.15:
-    print(f"  ⚠️ Slight overfitting (gap = {gap:.3f})")
+    print(f"  ️ Slight overfitting (gap = {gap:.3f})")
 else:
-    print(f"  ⚠️ Overfitting detected! (gap = {gap:.3f})")
+    print(f"  ️ Overfitting detected! (gap = {gap:.3f})")
 
 # ============================================================
 # WHY THIS MATTERS
 # ============================================================
-print("\n\n🎯 WHY PROPER EVALUATION MATTERS")
+print("\n\n WHY PROPER EVALUATION MATTERS")
 print("=" * 70)
 print("""
 1. AVOID BEING FOOLED:
@@ -568,18 +568,18 @@ print("""
    - Set appropriate expectations
    - Monitor right metrics in production
 
-🔑 KEY TAKEAWAYS:
-   ✓ Accuracy alone is NOT enough (especially for imbalanced data)
-   ✓ Confusion matrix shows all types of errors
-   ✓ Precision: "When I predict positive, how often am I right?"
-   ✓ Recall: "Of all positives, how many did I catch?"
-   ✓ F1-score: Balance between precision and recall
-   ✓ ROC-AUC: Overall discrimination ability
-   ✓ Choose metric based on business cost
-   ✓ Learning curves diagnose overfitting/underfitting
-   ✓ Always evaluate on held-out test set!
+ KEY TAKEAWAYS:
+    Accuracy alone is NOT enough (especially for imbalanced data)
+    Confusion matrix shows all types of errors
+    Precision: "When I predict positive, how often am I right?"
+    Recall: "Of all positives, how many did I catch?"
+    F1-score: Balance between precision and recall
+    ROC-AUC: Overall discrimination ability
+    Choose metric based on business cost
+    Learning curves diagnose overfitting/underfitting
+    Always evaluate on held-out test set!
 
-💡 Which Metric When?
+ Which Metric When?
    - Fraud detection: HIGH RECALL (catch all fraud, even with false alarms)
    - Spam filtering: HIGH PRECISION (avoid marking good emails as spam)
    - Medical diagnosis: HIGH RECALL (don't miss sick patients)
@@ -587,7 +587,7 @@ print("""
    - Imbalanced data: F1-SCORE or ROC-AUC (not accuracy!)
    - Regression: RMSE (penalizes large errors) or MAE (robust to outliers)
 
-🚀 Next Steps:
+ Next Steps:
    - Learn cross-validation (next file!)
    - Practice with real imbalanced datasets
    - Learn about class weights and SMOTE
@@ -595,5 +595,5 @@ print("""
    - Learn about multi-class metrics
 """)
 
-print("\n✅ Model Evaluation Complete!")
+print("\n Model Evaluation Complete!")
 print("Next: feature_engineering.py - Preparing data for better models")

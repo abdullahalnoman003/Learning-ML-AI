@@ -1,5 +1,5 @@
 """
-👥 K-NEAREST NEIGHBORS (KNN) - Learning from Similarity
+ K-NEAREST NEIGHBORS (KNN) - Learning from Similarity
 ========================================================
 
 What is KNN?
@@ -44,11 +44,11 @@ print("=" * 70)
 # ============================================================
 # PART 1: Understanding Distance
 # ============================================================
-print("\n📌 PART 1: Understanding Distance - The Heart of KNN")
+print("\n PART 1: Understanding Distance - The Heart of KNN")
 print("-" * 70)
 
 print("""
-🎯 How do we measure "closeness"?
+ How do we measure "closeness"?
 
 Euclidean Distance (most common):
    d = √[(x₁-x₂)² + (y₁-y₂)²]
@@ -73,7 +73,7 @@ pointC = np.array([1, 3])
 dist_AB = euclidean_distance(pointA, pointB)
 dist_AC = euclidean_distance(pointA, pointC)
 
-print(f"\n📏 Distance Examples:")
+print(f"\n Distance Examples:")
 print(f"   Point A: {pointA}")
 print(f"   Point B: {pointB}")
 print(f"   Point C: {pointC}")
@@ -97,17 +97,17 @@ plt.legend(fontsize=11)
 plt.grid(True, alpha=0.3)
 plt.axis('equal')
 plt.tight_layout()
-plt.savefig('D:/Language Learning/AI ML/Learning-ML-AI/Phase 3 - Machine Learning/knn_distance.png', dpi=150)
-print("\n✓ Saved plot: knn_distance.png")
+plt.savefig('knn_distance.png', dpi=150)
+print("\n Saved plot: knn_distance.png")
 
 # ============================================================
 # PART 2: Creating Classification Dataset
 # ============================================================
-print("\n\n📌 PART 2: Binary Classification with KNN")
+print("\n\n PART 2: Binary Classification with KNN")
 print("-" * 70)
 
 print("""
-🎯 Problem: Classifying Fruits (Apple vs Orange)
+ Problem: Classifying Fruits (Apple vs Orange)
 
 Features:
 - Weight (grams)
@@ -142,9 +142,9 @@ df = pd.DataFrame({
     'Fruit': ['Apple' if label == 0 else 'Orange' for label in labels]
 })
 
-print(f"\n📊 Dataset Overview:")
+print(f"\n Dataset Overview:")
 print(df.head(10))
-print(f"\n📈 Class Distribution:")
+print(f"\n Class Distribution:")
 print(df['Fruit'].value_counts())
 
 # Visualize
@@ -161,13 +161,13 @@ plt.title('Fruit Classification Dataset', fontsize=14, fontweight='bold')
 plt.legend(fontsize=11)
 plt.grid(True, alpha=0.3)
 plt.tight_layout()
-plt.savefig('D:/Language Learning/AI ML/Learning-ML-AI/Phase 3 - Machine Learning/knn_fruit_data.png', dpi=150)
-print("\n✓ Saved plot: knn_fruit_data.png")
+plt.savefig('knn_fruit_data.png', dpi=150)
+print("\n Saved plot: knn_fruit_data.png")
 
 # ============================================================
 # PART 3: Training KNN Classifier
 # ============================================================
-print("\n\n📌 PART 3: Training KNN Classifier")
+print("\n\n PART 3: Training KNN Classifier")
 print("-" * 70)
 
 # Prepare data
@@ -186,21 +186,21 @@ print(f"Test samples: {len(X_test)}")
 k = 5
 knn = KNeighborsClassifier(n_neighbors=k)
 
-print(f"\n🎓 Training KNN with K={k}...")
+print(f"\n Training KNN with K={k}...")
 knn.fit(X_train, y_train)
-print("   Training complete! ✓")
-print("   💡 Actually, KNN doesn't 'train' - it just memorizes the data!")
+print("   Training complete! ")
+print("    Actually, KNN doesn't 'train' - it just memorizes the data!")
 
 # Make predictions
 y_pred = knn.predict(X_test)
 
 # Evaluate
 accuracy = accuracy_score(y_test, y_pred)
-print(f"\n📊 Model Performance:")
+print(f"\n Model Performance:")
 print(f"   Accuracy: {accuracy:.4f} ({accuracy*100:.2f}%)")
 
 # Classification report
-print(f"\n📋 Detailed Classification Report:")
+print(f"\n Detailed Classification Report:")
 print(classification_report(y_test, y_pred, target_names=['Apple', 'Orange']))
 
 # Confusion matrix
@@ -213,19 +213,19 @@ plt.xlabel('Predicted', fontsize=12)
 plt.ylabel('Actual', fontsize=12)
 plt.title(f'Confusion Matrix (K={k})', fontsize=14, fontweight='bold')
 plt.tight_layout()
-plt.savefig('D:/Language Learning/AI ML/Learning-ML-AI/Phase 3 - Machine Learning/knn_confusion_matrix.png', dpi=150)
-print("\n✓ Saved plot: knn_confusion_matrix.png")
+plt.savefig('knn_confusion_matrix.png', dpi=150)
+print("\n Saved plot: knn_confusion_matrix.png")
 
 # ============================================================
 # PART 4: How KNN Makes a Prediction (Visual Example)
 # ============================================================
-print("\n\n📌 PART 4: How KNN Makes a Prediction")
+print("\n\n PART 4: How KNN Makes a Prediction")
 print("-" * 70)
 
 # Pick a new fruit to classify
 new_fruit = np.array([[180, 8.5]])  # Weight: 180g, Diameter: 8.5cm
 
-print(f"\n🍎 New fruit to classify:")
+print(f"\n New fruit to classify:")
 print(f"   Weight: {new_fruit[0][0]} grams")
 print(f"   Diameter: {new_fruit[0][1]} cm")
 
@@ -234,14 +234,14 @@ prediction = knn.predict(new_fruit)
 prediction_proba = knn.predict_proba(new_fruit)
 
 fruit_name = 'Apple' if prediction[0] == 0 else 'Orange'
-print(f"\n🎯 Prediction: {fruit_name}")
+print(f"\n Prediction: {fruit_name}")
 print(f"   Probability of Apple: {prediction_proba[0][0]:.4f}")
 print(f"   Probability of Orange: {prediction_proba[0][1]:.4f}")
 
 # Find the K nearest neighbors
 distances, indices = knn.kneighbors(new_fruit, n_neighbors=k)
 
-print(f"\n👥 The {k} nearest neighbors are:")
+print(f"\n The {k} nearest neighbors are:")
 for i, (dist, idx) in enumerate(zip(distances[0], indices[0])):
     neighbor_weight = X_train[idx][0]
     neighbor_diameter = X_train[idx][1]
@@ -272,8 +272,8 @@ plt.title(f'KNN Prediction: Finding the {k} Nearest Neighbors', fontsize=14, fon
 plt.legend(fontsize=10)
 plt.grid(True, alpha=0.3)
 plt.tight_layout()
-plt.savefig('D:/Language Learning/AI ML/Learning-ML-AI/Phase 3 - Machine Learning/knn_prediction_example.png', dpi=150)
-print("\n✓ Saved plot: knn_prediction_example.png")
+plt.savefig('knn_prediction_example.png', dpi=150)
+print("\n Saved plot: knn_prediction_example.png")
 print("  Green star = new fruit")
 print("  Bright green circles = K nearest neighbors")
 print("  Dashed lines = distances to neighbors")
@@ -281,11 +281,11 @@ print("  Dashed lines = distances to neighbors")
 # ============================================================
 # PART 5: Choosing the Right K
 # ============================================================
-print("\n\n📌 PART 5: Choosing the Right K Value")
+print("\n\n PART 5: Choosing the Right K Value")
 print("-" * 70)
 
 print("""
-🤔 How to choose K?
+ How to choose K?
 
 K=1: Look at only 1 nearest neighbor
 - Very sensitive to noise (outliers)
@@ -307,7 +307,7 @@ k_values = [1, 3, 5, 7, 9, 15, 20, 30]
 train_accuracies = []
 test_accuracies = []
 
-print(f"\n📊 Testing different K values:")
+print(f"\n Testing different K values:")
 print(f"{'K':<6} {'Train Accuracy':<16} {'Test Accuracy':<15} {'Status':<20}")
 print("-" * 70)
 
@@ -323,18 +323,18 @@ for k in k_values:
 
     # Determine status
     if abs(train_acc - test_acc) < 0.05:
-        status = "Good balance ✓"
+        status = "Good balance "
     elif train_acc > test_acc + 0.1:
-        status = "Overfitting ⚠️"
+        status = "Overfitting ️"
     else:
-        status = "Underfitting ⚠️"
+        status = "Underfitting ️"
 
     print(f"{k:<6} {train_acc:<16.4f} {test_acc:<15.4f} {status:<20}")
 
 # Find best K
 best_k_idx = np.argmax(test_accuracies)
 best_k = k_values[best_k_idx]
-print(f"\n🏆 Best K value: {best_k} (Test Accuracy: {test_accuracies[best_k_idx]:.4f})")
+print(f"\n Best K value: {best_k} (Test Accuracy: {test_accuracies[best_k_idx]:.4f})")
 
 # Plot K vs Accuracy
 plt.figure(figsize=(10, 6))
@@ -347,17 +347,17 @@ plt.title('KNN: Effect of K on Accuracy', fontsize=14, fontweight='bold')
 plt.legend(fontsize=11)
 plt.grid(True, alpha=0.3)
 plt.tight_layout()
-plt.savefig('D:/Language Learning/AI ML/Learning-ML-AI/Phase 3 - Machine Learning/knn_k_selection.png', dpi=150)
-print("\n✓ Saved plot: knn_k_selection.png")
+plt.savefig('knn_k_selection.png', dpi=150)
+print("\n Saved plot: knn_k_selection.png")
 
 # ============================================================
 # PART 6: Feature Scaling - CRUCIAL for KNN!
 # ============================================================
-print("\n\n📌 PART 6: Why Feature Scaling is CRUCIAL for KNN")
+print("\n\n PART 6: Why Feature Scaling is CRUCIAL for KNN")
 print("-" * 70)
 
 print("""
-⚠️ THE TRAP: Different Feature Scales!
+ THE TRAP: Different Feature Scales!
 
 Imagine predicting house prices:
 - Feature 1: Bedrooms (range: 1-5)
@@ -400,12 +400,12 @@ knn_scaled = KNeighborsClassifier(n_neighbors=5)
 knn_scaled.fit(X_train_scaled, y_train_s)
 acc_scaled = knn_scaled.score(X_test_scaled, y_test_s)
 
-print(f"\n📊 Impact of Scaling:")
+print(f"\n Impact of Scaling:")
 print(f"   Without scaling: {acc_unscaled:.4f} accuracy")
 print(f"   With scaling: {acc_scaled:.4f} accuracy")
 print(f"   Improvement: {(acc_scaled - acc_unscaled)*100:.1f}%")
 
-print(f"\n🔍 What StandardScaler does:")
+print(f"\n What StandardScaler does:")
 print(f"   Formula: z = (x - mean) / std_dev")
 print(f"   Result: All features have mean=0, std=1")
 print(f"\n   Before scaling:")
@@ -418,7 +418,7 @@ print(f"      Sq Feet: mean={X_train_scaled[:, 1].mean():.4f}, std={X_train_scal
 # ============================================================
 # PART 7: Decision Boundaries
 # ============================================================
-print("\n\n📌 PART 7: Visualizing Decision Boundaries")
+print("\n\n PART 7: Visualizing Decision Boundaries")
 print("-" * 70)
 
 # Create non-linear dataset
@@ -454,8 +454,8 @@ for idx, k in enumerate(k_values_viz):
     axes[idx].grid(True, alpha=0.3)
 
 plt.tight_layout()
-plt.savefig('D:/Language Learning/AI ML/Learning-ML-AI/Phase 3 - Machine Learning/knn_decision_boundaries.png', dpi=150)
-print("\n✓ Saved plot: knn_decision_boundaries.png")
+plt.savefig('knn_decision_boundaries.png', dpi=150)
+print("\n Saved plot: knn_decision_boundaries.png")
 print("  K=1: Very complex boundary (overfitting)")
 print("  K=5: Balanced boundary")
 print("  K=15: Too smooth boundary (underfitting)")
@@ -463,11 +463,11 @@ print("  K=15: Too smooth boundary (underfitting)")
 # ============================================================
 # PART 8: KNN for Regression
 # ============================================================
-print("\n\n📌 PART 8: KNN for Regression (Predicting Continuous Values)")
+print("\n\n PART 8: KNN for Regression (Predicting Continuous Values)")
 print("-" * 70)
 
 print("""
-💡 KNN works for regression too!
+ KNN works for regression too!
 
 Classification: Take majority vote
 Regression: Take average of K neighbors
@@ -499,7 +499,7 @@ y_pred_reg = knn_reg.predict(X_test_reg)
 mse = mean_squared_error(y_test_reg, y_pred_reg)
 r2 = r2_score(y_test_reg, y_pred_reg)
 
-print(f"\n📊 KNN Regression Performance:")
+print(f"\n KNN Regression Performance:")
 print(f"   R² Score: {r2:.4f}")
 print(f"   MSE: {mse:.4f}")
 
@@ -514,13 +514,13 @@ plt.title('KNN Regression', fontsize=14, fontweight='bold')
 plt.legend(fontsize=11)
 plt.grid(True, alpha=0.3)
 plt.tight_layout()
-plt.savefig('D:/Language Learning/AI ML/Learning-ML-AI/Phase 3 - Machine Learning/knn_regression.png', dpi=150)
-print("\n✓ Saved plot: knn_regression.png")
+plt.savefig('knn_regression.png', dpi=150)
+print("\n Saved plot: knn_regression.png")
 
 # ============================================================
 # WHY THIS MATTERS
 # ============================================================
-print("\n\n🎯 WHY KNN MATTERS")
+print("\n\n WHY KNN MATTERS")
 print("=" * 70)
 print("""
 1. SIMPLEST ALGORITHM:
@@ -549,34 +549,34 @@ print("""
    - Missing value imputation
    - Anomaly detection
 
-🔑 KEY TAKEAWAYS:
-   ✓ KNN is "lazy learning" - no training, just memorize
-   ✓ Distance metric is crucial (usually Euclidean)
-   ✓ ALWAYS scale features (different units = wrong distances!)
-   ✓ K value matters: too small = overfitting, too large = underfitting
-   ✓ Odd K values avoid ties in voting
-   ✓ Works for both classification and regression
+ KEY TAKEAWAYS:
+    KNN is "lazy learning" - no training, just memorize
+    Distance metric is crucial (usually Euclidean)
+    ALWAYS scale features (different units = wrong distances!)
+    K value matters: too small = overfitting, too large = underfitting
+    Odd K values avoid ties in voting
+    Works for both classification and regression
 
-⚠️ LIMITATIONS:
+ LIMITATIONS:
    - SLOW for large datasets (must calculate distance to ALL points!)
    - Memory intensive (stores entire training set)
    - Sensitive to irrelevant features
    - Suffers from "curse of dimensionality" (too many features)
    - Needs feature scaling
 
-💡 When to use KNN:
-   ✓ Small to medium datasets
-   ✓ Non-linear patterns
-   ✓ Need interpretable results
-   ✗ Large datasets (use tree-based models instead)
-   ✗ Many features (use dimensionality reduction first)
+ When to use KNN:
+    Small to medium datasets
+    Non-linear patterns
+    Need interpretable results
+    Large datasets (use tree-based models instead)
+    Many features (use dimensionality reduction first)
 
-🚀 Next Steps:
+ Next Steps:
    - Learn Decision Trees (better for large datasets)
    - Learn about curse of dimensionality
    - Try different distance metrics (Manhattan, Minkowski)
    - Learn dimensionality reduction (PCA) for high-dimensional data
 """)
 
-print("\n✅ K-Nearest Neighbors Complete!")
+print("\n K-Nearest Neighbors Complete!")
 print("Next: decision_tree.py - Learning tree-based models")
