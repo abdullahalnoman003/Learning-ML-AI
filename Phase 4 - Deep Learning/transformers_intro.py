@@ -1,5 +1,5 @@
 """
-🚀 TRANSFORMERS - The Revolution in Deep Learning
+ TRANSFORMERS - The Revolution in Deep Learning
 ==================================================
 
 What are Transformers?
@@ -68,10 +68,10 @@ try:
     try:
         from transformers import pipeline, AutoTokenizer, TFAutoModel
         HAS_TRANSFORMERS = True
-        print("✅ Hugging Face Transformers library available")
+        print(" Hugging Face Transformers library available")
     except ImportError:
         HAS_TRANSFORMERS = False
-        print("⚠️  Hugging Face Transformers not installed (optional)")
+        print("️  Hugging Face Transformers not installed (optional)")
         print("   Install: pip install transformers")
 
 except ImportError:
@@ -81,7 +81,7 @@ except ImportError:
 # ============================================================
 # PART 1: Understanding Attention
 # ============================================================
-print("\n📌 PART 1: Understanding the Attention Mechanism")
+print("\n PART 1: Understanding the Attention Mechanism")
 print("-" * 80)
 
 print("""
@@ -112,7 +112,7 @@ Think of it like a database:
 """)
 
 # Simple attention example
-print("\n🔹 Simple Attention Calculation:")
+print("\n Simple Attention Calculation:")
 
 # Toy example: 3 words with 4-dim embeddings
 word_embeddings = np.array([
@@ -133,7 +133,7 @@ query = word_embeddings[2]  # "sat"
 keys = word_embeddings
 values = word_embeddings
 
-print(f"\n🔹 Computing attention for 'sat':")
+print(f"\n Computing attention for 'sat':")
 print(f"  Query (sat): {query}")
 
 # Compute attention scores (dot product)
@@ -151,7 +151,7 @@ for word, weight in zip(words, attention_weights):
 # Compute weighted sum of values
 context_vector = np.sum(attention_weights[:, np.newaxis] * values, axis=0)
 print(f"\n  Context vector for 'sat': {context_vector}")
-print(f"  💡 This captures relevant information from all words!")
+print(f"   This captures relevant information from all words!")
 
 # Visualize attention
 fig, ax = plt.subplots(figsize=(8, 6))
@@ -169,13 +169,13 @@ for i, (word, weight) in enumerate(zip(words, attention_weights)):
 
 plt.colorbar(im, ax=ax, label='Attention Weight')
 plt.tight_layout()
-plt.savefig('/d/Language Learning/AI ML/Learning-ML-AI/Phase 4 - Deep Learning/attention_weights.png', dpi=150)
-print("\n✓ Saved visualization: attention_weights.png")
+plt.savefig('attention_weights.png', dpi=150)
+print("\n Saved visualization: attention_weights.png")
 
 # ============================================================
 # PART 2: Multi-Head Attention
 # ============================================================
-print("\n\n📌 PART 2: Multi-Head Attention")
+print("\n\n PART 2: Multi-Head Attention")
 print("-" * 80)
 
 print("""
@@ -200,7 +200,7 @@ Multi-Head Attention:
 
 # Demonstrate multi-head concept
 num_heads = 4
-print(f"\n🔹 Multi-Head Attention with {num_heads} heads:")
+print(f"\n Multi-Head Attention with {num_heads} heads:")
 
 # Simulate different attention patterns for different heads
 np.random.seed(42)
@@ -232,14 +232,14 @@ for i, (ax, pattern) in enumerate(zip(axes, multi_head_patterns)):
 
 plt.suptitle('Multi-Head Attention - Each Head Learns Different Patterns', fontsize=14, fontweight='bold', y=1.02)
 plt.tight_layout()
-plt.savefig('/d/Language Learning/AI ML/Learning-ML-AI/Phase 4 - Deep Learning/multi_head_attention.png', dpi=150)
-print("✓ Saved visualization: multi_head_attention.png")
-print(f"  💡 {num_heads} different heads = {num_heads} different perspectives!")
+plt.savefig('multi_head_attention.png', dpi=150)
+print(" Saved visualization: multi_head_attention.png")
+print(f"   {num_heads} different heads = {num_heads} different perspectives!")
 
 # ============================================================
 # PART 3: Transformer Architecture
 # ============================================================
-print("\n\n📌 PART 3: Complete Transformer Architecture")
+print("\n\n PART 3: Complete Transformer Architecture")
 print("-" * 80)
 
 print("""
@@ -285,7 +285,7 @@ Key Components:
 """)
 
 # Visualize architecture
-print("\n🔹 Transformer Block Structure:")
+print("\n Transformer Block Structure:")
 
 fig, ax = plt.subplots(figsize=(10, 12))
 ax.set_xlim(0, 10)
@@ -325,13 +325,13 @@ ax.set_title('Transformer Encoder Block', fontsize=16, fontweight='bold')
 ax.legend(loc='upper right', fontsize=11)
 
 plt.tight_layout()
-plt.savefig('/d/Language Learning/AI ML/Learning-ML-AI/Phase 4 - Deep Learning/transformer_architecture.png', dpi=150)
-print("✓ Saved visualization: transformer_architecture.png")
+plt.savefig('transformer_architecture.png', dpi=150)
+print(" Saved visualization: transformer_architecture.png")
 
 # ============================================================
 # PART 4: Positional Encoding
 # ============================================================
-print("\n\n📌 PART 4: Positional Encoding")
+print("\n\n PART 4: Positional Encoding")
 print("-" * 80)
 
 print("""
@@ -349,10 +349,10 @@ Where:
 - d_model = embedding dimension
 
 Properties:
-✓ Unique for each position
-✓ Consistent across sequences
-✓ Captures relative positions
-✓ Smooth and continuous
+ Unique for each position
+ Consistent across sequences
+ Captures relative positions
+ Smooth and continuous
 """)
 
 def get_positional_encoding(seq_len, d_model):
@@ -382,20 +382,20 @@ plt.ylabel('Position in Sequence', fontsize=12)
 plt.title('Positional Encoding Matrix', fontsize=14, fontweight='bold')
 plt.colorbar(label='Value')
 plt.tight_layout()
-plt.savefig('/d/Language Learning/AI ML/Learning-ML-AI/Phase 4 - Deep Learning/positional_encoding.png', dpi=150)
-print("\n✓ Saved visualization: positional_encoding.png")
-print("  💡 Each position has a unique pattern!")
+plt.savefig('positional_encoding.png', dpi=150)
+print("\n Saved visualization: positional_encoding.png")
+print("   Each position has a unique pattern!")
 print("  Sine/cosine waves at different frequencies")
 
 # ============================================================
 # PART 5: Using Pre-trained Transformers
 # ============================================================
-print("\n\n📌 PART 5: Using Pre-trained Transformers with Hugging Face")
+print("\n\n PART 5: Using Pre-trained Transformers with Hugging Face")
 print("-" * 80)
 
 if HAS_TRANSFORMERS:
     print("""
-Hugging Face 🤗 Transformers:
+Hugging Face  Transformers:
 - Thousands of pre-trained models
 - Easy to use API
 - State-of-the-art performance
@@ -409,7 +409,7 @@ Popular models:
 - DistilBERT: Faster, smaller BERT
 """)
 
-    print("\n🔹 Example 1: Sentiment Analysis")
+    print("\n Example 1: Sentiment Analysis")
     print("  Loading pre-trained sentiment analysis model...")
 
     try:
@@ -429,9 +429,9 @@ Popular models:
             print(f"      → {result['label']} (confidence: {result['score']*100:.1f}%)")
 
     except Exception as e:
-        print(f"  ⚠️  Error: {e}")
+        print(f"  ️  Error: {e}")
 
-    print("\n\n🔹 Example 2: Text Generation")
+    print("\n\n Example 2: Text Generation")
     print("  Loading GPT-2 for text generation...")
 
     try:
@@ -446,9 +446,9 @@ Popular models:
         print(f"    {result['generated_text']}")
 
     except Exception as e:
-        print(f"  ⚠️  Error: {e}")
+        print(f"  ️  Error: {e}")
 
-    print("\n\n🔹 Example 3: Question Answering")
+    print("\n\n Example 3: Question Answering")
     print("  Loading BERT for question answering...")
 
     try:
@@ -471,9 +471,9 @@ Popular models:
         print(f"  Confidence: {result['score']*100:.1f}%")
 
     except Exception as e:
-        print(f"  ⚠️  Error: {e}")
+        print(f"  ️  Error: {e}")
 
-    print("\n\n🔹 Example 4: Named Entity Recognition")
+    print("\n\n Example 4: Named Entity Recognition")
     print("  Loading NER model...")
 
     try:
@@ -489,7 +489,7 @@ Popular models:
             print(f"    {entity['word']}: {entity['entity_group']} (score: {entity['score']:.2f})")
 
     except Exception as e:
-        print(f"  ⚠️  Error: {e}")
+        print(f"  ️  Error: {e}")
 
 else:
     print("""
@@ -506,7 +506,7 @@ Then you can use thousands of pre-trained models:
 # ============================================================
 # PART 6: Building a Simple Transformer
 # ============================================================
-print("\n\n📌 PART 6: Building a Simple Transformer with Keras")
+print("\n\n PART 6: Building a Simple Transformer with Keras")
 print("-" * 80)
 
 print("""
@@ -554,7 +554,7 @@ embed_dim = 32
 num_heads = 2
 ff_dim = 32
 
-print(f"\n🔹 Building Transformer Model:")
+print(f"\n Building Transformer Model:")
 print(f"  Vocabulary size: {vocab_size}")
 print(f"  Max sequence length: {max_length}")
 print(f"  Embedding dimension: {embed_dim}")
@@ -571,25 +571,25 @@ outputs = keras.layers.Dense(2, activation="softmax")(x)
 
 transformer_model = keras.Model(inputs=inputs, outputs=outputs)
 
-print("\n✅ Transformer Model:")
+print("\n Transformer Model:")
 transformer_model.summary()
 
 print("""
   Key features:
-  ✓ Multi-head attention (parallel attention patterns)
-  ✓ Residual connections (help gradient flow)
-  ✓ Layer normalization (stabilize training)
-  ✓ Position-wise feed-forward (process each position)
+   Multi-head attention (parallel attention patterns)
+   Residual connections (help gradient flow)
+   Layer normalization (stabilize training)
+   Position-wise feed-forward (process each position)
 """)
 
 # ============================================================
 # PART 7: Transformer Variants
 # ============================================================
-print("\n\n📌 PART 7: Famous Transformer Models")
+print("\n\n PART 7: Famous Transformer Models")
 print("-" * 80)
 
 print("""
-🏆 Transformer Family Tree:
+ Transformer Family Tree:
 
 2017: TRANSFORMER (Original)
   ↓
@@ -693,13 +693,13 @@ ax.grid(True, alpha=0.3)
 ax.set_xlim(2016.5, 2024)
 ax.set_ylim(0, 6)
 plt.tight_layout()
-plt.savefig('/d/Language Learning/AI ML/Learning-ML-AI/Phase 4 - Deep Learning/transformers_timeline.png', dpi=150)
-print("\n✓ Saved visualization: transformers_timeline.png")
+plt.savefig('transformers_timeline.png', dpi=150)
+print("\n Saved visualization: transformers_timeline.png")
 
 # ============================================================
 # WHY THIS MATTERS
 # ============================================================
-print("\n\n🎯 WHY TRANSFORMERS MATTER")
+print("\n\n WHY TRANSFORMERS MATTER")
 print("=" * 80)
 print("""
 1. REVOLUTIONIZED AI:
@@ -709,11 +709,11 @@ print("""
    - Multimodal (text, images, audio)
 
 2. KEY INNOVATIONS:
-   ✓ Attention mechanism (focus on relevant parts)
-   ✓ Parallel processing (fast training!)
-   ✓ Scalability (works with 100M-100B+ parameters)
-   ✓ Transfer learning (pre-train once, fine-tune anywhere)
-   ✓ Long-range dependencies (no vanishing gradients)
+    Attention mechanism (focus on relevant parts)
+    Parallel processing (fast training!)
+    Scalability (works with 100M-100B+ parameters)
+    Transfer learning (pre-train once, fine-tune anywhere)
+    Long-range dependencies (no vanishing gradients)
 
 3. ADVANTAGES OVER RNNs:
    RNN/LSTM                    Transformer
@@ -733,7 +733,7 @@ print("""
    - Drug discovery: MolGPT
 
 5. APPLICATIONS:
-   📝 NLP:
+    NLP:
    - Text classification
    - Sentiment analysis
    - Named entity recognition
@@ -742,27 +742,27 @@ print("""
    - Translation
    - Summarization
 
-   🖼️  Vision:
+   ️  Vision:
    - Image classification (ViT)
    - Object detection (DETR)
    - Image generation (DALL-E)
 
-   🎵 Audio:
+    Audio:
    - Speech recognition
    - Music generation
    - Audio synthesis
 
-   🧬 Science:
+    Science:
    - Protein structure (AlphaFold)
    - Molecule generation
    - Drug discovery
 
-   🎮 Other:
+    Other:
    - Recommendation systems
    - Time series forecasting
    - Reinforcement learning (Decision Transformer)
 
-📊 Performance Comparison:
+ Performance Comparison:
 
 Task: Text Classification
   Naive Bayes: ~75% accuracy
@@ -778,7 +778,7 @@ Task: Machine Translation
   LSTM: BLEU ~38
   Transformer: BLEU ~41+
 
-🔑 Key Insights:
+ Key Insights:
 
    1. Attention > Sequential Processing
       - See all tokens at once
@@ -800,12 +800,12 @@ Task: Machine Translation
       - GPT-4: Text + Images
       - Future: Text + Image + Audio + Video
 
-💡 Best Practices:
+ Best Practices:
 
    1. START WITH PRE-TRAINED:
-      ✓ Use Hugging Face models
-      ✓ Fine-tune for your task
-      ✓ Don't train from scratch!
+       Use Hugging Face models
+       Fine-tune for your task
+       Don't train from scratch!
 
    2. CHOOSE RIGHT MODEL:
       - Classification: BERT, RoBERTa
@@ -824,7 +824,7 @@ Task: Machine Translation
       - Few-shot examples
       - Chain-of-thought prompting
 
-🚀 What's Next?
+ What's Next?
 
    CURRENT TRENDS:
    - Larger models (GPT-4, PaLM-2)
@@ -846,7 +846,7 @@ Task: Machine Translation
    - Papers with Code
    - "Attention Is All You Need" paper
 
-💡 Remember:
+ Remember:
    "Transformers are not just for NLP anymore!"
 
    Originally for translation, now used for:
@@ -859,43 +859,43 @@ Task: Machine Translation
 
    The attention mechanism is universal!
 
-🎓 You've completed the Deep Learning Journey!
+ You've completed the Deep Learning Journey!
    From basic neural networks to transformers,
    you now understand the foundation of modern AI!
 
    The principles you learned:
-   ✓ Forward pass & backpropagation
-   ✓ CNNs for images
-   ✓ RNNs for sequences
-   ✓ Transfer learning
-   ✓ Attention mechanism
-   ✓ Transformers
+    Forward pass & backpropagation
+    CNNs for images
+    RNNs for sequences
+    Transfer learning
+    Attention mechanism
+    Transformers
 
    These power everything from ChatGPT to self-driving cars!
 
 """)
 
 print("\n" + "=" * 80)
-print("🎉 CONGRATULATIONS! Phase 4 - Deep Learning Complete!")
+print(" CONGRATULATIONS! Phase 4 - Deep Learning Complete!")
 print("=" * 80)
 print("""
 You've mastered:
-  ✅ Neural networks from scratch
-  ✅ Backpropagation mathematics
-  ✅ TensorFlow & Keras
-  ✅ CNNs for computer vision
-  ✅ RNNs for sequences
-  ✅ Transfer learning
-  ✅ NLP fundamentals
-  ✅ Transformers (state-of-the-art!)
+   Neural networks from scratch
+   Backpropagation mathematics
+   TensorFlow & Keras
+   CNNs for computer vision
+   RNNs for sequences
+   Transfer learning
+   NLP fundamentals
+   Transformers (state-of-the-art!)
 
 Next steps:
-  🚀 Build projects with real data
-  🚀 Explore Hugging Face models
-  🚀 Learn PyTorch (alternative to TensorFlow)
-  🚀 Study research papers
-  🚀 Contribute to open-source
-  🚀 Build your own AI applications!
+   Build projects with real data
+   Explore Hugging Face models
+   Learn PyTorch (alternative to TensorFlow)
+   Study research papers
+   Contribute to open-source
+   Build your own AI applications!
 
-The future of AI is in your hands! 🌟
+The future of AI is in your hands! 
 """)

@@ -1,5 +1,5 @@
 """
-🔄 BACKPROPAGATION EXPLAINED - The Heart of Deep Learning
+ BACKPROPAGATION EXPLAINED - The Heart of Deep Learning
 ==========================================================
 
 What is Backpropagation?
@@ -47,7 +47,7 @@ print("=" * 80)
 # ============================================================
 # PART 1: Simple Example - One Neuron
 # ============================================================
-print("\n📌 PART 1: Backpropagation with ONE Neuron")
+print("\n PART 1: Backpropagation with ONE Neuron")
 print("-" * 80)
 
 print("""
@@ -113,7 +113,7 @@ print(f"        → This tells us: 'How does z change when weight changes?'")
 
 # Chain them together!
 dLoss_dw = dLoss_da * da_dz * dz_dw
-print(f"\n🎯 Final: dLoss/dw = dLoss/da × da/dz × dz/dw")
+print(f"\n Final: dLoss/dw = dLoss/da × da/dz × dz/dw")
 print(f"                    = {dLoss_da:.4f} × {da_dz:.4f} × {dz_dw}")
 print(f"                    = {dLoss_dw:.4f}")
 
@@ -128,7 +128,7 @@ learning_rate = 0.1
 w_new = w - learning_rate * dLoss_dw
 b_new = b - learning_rate * dLoss_db
 
-print(f"\n\n📊 Gradient Descent Update:")
+print(f"\n\n Gradient Descent Update:")
 print(f"  Old weight: w = {w}")
 print(f"  Gradient: dLoss/dw = {dLoss_dw:.4f}")
 print(f"  New weight: w = {w} - {learning_rate} × {dLoss_dw:.4f} = {w_new:.4f}")
@@ -141,16 +141,16 @@ z_new = w_new * x + b_new
 a_new = 1 / (1 + np.exp(-z_new))
 loss_new = (a_new - y_true) ** 2
 
-print(f"\n✅ Verification:")
+print(f"\n Verification:")
 print(f"  Old loss: {loss:.6f}")
 print(f"  New loss: {loss_new:.6f}")
 print(f"  Improvement: {loss - loss_new:.6f}")
-print(f"  Loss decreased! We moved in the right direction! 🎉")
+print(f"  Loss decreased! We moved in the right direction! ")
 
 # ============================================================
 # PART 2: Two-Layer Network
 # ============================================================
-print("\n\n📌 PART 2: Backpropagation with TWO Layers")
+print("\n\n PART 2: Backpropagation with TWO Layers")
 print("-" * 80)
 
 print("""
@@ -192,7 +192,7 @@ print(f"  W1: {W1.shape}, b1: {b1.shape}")
 print(f"  W2: {W2.shape}, b2: {b2.shape}")
 
 # Forward pass
-print(f"\n\n🎯 FORWARD PASS:")
+print(f"\n\n FORWARD PASS:")
 print(f"-" * 80)
 
 z1 = np.dot(x_input.T, W1) + b1
@@ -211,7 +211,7 @@ loss = (a2 - y_target) ** 2
 print(f"\nLoss = (a2 - y_target)² = {loss[0][0]:.6f}")
 
 # Backward pass
-print(f"\n\n🔄 BACKWARD PASS (Backpropagation):")
+print(f"\n\n BACKWARD PASS (Backpropagation):")
 print(f"-" * 80)
 
 print(f"\nStep 1: Output Layer Gradients")
@@ -254,13 +254,13 @@ dLoss_db1 = np.sum(dLoss_dz1, axis=0, keepdims=True)
 print(f"\n  dLoss/dW1 = xᵀ · dLoss/dz1")
 print(f"  dLoss/db1 = sum(dLoss/dz1)")
 
-print(f"\n✅ All gradients calculated!")
+print(f"\n All gradients calculated!")
 print(f"   We can now update ALL weights using gradient descent!")
 
 # ============================================================
 # PART 3: Visual Representation
 # ============================================================
-print("\n\n📌 PART 3: Visualizing Backpropagation")
+print("\n\n PART 3: Visualizing Backpropagation")
 print("-" * 80)
 
 fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(14, 12))
@@ -351,14 +351,14 @@ ax2.text(1, 0.5, '3. Update weights: W = W - α·∂L/∂W', fontsize=12,
          bbox=dict(boxstyle='round', facecolor='lightgreen', alpha=0.7))
 
 plt.tight_layout()
-plt.savefig('/d/Language Learning/AI ML/Learning-ML-AI/Phase 4 - Deep Learning/backprop_visualization.png', dpi=150)
-print("✓ Saved visualization: backprop_visualization.png")
+plt.savefig('backprop_visualization.png', dpi=150)
+print(" Saved visualization: backprop_visualization.png")
 print("  Shows how data flows forward and gradients flow backward!")
 
 # ============================================================
 # PART 4: Computational Graph
 # ============================================================
-print("\n\n📌 PART 4: Computational Graph")
+print("\n\n PART 4: Computational Graph")
 print("-" * 80)
 
 print("""
@@ -436,14 +436,14 @@ ax.text(5, 0.5, 'Backward Pass (red arrows): Calculate gradients', fontsize=12,
         bbox=dict(boxstyle='round', facecolor='lightcoral', alpha=0.7))
 
 plt.tight_layout()
-plt.savefig('/d/Language Learning/AI ML/Learning-ML-AI/Phase 4 - Deep Learning/computational_graph.png', dpi=150)
-print("✓ Saved visualization: computational_graph.png")
+plt.savefig('computational_graph.png', dpi=150)
+print(" Saved visualization: computational_graph.png")
 print("  Blue arrows = forward pass, Red arrows = backward pass!")
 
 # ============================================================
 # PART 5: Gradient Flow Animation (Simulated)
 # ============================================================
-print("\n\n📌 PART 5: Understanding Gradient Magnitudes")
+print("\n\n PART 5: Understanding Gradient Magnitudes")
 print("-" * 80)
 
 print("""
@@ -482,15 +482,15 @@ plt.grid(True, alpha=0.3)
 plt.axhline(y=0.001, color='orange', linestyle='--', linewidth=2, label='Too small to learn!')
 plt.legend(fontsize=11)
 plt.tight_layout()
-plt.savefig('/d/Language Learning/AI ML/Learning-ML-AI/Phase 4 - Deep Learning/vanishing_gradients.png', dpi=150)
-print("✓ Saved visualization: vanishing_gradients.png")
+plt.savefig('vanishing_gradients.png', dpi=150)
+print(" Saved visualization: vanishing_gradients.png")
 print("  Shows why deep networks with sigmoid are hard to train!")
 print("  Gradients shrink exponentially as we go deeper!")
 
 # ============================================================
 # PART 6: Practical Example - Training Loop
 # ============================================================
-print("\n\n📌 PART 6: Complete Training Loop with Backpropagation")
+print("\n\n PART 6: Complete Training Loop with Backpropagation")
 print("-" * 80)
 
 # Simple dataset
@@ -552,8 +552,8 @@ for epoch in range(epochs):
         accuracy = np.mean(predictions == y_train) * 100
         print(f"  Epoch {epoch:5d}: Loss = {loss:.6f}, Accuracy = {accuracy:.0f}%")
 
-print("\n✅ Training complete!")
-print("\n🧪 Final predictions:")
+print("\n Training complete!")
+print("\n Final predictions:")
 for i in range(len(X_train)):
     print(f"  Input: {X_train[i]} → Predicted: {(a2[i][0] > 0.5)*1} (prob: {a2[i][0]:.4f}) | Actual: {y_train[i][0]}")
 
@@ -566,13 +566,13 @@ plt.title('Learning Curve - Backpropagation in Action!', fontsize=14, fontweight
 plt.grid(True, alpha=0.3)
 plt.yscale('log')
 plt.tight_layout()
-plt.savefig('/d/Language Learning/AI ML/Learning-ML-AI/Phase 4 - Deep Learning/backprop_training.png', dpi=150)
-print("\n✓ Saved visualization: backprop_training.png")
+plt.savefig('backprop_training.png', dpi=150)
+print("\n Saved visualization: backprop_training.png")
 
 # ============================================================
 # WHY THIS MATTERS
 # ============================================================
-print("\n\n🎯 WHY UNDERSTANDING BACKPROPAGATION MATTERS")
+print("\n\n WHY UNDERSTANDING BACKPROPAGATION MATTERS")
 print("=" * 80)
 print("""
 1. THE CORE OF ALL DEEP LEARNING:
@@ -600,7 +600,7 @@ print("""
    - They calculate gradients for you!
    - But now you understand HOW they do it
 
-🔍 Key Insights:
+ Key Insights:
 
    ∂Loss/∂w = How much does loss change when weight changes?
 
@@ -609,7 +609,7 @@ print("""
    Chain rule lets us efficiently calculate all gradients
    in one backward pass through the network.
 
-💡 The Algorithm (Simplified):
+ The Algorithm (Simplified):
 
    1. Forward pass: Calculate outputs
    2. Calculate loss
@@ -620,18 +620,18 @@ print("""
    4. Update all weights using gradients
    5. Repeat!
 
-🚀 What's Next?
+ What's Next?
    - Use automatic differentiation (PyTorch/TensorFlow)
    - Understand different optimizers (SGD, Adam, RMSprop)
    - Learn about batch normalization
    - Study advanced architectures (ResNet, attention)
 
-🎓 Remember:
+ Remember:
    "Backpropagation is not a panacea, but it's the best hammer we have,
     and everything looks like a nail once you have it."
 
    Understanding it deeply makes you a better deep learning engineer!
 """)
 
-print("\n✅ Backpropagation Deep Dive Complete!")
+print("\n Backpropagation Deep Dive Complete!")
 print("Next: tensorflow_basics.py - Using professional deep learning frameworks")

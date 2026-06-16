@@ -1,5 +1,8 @@
 """
-🖼️ CONVOLUTIONAL NEURAL NETWORKS (CNN) - Deep Learning for Images
+NOTE: IF YOU HAVE PYTHON VERSION GRETER THEN 3.12 THEN USE THIS METHOD BECAUSE TENSORFLOW DOSENT SUPPORT ON LATEST VERSION OF PYTHON
+
+️ CONVOLUTIONAL NEURAL NETWORKS (CNN) - Deep Learning for Images
+
 ===================================================================
 
 What is a CNN?
@@ -55,7 +58,7 @@ except ImportError:
 # ============================================================
 # PART 1: Understanding Convolution
 # ============================================================
-print("\n📌 PART 1: Understanding Convolution Operation")
+print("\n PART 1: Understanding Convolution Operation")
 print("-" * 80)
 
 print("""
@@ -91,7 +94,7 @@ print("\nEdge Detection Filter:")
 print(edge_filter)
 
 # Manual convolution (simplified - one position)
-print("\n🔹 Manual Convolution Example:")
+print("\n Manual Convolution Example:")
 print("  Placing filter at position (1, 1):")
 
 # Extract 3x3 patch
@@ -102,7 +105,7 @@ print(f"\n  Image patch:\n{patch.astype(int)}")
 result = np.sum(patch * edge_filter)
 print(f"\n  Filter:\n{edge_filter}")
 print(f"\n  Element-wise multiply and sum: {result}")
-print(f"  ✓ This value indicates edge strength!")
+print(f"   This value indicates edge strength!")
 
 # Visualize
 fig, axes = plt.subplots(1, 3, figsize=(15, 4))
@@ -124,14 +127,14 @@ axes[2].set_title('After Convolution\n(Edges Detected!)', fontsize=12, fontweigh
 axes[2].axis('off')
 
 plt.tight_layout()
-plt.savefig('/d/Language Learning/AI ML/Learning-ML-AI/Phase 4 - Deep Learning/convolution_example.png', dpi=150)
-print("\n✓ Saved visualization: convolution_example.png")
+plt.savefig('convolution_example.png', dpi=150)
+print("\n Saved visualization: convolution_example.png")
 print("  The bright pixels show where edges were detected!")
 
 # ============================================================
 # PART 2: CNN Layer Types
 # ============================================================
-print("\n\n📌 PART 2: CNN Layer Types")
+print("\n\n PART 2: CNN Layer Types")
 print("-" * 80)
 
 print("""
@@ -164,7 +167,7 @@ print("""
 """)
 
 # Demonstrate pooling
-print("\n🔹 Max Pooling Example:")
+print("\n Max Pooling Example:")
 example_map = np.array([[1, 3, 2, 4],
                         [5, 6, 7, 8],
                         [9, 2, 3, 1],
@@ -178,21 +181,21 @@ pooled = tf.nn.max_pool2d(example_map.reshape(1, 4, 4, 1).astype(np.float32),
                           ksize=2, strides=2, padding='VALID')
 print(pooled[0, :, :, 0].numpy().astype(int))
 print("  Size reduced from 4×4 to 2×2!")
-print("  ✓ Keeps important features, reduces computation")
+print("   Keeps important features, reduces computation")
 
 # ============================================================
 # PART 3: Loading MNIST Data
 # ============================================================
-print("\n\n📌 PART 3: Loading and Preparing Data")
+print("\n\n PART 3: Loading and Preparing Data")
 print("-" * 80)
 
 (X_train, y_train), (X_test, y_test) = keras.datasets.mnist.load_data()
-print(f"✅ MNIST data loaded")
+print(f" MNIST data loaded")
 print(f"   Training: {X_train.shape}")
 print(f"   Test: {X_test.shape}")
 
 # Preprocess for CNN
-print("\n🔹 Preprocessing for CNN:")
+print("\n Preprocessing for CNN:")
 
 # Reshape to add channel dimension
 X_train_cnn = X_train.reshape(-1, 28, 28, 1).astype('float32') / 255.0
@@ -211,7 +214,7 @@ print(f"\n  Labels one-hot encoded: {y_train_cnn.shape}")
 # ============================================================
 # PART 4: Building a CNN
 # ============================================================
-print("\n\n📌 PART 4: Building Our First CNN")
+print("\n\n PART 4: Building Our First CNN")
 print("-" * 80)
 
 print("""
@@ -258,10 +261,10 @@ cnn_model = keras.Sequential([
     keras.layers.Dense(10, activation='softmax', name='output')
 ])
 
-print("\n✅ CNN Model Architecture:")
+print("\n CNN Model Architecture:")
 cnn_model.summary()
 
-print("\n📊 Size transformations through network:")
+print("\n Size transformations through network:")
 print("  Input:        (28, 28, 1)")
 print("  After Conv1:  (26, 26, 32)  [3×3 filter reduces size]")
 print("  After Pool1:  (13, 13, 32)  [2×2 pooling halves size]")
@@ -271,13 +274,13 @@ print("  After Flatten: (1600,)      [5×5×64 = 1600]")
 print("  After Dense:  (128,)")
 print("  Output:       (10,)         [10 classes]")
 
-print(f"\n💡 Total parameters: {cnn_model.count_params():,}")
+print(f"\n Total parameters: {cnn_model.count_params():,}")
 print("   Much more efficient than fully connected!")
 
 # ============================================================
 # PART 5: Training the CNN
 # ============================================================
-print("\n\n📌 PART 5: Training the CNN")
+print("\n\n PART 5: Training the CNN")
 print("-" * 80)
 
 cnn_model.compile(
@@ -286,8 +289,8 @@ cnn_model.compile(
     metrics=['accuracy']
 )
 
-print("✅ Model compiled")
-print("\n🏋️ Training CNN (this takes a bit longer than regular NN)...\n")
+print(" Model compiled")
+print("\n️ Training CNN (this takes a bit longer than regular NN)...\n")
 
 # Add callbacks
 early_stop = keras.callbacks.EarlyStopping(
@@ -306,25 +309,25 @@ history = cnn_model.fit(
     verbose=1
 )
 
-print("\n✅ Training complete!")
+print("\n Training complete!")
 
 # ============================================================
 # PART 6: Evaluating CNN Performance
 # ============================================================
-print("\n\n📌 PART 6: Evaluating CNN Performance")
+print("\n\n PART 6: Evaluating CNN Performance")
 print("-" * 80)
 
 test_loss, test_accuracy = cnn_model.evaluate(X_test_cnn, y_test_cnn, verbose=0)
 
-print(f"\n📊 Test Results:")
+print(f"\n Test Results:")
 print(f"  Test Loss: {test_loss:.4f}")
 print(f"  Test Accuracy: {test_accuracy*100:.2f}%")
 
-print(f"\n🎉 CNN Performance:")
+print(f"\n CNN Performance:")
 print(f"  Regular NN: ~97% accuracy")
 print(f"  CNN: ~{test_accuracy*100:.1f}% accuracy")
 print(f"  Improvement: ~{(test_accuracy - 0.97)*100:.1f}% better!")
-print(f"\n💡 CNNs are significantly better for image tasks!")
+print(f"\n CNNs are significantly better for image tasks!")
 
 # Visualize training
 fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(14, 5))
@@ -346,16 +349,16 @@ ax2.legend(fontsize=11)
 ax2.grid(True, alpha=0.3)
 
 plt.tight_layout()
-plt.savefig('/d/Language Learning/AI ML/Learning-ML-AI/Phase 4 - Deep Learning/cnn_training_history.png', dpi=150)
-print("\n✓ Saved visualization: cnn_training_history.png")
+plt.savefig('cnn_training_history.png', dpi=150)
+print("\n Saved visualization: cnn_training_history.png")
 
 # ============================================================
 # PART 7: Visualizing Learned Filters
 # ============================================================
-print("\n\n📌 PART 7: Visualizing What the CNN Learned")
+print("\n\n PART 7: Visualizing What the CNN Learned")
 print("-" * 80)
 
-print("\n🔹 First Convolutional Layer Filters:")
+print("\n First Convolutional Layer Filters:")
 
 # Get filters from first conv layer
 filters, biases = cnn_model.layers[0].get_weights()
@@ -379,15 +382,15 @@ for i, ax in enumerate(axes.flat):
         ax.axis('off')
 
 plt.tight_layout()
-plt.savefig('/d/Language Learning/AI ML/Learning-ML-AI/Phase 4 - Deep Learning/cnn_filters.png', dpi=150)
-print("✓ Saved visualization: cnn_filters.png")
+plt.savefig('cnn_filters.png', dpi=150)
+print(" Saved visualization: cnn_filters.png")
 print("  Each filter learned to detect different patterns!")
 print("  Edges, curves, orientations, etc.")
 
 # ============================================================
 # PART 8: Visualizing Feature Maps
 # ============================================================
-print("\n\n📌 PART 8: Visualizing Feature Maps (Activations)")
+print("\n\n PART 8: Visualizing Feature Maps (Activations)")
 print("-" * 80)
 
 print("""
@@ -415,7 +418,7 @@ ax.set_title('Input\nImage', fontsize=10, fontweight='bold')
 ax.axis('off')
 
 # Conv1 feature maps (show first 7)
-print("\n🔹 After first convolution (32 feature maps):")
+print("\n After first convolution (32 feature maps):")
 for i in range(7):
     ax = plt.subplot(4, 8, i+2)
     ax.imshow(activations[0][0, :, :, i], cmap='viridis')
@@ -429,7 +432,7 @@ ax.set_title('Pool1\nMap 0', fontsize=8)
 ax.axis('off')
 
 # Conv2 feature maps (show 7)
-print("🔹 After second convolution (64 feature maps):")
+print(" After second convolution (64 feature maps):")
 for i in range(7):
     ax = plt.subplot(4, 8, i+10)
     ax.imshow(activations[2][0, :, :, i], cmap='viridis')
@@ -444,9 +447,9 @@ ax.axis('off')
 
 plt.suptitle(f'Feature Maps Through CNN - Digit {y_test[0]}', fontsize=16, fontweight='bold')
 plt.tight_layout()
-plt.savefig('/d/Language Learning/AI ML/Learning-ML-AI/Phase 4 - Deep Learning/cnn_feature_maps.png', dpi=150)
-print("✓ Saved visualization: cnn_feature_maps.png")
-print("\n💡 Notice how:")
+plt.savefig('cnn_feature_maps.png', dpi=150)
+print(" Saved visualization: cnn_feature_maps.png")
+print("\n Notice how:")
 print("  - Early layers detect simple features (edges)")
 print("  - Later layers detect complex features (digit parts)")
 print("  - Feature maps get smaller but more numerous")
@@ -454,10 +457,10 @@ print("  - Feature maps get smaller but more numerous")
 # ============================================================
 # PART 9: Comparing CNN vs Regular NN
 # ============================================================
-print("\n\n📌 PART 9: CNN vs Regular Neural Network")
+print("\n\n PART 9: CNN vs Regular Neural Network")
 print("-" * 80)
 
-print("\n📊 Comparison:")
+print("\n Comparison:")
 print(f"\n  {'Aspect':<20} | {'Regular NN':<20} | {'CNN':<20}")
 print(f"  {'-'*20}-+-{'-'*20}-+-{'-'*20}")
 print(f"  {'Input':<20} | {'Flattened (784)':<20} | {'2D Image (28×28)':<20}")
@@ -467,20 +470,20 @@ print(f"  {'Accuracy':<20} | {'~97%':<20} | {'~99%':<20}")
 print(f"  {'Training Time':<20} | {'Faster':<20} | {'Slower':<20}")
 print(f"  {'Works on Images':<20} | {'OK':<20} | {'Excellent':<20}")
 
-print("\n💡 Key Insights:")
-print("  ✓ CNNs understand spatial relationships")
-print("  ✓ CNNs are translation invariant")
-print("  ✓ CNNs share weights → efficient")
-print("  ✓ CNNs hierarchical features: simple → complex")
+print("\n Key Insights:")
+print("   CNNs understand spatial relationships")
+print("   CNNs are translation invariant")
+print("   CNNs share weights → efficient")
+print("   CNNs hierarchical features: simple → complex")
 
 # ============================================================
 # PART 10: Real-World CNN Architectures
 # ============================================================
-print("\n\n📌 PART 10: Famous CNN Architectures")
+print("\n\n PART 10: Famous CNN Architectures")
 print("-" * 80)
 
 print("""
-🏆 Famous CNN Architectures:
+ Famous CNN Architectures:
 
 1. LeNet-5 (1998) - Yann LeCun
    - First successful CNN
@@ -520,11 +523,11 @@ All follow the same basic principles we learned!
 # ============================================================
 # PART 11: Advanced CNN Techniques
 # ============================================================
-print("\n\n📌 PART 11: Advanced CNN Techniques")
+print("\n\n PART 11: Advanced CNN Techniques")
 print("-" * 80)
 
 print("""
-🔧 Advanced Techniques:
+ Advanced Techniques:
 
 1. DATA AUGMENTATION:
    - Rotate, flip, zoom images during training
@@ -559,7 +562,7 @@ print("""
 """)
 
 # Demonstrate data augmentation
-print("\n🔹 Data Augmentation Example:")
+print("\n Data Augmentation Example:")
 
 data_augmentation = keras.Sequential([
     keras.layers.RandomRotation(0.1),
@@ -583,15 +586,15 @@ for i in range(5):
     axes[1, i].axis('off')
 
 plt.tight_layout()
-plt.savefig('/d/Language Learning/AI ML/Learning-ML-AI/Phase 4 - Deep Learning/cnn_augmentation.png', dpi=150)
-print("✓ Saved visualization: cnn_augmentation.png")
+plt.savefig('cnn_augmentation.png', dpi=150)
+print(" Saved visualization: cnn_augmentation.png")
 print("  Same digit, different variations!")
 print("  Helps model learn robust features")
 
 # ============================================================
 # WHY THIS MATTERS
 # ============================================================
-print("\n\n🎯 WHY CNNs MATTER")
+print("\n\n WHY CNNs MATTER")
 print("=" * 80)
 print("""
 1. REVOLUTIONIZED COMPUTER VISION:
@@ -603,12 +606,12 @@ print("""
    - Image generation
 
 2. CORE CONCEPTS MASTERED:
-   ✓ Convolution: Local pattern detection
-   ✓ Pooling: Spatial downsampling
-   ✓ Filters: Learned feature detectors
-   ✓ Feature maps: Hierarchical representations
-   ✓ Translation invariance
-   ✓ Parameter sharing
+    Convolution: Local pattern detection
+    Pooling: Spatial downsampling
+    Filters: Learned feature detectors
+    Feature maps: Hierarchical representations
+    Translation invariance
+    Parameter sharing
 
 3. PRACTICAL APPLICATIONS:
    - Medical: Detect diseases from X-rays
@@ -631,12 +634,12 @@ print("""
    - Face recognition: Superhuman accuracy
    - Medical imaging: Assists doctors
 
-📊 Our Results:
+ Our Results:
    Regular NN: ~97% accuracy
    CNN: ~99% accuracy
    Same data, better architecture!
 
-🔑 Key Takeaways:
+ Key Takeaways:
 
    1. Architecture matters!
       - Right tool for the right job
@@ -659,7 +662,7 @@ print("""
       - Layer 2: Textures, parts
       - Layer 3: Objects, concepts
 
-🚀 What's Next?
+ What's Next?
 
    IMPROVEMENTS:
    - Try deeper networks
@@ -679,16 +682,16 @@ print("""
    - Fine-tune for your task
    - Achieve great results with little data!
 
-💡 Remember:
+ Remember:
    "CNNs are not just for images anymore!"
    - Used in audio processing (spectrograms are images!)
    - Used in NLP (text as 1D convolutions)
    - Foundation for modern deep learning
 
-🎓 You've mastered CNNs!
+ You've mastered CNNs!
    This is the workhorse of computer vision.
    Billions of CNN predictions happen every second worldwide!
 """)
 
-print("\n✅ CNN Basics Complete!")
+print("\n CNN Basics Complete!")
 print("Next: rnn_basics.py - Recurrent Neural Networks for sequences")

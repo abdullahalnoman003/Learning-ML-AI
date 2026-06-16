@@ -1,5 +1,5 @@
 """
-🧠 BUILDING A NEURAL NETWORK FROM SCRATCH - Understanding Deep Learning
+ BUILDING A NEURAL NETWORK FROM SCRATCH - Understanding Deep Learning
 ========================================================================
 
 What is a Neural Network?
@@ -50,11 +50,11 @@ print("=" * 80)
 # ============================================================
 # PART 1: Activation Functions
 # ============================================================
-print("\n📌 PART 1: Understanding Activation Functions")
+print("\n PART 1: Understanding Activation Functions")
 print("-" * 80)
 
 print("""
-🎯 Why do we need activation functions?
+ Why do we need activation functions?
 
 Without them, our neural network is just multiple linear transformations.
 Multiple linear transformations = One big linear transformation!
@@ -138,7 +138,7 @@ plt.axvline(x=0, color='k', linestyle='--', alpha=0.3)
 
 plt.tight_layout()
 plt.savefig('/d/Language Learning/AI ML/Learning-ML-AI/Phase 4 - Deep Learning/activation_functions.png', dpi=150)
-print("✓ Saved visualization: activation_functions.png")
+print(" Saved visualization: activation_functions.png")
 
 print("\nKey differences:")
 print("  • Sigmoid: Good for output layer (probabilities)")
@@ -148,7 +148,7 @@ print("  • Tanh: Like sigmoid but centered at 0")
 # ============================================================
 # PART 2: Creating Training Data
 # ============================================================
-print("\n\n📌 PART 2: Creating Training Data - XOR Problem")
+print("\n\n PART 2: Creating Training Data - XOR Problem")
 print("-" * 80)
 
 print("""
@@ -205,13 +205,13 @@ plt.ylim(-0.5, 1.5)
 plt.legend(['Output = 0', 'Output = 1'], loc='upper right')
 plt.tight_layout()
 plt.savefig('/d/Language Learning/AI ML/Learning-ML-AI/Phase 4 - Deep Learning/xor_problem.png', dpi=150)
-print("\n✓ Saved visualization: xor_problem.png")
+print("\n Saved visualization: xor_problem.png")
 print("  Red points (0) and blue points (1) cannot be separated by a single line!")
 
 # ============================================================
 # PART 3: Neural Network Class
 # ============================================================
-print("\n\n📌 PART 3: Building the Neural Network Class")
+print("\n\n PART 3: Building the Neural Network Class")
 print("-" * 80)
 
 class NeuralNetwork:
@@ -247,7 +247,7 @@ class NeuralNetwork:
         self.weights_hidden_output = np.random.randn(hidden_size, output_size) * 0.5
         self.bias_output = np.zeros((1, output_size))
 
-        print(f"\n🎯 Neural Network Initialized!")
+        print(f"\n Neural Network Initialized!")
         print(f"   Architecture: {input_size} → {hidden_size} → {output_size}")
         print(f"   Learning rate: {learning_rate}")
         print(f"   Total parameters: {self.count_parameters()}")
@@ -340,7 +340,7 @@ class NeuralNetwork:
         """
         loss_history = []
 
-        print(f"\n🏋️ Training Neural Network...")
+        print(f"\n️ Training Neural Network...")
         print(f"   Epochs: {epochs}")
         print(f"   Dataset size: {len(X)}")
 
@@ -360,7 +360,7 @@ class NeuralNetwork:
                 accuracy = np.mean((predictions > 0.5) == y) * 100
                 print(f"   Epoch {epoch:5d}: Loss = {loss:.6f}, Accuracy = {accuracy:.2f}%")
 
-        print("\n✅ Training Complete!")
+        print("\n Training Complete!")
         return loss_history
 
     def predict(self, X):
@@ -394,7 +394,7 @@ Key Components Explained:
 # ============================================================
 # PART 4: Training the Network
 # ============================================================
-print("\n\n📌 PART 4: Training on XOR Problem")
+print("\n\n PART 4: Training on XOR Problem")
 print("-" * 80)
 
 # Create and train network
@@ -404,23 +404,23 @@ loss_history = nn.train(X, y, epochs=10000, print_every=2000)
 # ============================================================
 # PART 5: Testing the Network
 # ============================================================
-print("\n\n📌 PART 5: Testing the Trained Network")
+print("\n\n PART 5: Testing the Trained Network")
 print("-" * 80)
 
-print("\n🧪 Testing on training data:")
+print("\n Testing on training data:")
 predictions = nn.predict(X)
 for i in range(len(X)):
     pred_prob = nn.forward(X[i:i+1])[0][0]
     print(f"   Input: {X[i]} → Predicted: {predictions[i][0]} (prob: {pred_prob:.4f}) | Actual: {y[i][0]}")
 
 accuracy = np.mean(predictions == y) * 100
-print(f"\n✅ Final Accuracy: {accuracy:.2f}%")
-print("   The network learned XOR perfectly! 🎉")
+print(f"\n Final Accuracy: {accuracy:.2f}%")
+print("   The network learned XOR perfectly! ")
 
 # ============================================================
 # PART 6: Visualizing Learning Process
 # ============================================================
-print("\n\n📌 PART 6: Visualizing the Learning Process")
+print("\n\n PART 6: Visualizing the Learning Process")
 print("-" * 80)
 
 # Plot learning curve
@@ -444,13 +444,13 @@ plt.grid(True, alpha=0.3)
 
 plt.tight_layout()
 plt.savefig('/d/Language Learning/AI ML/Learning-ML-AI/Phase 4 - Deep Learning/nn_learning_curve.png', dpi=150)
-print("✓ Saved visualization: nn_learning_curve.png")
+print(" Saved visualization: nn_learning_curve.png")
 print("  Notice how loss decreases rapidly, then stabilizes!")
 
 # ============================================================
 # PART 7: Visualizing Decision Boundary
 # ============================================================
-print("\n\n📌 PART 7: Visualizing Decision Boundary")
+print("\n\n PART 7: Visualizing Decision Boundary")
 print("-" * 80)
 
 # Create a mesh of points
@@ -483,14 +483,14 @@ plt.title('Neural Network Decision Boundary - XOR Problem Solved!', fontsize=16,
 plt.grid(True, alpha=0.3)
 plt.tight_layout()
 plt.savefig('/d/Language Learning/AI ML/Learning-ML-AI/Phase 4 - Deep Learning/nn_decision_boundary.png', dpi=150)
-print("✓ Saved visualization: nn_decision_boundary.png")
+print(" Saved visualization: nn_decision_boundary.png")
 print("  The network learned a NON-LINEAR decision boundary!")
 print("  Red regions predict 0, blue regions predict 1")
 
 # ============================================================
 # PART 8: Understanding What the Network Learned
 # ============================================================
-print("\n\n📌 PART 8: Understanding What the Hidden Layer Learned")
+print("\n\n PART 8: Understanding What the Hidden Layer Learned")
 print("-" * 80)
 
 print("\nHidden layer weights (Input → Hidden):")
@@ -502,14 +502,14 @@ print(nn.weights_hidden_output)
 print("\nThese weights combine hidden neuron outputs to make final prediction!")
 
 # Analyze hidden layer activations
-print("\n🔍 Hidden layer activations for each input:")
+print("\n Hidden layer activations for each input:")
 for i in range(len(X)):
     hidden_activation = nn.forward(X[i:i+1])
     print(f"   Input: {X[i]} → Hidden activations: {nn.a_hidden[0]}")
     print(f"                    → Output: {hidden_activation[0][0]:.4f}")
 
 print("""
-💡 What's happening?
+ What's happening?
 Each hidden neuron learns a different feature!
 - Some neurons activate for certain input patterns
 - The output layer combines these features
@@ -519,7 +519,7 @@ Each hidden neuron learns a different feature!
 # ============================================================
 # WHY THIS MATTERS
 # ============================================================
-print("\n\n🎯 WHY BUILDING FROM SCRATCH MATTERS")
+print("\n\n WHY BUILDING FROM SCRATCH MATTERS")
 print("=" * 80)
 print("""
 1. UNDERSTANDING THE MAGIC:
@@ -529,11 +529,11 @@ print("""
    - Now you know what happens inside PyTorch/TensorFlow!
 
 2. CORE CONCEPTS MASTERED:
-   ✓ Activation functions add non-linearity
-   ✓ Forward pass makes predictions
-   ✓ Loss function measures error
-   ✓ Backpropagation calculates gradients
-   ✓ Gradient descent updates weights
+    Activation functions add non-linearity
+    Forward pass makes predictions
+    Loss function measures error
+    Backpropagation calculates gradients
+    Gradient descent updates weights
 
 3. THE XOR PROBLEM:
    - Proves neural networks can learn non-linear patterns
@@ -551,7 +551,7 @@ print("""
    - Know when/why networks fail
    - Appreciate what libraries do for you!
 
-🚀 What's Next?
+ What's Next?
    - Add more layers (go deeper!)
    - Try different activation functions
    - Implement different optimizers (Adam, RMSprop)
@@ -559,7 +559,7 @@ print("""
    - Use real datasets (MNIST, CIFAR-10)
    - Learn TensorFlow/PyTorch (much easier now!)
 
-💡 Key Takeaway:
+ Key Takeaway:
    Deep learning is just:
    1. Forward pass (make predictions)
    2. Calculate loss (measure error)
@@ -570,5 +570,5 @@ print("""
    Everything else is optimization and engineering!
 """)
 
-print("\n✅ Neural Network from Scratch Complete!")
+print("\n Neural Network from Scratch Complete!")
 print("Next: backpropagation.py - Deep dive into the math")

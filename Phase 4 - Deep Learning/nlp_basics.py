@@ -1,5 +1,5 @@
 """
-📝 NLP BASICS - Text Processing and Natural Language Processing
+ NLP BASICS - Text Processing and Natural Language Processing
 ================================================================
 
 What is NLP (Natural Language Processing)?
@@ -55,7 +55,7 @@ except ImportError:
 # ============================================================
 # PART 1: Text Preprocessing
 # ============================================================
-print("\n📌 PART 1: Text Preprocessing")
+print("\n PART 1: Text Preprocessing")
 print("-" * 80)
 
 print("""
@@ -71,13 +71,13 @@ Let's see examples:
 
 # Sample texts
 raw_texts = [
-    "I LOVE this movie!!! It's absolutely amazing 😊",
+    "I LOVE this movie!!! It's absolutely amazing ",
     "This is terrible... Worst film ever!!!",
     "Not bad, could be better though.",
     "Best movie I've seen in 2024! 5/5 stars ⭐⭐⭐⭐⭐"
 ]
 
-print("\n🔹 Original Texts:")
+print("\n Original Texts:")
 for i, text in enumerate(raw_texts, 1):
     print(f"  {i}. {text}")
 
@@ -91,17 +91,17 @@ def clean_text(text):
     text = ' '.join(text.split())
     return text
 
-print("\n🔹 Cleaned Texts:")
+print("\n Cleaned Texts:")
 cleaned_texts = [clean_text(text) for text in raw_texts]
 for i, text in enumerate(cleaned_texts, 1):
     print(f"  {i}. {text}")
 
-print("\n💡 Cleaning removes noise and standardizes text!")
+print("\n Cleaning removes noise and standardizes text!")
 
 # ============================================================
 # PART 2: Tokenization
 # ============================================================
-print("\n\n📌 PART 2: Tokenization - Breaking Text into Pieces")
+print("\n\n PART 2: Tokenization - Breaking Text into Pieces")
 print("-" * 80)
 
 print("""
@@ -119,7 +119,7 @@ def tokenize(text):
     """Simple word tokenization"""
     return text.split()
 
-print("\n🔹 Tokenization Example:")
+print("\n Tokenization Example:")
 example_text = cleaned_texts[0]
 tokens = tokenize(example_text)
 print(f"  Text: {example_text}")
@@ -128,14 +128,14 @@ print(f"  Number of tokens: {len(tokens)}")
 
 # Tokenize all texts
 all_tokens = [tokenize(text) for text in cleaned_texts]
-print(f"\n🔹 All Tokenized:")
+print(f"\n All Tokenized:")
 for i, tokens in enumerate(all_tokens, 1):
     print(f"  {i}. {tokens}")
 
 # ============================================================
 # PART 3: Building Vocabulary
 # ============================================================
-print("\n\n📌 PART 3: Building Vocabulary")
+print("\n\n PART 3: Building Vocabulary")
 print("-" * 80)
 
 print("""
@@ -155,12 +155,12 @@ for tokens in all_tokens:
 word_counts = Counter(all_words)
 vocab = sorted(word_counts.keys())
 
-print(f"\n🔹 Vocabulary:")
+print(f"\n Vocabulary:")
 print(f"  Total words (with repetition): {len(all_words)}")
 print(f"  Unique words (vocabulary): {len(vocab)}")
 print(f"\n  Vocabulary (sorted): {vocab}")
 
-print(f"\n🔹 Word Frequencies:")
+print(f"\n Word Frequencies:")
 for word, count in word_counts.most_common(10):
     print(f"  '{word}': {count}")
 
@@ -175,12 +175,12 @@ plt.xticks(rotation=45, ha='right')
 plt.grid(True, alpha=0.3, axis='y')
 plt.tight_layout()
 plt.savefig('/d/Language Learning/AI ML/Learning-ML-AI/Phase 4 - Deep Learning/nlp_word_frequency.png', dpi=150)
-print("\n✓ Saved visualization: nlp_word_frequency.png")
+print("\n Saved visualization: nlp_word_frequency.png")
 
 # ============================================================
 # PART 4: Text Vectorization Methods
 # ============================================================
-print("\n\n📌 PART 4: Converting Text to Numbers")
+print("\n\n PART 4: Converting Text to Numbers")
 print("-" * 80)
 
 print("""
@@ -213,7 +213,7 @@ Let's see each method!
 """)
 
 # Method 1: One-Hot Encoding
-print("\n🔹 Method 1: One-Hot Encoding")
+print("\n Method 1: One-Hot Encoding")
 
 # Create word to index mapping
 word_to_idx = {word: idx for idx, word in enumerate(vocab)}
@@ -232,10 +232,10 @@ one_hot[word_to_idx[example_word]] = 1
 print(f"\n  One-hot encoding of '{example_word}':")
 print(f"  {one_hot[:15]}... (showing first 15)")
 print(f"  Vector length: {len(one_hot)}")
-print(f"  💡 Sparse! Only 1 position is 1, rest are 0")
+print(f"   Sparse! Only 1 position is 1, rest are 0")
 
 # Method 2: Bag of Words
-print("\n\n🔹 Method 2: Bag of Words (BoW)")
+print("\n\n Method 2: Bag of Words (BoW)")
 
 def text_to_bow(text, word_to_idx):
     """Convert text to bag of words vector"""
@@ -251,7 +251,7 @@ bow_vector = text_to_bow(example_text, word_to_idx)
 
 print(f"  Text: {example_text}")
 print(f"  BoW vector: {bow_vector[:15]}... (showing first 15)")
-print(f"  💡 Counts occurrences of each word")
+print(f"   Counts occurrences of each word")
 
 # Show non-zero entries
 nonzero_idx = np.nonzero(bow_vector)[0]
@@ -262,7 +262,7 @@ for idx in nonzero_idx:
     print(f"    '{word}': {count}")
 
 # Method 3: TF-IDF
-print("\n\n🔹 Method 3: TF-IDF (Term Frequency-Inverse Document Frequency)")
+print("\n\n Method 3: TF-IDF (Term Frequency-Inverse Document Frequency)")
 
 print("""
   TF-IDF = TF × IDF
@@ -307,7 +307,7 @@ for word, score in word_scores:
 # ============================================================
 # PART 5: Word Embeddings
 # ============================================================
-print("\n\n📌 PART 5: Word Embeddings - The Modern Way")
+print("\n\n PART 5: Word Embeddings - The Modern Way")
 print("-" * 80)
 
 print("""
@@ -328,7 +328,7 @@ Two approaches:
 2. Learned: Embedding layer in neural network
 """)
 
-print("\n🔹 Creating Embedding Layer in Keras:")
+print("\n Creating Embedding Layer in Keras:")
 
 # Parameters
 vocab_size = 1000  # Size of vocabulary
@@ -344,7 +344,7 @@ embedding_layer = keras.layers.Embedding(
 print(f"  Vocabulary size: {vocab_size}")
 print(f"  Embedding dimension: {embedding_dim}")
 print(f"  Parameters: {vocab_size * embedding_dim:,}")
-print(f"\n  💡 Each word → {embedding_dim}D vector (learned during training!)")
+print(f"\n   Each word → {embedding_dim}D vector (learned during training!)")
 
 # Example: Convert sequence of word indices to embeddings
 word_indices = np.array([[1, 5, 10, 3, 7, 2, 0, 0, 0, 0]])  # Padded sequence
@@ -357,7 +357,7 @@ print(f"  (batch_size, sequence_length, embedding_dim)")
 # ============================================================
 # PART 6: Text Classification with Embeddings
 # ============================================================
-print("\n\n📌 PART 6: Complete Text Classification Example")
+print("\n\n PART 6: Complete Text Classification Example")
 print("-" * 80)
 
 print("""
@@ -390,14 +390,14 @@ train_texts = [
 
 train_labels = [1, 1, 1, 0, 0, 0, 1, 0, 1, 0]  # 1=positive, 0=negative
 
-print(f"\n🔹 Training Data:")
+print(f"\n Training Data:")
 print(f"  {len(train_texts)} samples")
 for text, label in zip(train_texts[:3], train_labels[:3]):
     sentiment = "Positive" if label == 1 else "Negative"
     print(f"    '{text}' → {sentiment}")
 
 # Use Keras Tokenizer
-print("\n🔹 Tokenization with Keras:")
+print("\n Tokenization with Keras:")
 tokenizer = keras.preprocessing.text.Tokenizer(num_words=100, oov_token="<OOV>")
 tokenizer.fit_on_texts(train_texts)
 
@@ -408,7 +408,7 @@ for word, idx in list(tokenizer.word_index.items())[:15]:
 
 # Convert texts to sequences
 sequences = tokenizer.texts_to_sequences(train_texts)
-print(f"\n🔹 Text to Sequences:")
+print(f"\n Text to Sequences:")
 print(f"  Text: '{train_texts[0]}'")
 print(f"  Sequence: {sequences[0]}")
 
@@ -421,14 +421,14 @@ padded_sequences = keras.preprocessing.sequence.pad_sequences(
     truncating='post'
 )
 
-print(f"\n🔹 Padding:")
+print(f"\n Padding:")
 print(f"  Max length: {max_length}")
 print(f"  Original: {sequences[0]}")
 print(f"  Padded: {padded_sequences[0]}")
 print(f"  Shape: {padded_sequences.shape}")
 
 # Build model
-print("\n🔹 Building Text Classification Model:")
+print("\n Building Text Classification Model:")
 
 model = keras.Sequential([
     keras.layers.Embedding(input_dim=100, output_dim=16, input_length=max_length),
@@ -437,7 +437,7 @@ model = keras.Sequential([
     keras.layers.Dense(1, activation='sigmoid')
 ])
 
-print("\n✅ Model Architecture:")
+print("\n Model Architecture:")
 model.summary()
 
 print("""
@@ -455,7 +455,7 @@ model.compile(
     metrics=['accuracy']
 )
 
-print("\n🏋️ Training...")
+print("\n️ Training...")
 history = model.fit(
     padded_sequences,
     np.array(train_labels),
@@ -463,11 +463,11 @@ history = model.fit(
     verbose=0
 )
 
-print(f"✅ Training complete!")
+print(f" Training complete!")
 print(f"  Final accuracy: {history.history['accuracy'][-1]*100:.1f}%")
 
 # Test on new examples
-print("\n\n🔹 Testing on New Reviews:")
+print("\n\n Testing on New Reviews:")
 test_texts = [
     "this is an amazing movie",
     "terrible film worst ever",
@@ -492,7 +492,7 @@ for text, pred in zip(test_texts, predictions):
 # ============================================================
 # PART 7: Visualizing Word Embeddings
 # ============================================================
-print("\n\n📌 PART 7: Visualizing Word Embeddings")
+print("\n\n PART 7: Visualizing Word Embeddings")
 print("-" * 80)
 
 print("""
@@ -535,18 +535,18 @@ plt.title('Word Embeddings Visualization (2D)', fontsize=14, fontweight='bold')
 plt.grid(True, alpha=0.3)
 plt.tight_layout()
 plt.savefig('/d/Language Learning/AI ML/Learning-ML-AI/Phase 4 - Deep Learning/nlp_embeddings.png', dpi=150)
-print("\n✓ Saved visualization: nlp_embeddings.png")
-print("  💡 Similar words cluster together!")
+print("\n Saved visualization: nlp_embeddings.png")
+print("   Similar words cluster together!")
 print("  Positive words on one side, negative on the other!")
 
 # ============================================================
 # PART 8: Common NLP Tasks
 # ============================================================
-print("\n\n📌 PART 8: Common NLP Tasks")
+print("\n\n PART 8: Common NLP Tasks")
 print("-" * 80)
 
 print("""
-📋 NLP Task Categories:
+ NLP Task Categories:
 
 1. TEXT CLASSIFICATION:
    - Sentiment analysis
@@ -579,7 +579,7 @@ print("""
 # ============================================================
 # WHY THIS MATTERS
 # ============================================================
-print("\n\n🎯 WHY NLP BASICS MATTER")
+print("\n\n WHY NLP BASICS MATTER")
 print("=" * 80)
 print("""
 1. FOUNDATION OF MODERN AI:
@@ -588,12 +588,12 @@ print("""
    - Text is everywhere!
 
 2. CORE CONCEPTS MASTERED:
-   ✓ Text preprocessing
-   ✓ Tokenization
-   ✓ Vocabulary building
-   ✓ Vectorization methods (BoW, TF-IDF)
-   ✓ Word embeddings
-   ✓ Text classification pipeline
+    Text preprocessing
+    Tokenization
+    Vocabulary building
+    Vectorization methods (BoW, TF-IDF)
+    Word embeddings
+    Text classification pipeline
 
 3. REAL-WORLD APPLICATIONS:
    - Customer service: Chatbots
@@ -628,7 +628,7 @@ print("""
 
    But all build on these fundamentals!
 
-📊 Key Insights:
+ Key Insights:
 
    1. Text → Numbers
       - Computers need numbers
@@ -645,30 +645,30 @@ print("""
       - Transfer learning helps
       - Pre-trained embeddings save time
 
-🔑 Best Practices:
+ Best Practices:
 
    1. PREPROCESSING:
-      ✓ Lowercase (usually)
-      ✓ Remove punctuation (depends on task)
-      ✓ Handle special cases
+       Lowercase (usually)
+       Remove punctuation (depends on task)
+       Handle special cases
       × Don't over-clean (lose information)
 
    2. TOKENIZATION:
-      ✓ Consider subword tokenization
-      ✓ Handle out-of-vocabulary words
-      ✓ Keep vocabulary manageable
+       Consider subword tokenization
+       Handle out-of-vocabulary words
+       Keep vocabulary manageable
 
    3. EMBEDDINGS:
-      ✓ Use pre-trained when possible
-      ✓ Fine-tune for your domain
-      ✓ Dimension 50-300 usually sufficient
+       Use pre-trained when possible
+       Fine-tune for your domain
+       Dimension 50-300 usually sufficient
 
    4. MODELS:
-      ✓ Start simple (embeddings + LSTM)
-      ✓ Add complexity if needed
-      ✓ Consider Transformers (next file!)
+       Start simple (embeddings + LSTM)
+       Add complexity if needed
+       Consider Transformers (next file!)
 
-🚀 What's Next?
+ What's Next?
 
    IMPROVEMENTS:
    - Bidirectional LSTM
@@ -688,17 +688,17 @@ print("""
    - NLTK for linguistic features
    - Sentence-BERT for similarity
 
-💡 Remember:
+ Remember:
    "The quality of your text preprocessing determines
     the quality of your model's understanding!"
 
    Garbage in = Garbage out
    Clean data = Better results
 
-🎓 You've mastered NLP basics!
+ You've mastered NLP basics!
    This is your foundation for understanding modern NLP.
    Next: Transformers - the current state-of-the-art!
 """)
 
-print("\n✅ NLP Basics Complete!")
+print("\n NLP Basics Complete!")
 print("Next: transformers_intro.py - The revolution in NLP!")

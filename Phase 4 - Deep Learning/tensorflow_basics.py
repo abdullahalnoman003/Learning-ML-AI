@@ -1,5 +1,5 @@
 """
-🔥 TENSORFLOW & KERAS BASICS - Professional Deep Learning Tools
+ TENSORFLOW & KERAS BASICS - Professional Deep Learning Tools
 ================================================================
 
 What is TensorFlow?
@@ -46,15 +46,15 @@ try:
     print("=" * 80)
     print("TENSORFLOW & KERAS BASICS - Your Deep Learning Toolkit")
     print("=" * 80)
-    print(f"\n✅ TensorFlow version: {tf.__version__}")
-    print(f"✅ Keras version: {keras.__version__}")
-    print(f"✅ GPU available: {len(tf.config.list_physical_devices('GPU')) > 0}")
+    print(f"\n TensorFlow version: {tf.__version__}")
+    print(f" Keras version: {keras.__version__}")
+    print(f" GPU available: {len(tf.config.list_physical_devices('GPU')) > 0}")
     if len(tf.config.list_physical_devices('GPU')) > 0:
         print(f"   GPU devices: {tf.config.list_physical_devices('GPU')}")
     else:
         print(f"   Running on CPU (slower but works fine for learning!)")
 except ImportError:
-    print("⚠️  TensorFlow not installed!")
+    print("️  TensorFlow not installed!")
     print("   Install with: pip install tensorflow")
     print("\n   For GPU support: pip install tensorflow-gpu")
     exit()
@@ -62,7 +62,7 @@ except ImportError:
 # ============================================================
 # PART 1: Understanding Tensors
 # ============================================================
-print("\n\n📌 PART 1: Understanding Tensors")
+print("\n\n PART 1: Understanding Tensors")
 print("-" * 80)
 
 print("""
@@ -71,7 +71,7 @@ Everything is a tensor: inputs, outputs, weights, gradients.
 """)
 
 # Creating tensors
-print("\n🔹 Creating Tensors:")
+print("\n Creating Tensors:")
 
 # Scalar (0D tensor)
 scalar = tf.constant(42)
@@ -101,7 +101,7 @@ print(f"  Shape: {tensor_3d.shape}")
 print(f"  Rank: {tf.rank(tensor_3d).numpy()}D")
 
 # Random tensors (how we initialize weights!)
-print(f"\n\n🔹 Random Tensors (for weight initialization):")
+print(f"\n\n Random Tensors (for weight initialization):")
 random_normal = tf.random.normal(shape=(3, 4), mean=0.0, stddev=1.0)
 print(f"\nRandom Normal (3×4):\n{random_normal.numpy()}")
 print(f"  Mean: {tf.reduce_mean(random_normal).numpy():.4f}")
@@ -111,7 +111,7 @@ random_uniform = tf.random.uniform(shape=(2, 3), minval=0, maxval=1)
 print(f"\nRandom Uniform (2×3):\n{random_uniform.numpy()}")
 
 # Special tensors
-print(f"\n\n🔹 Special Tensors:")
+print(f"\n\n Special Tensors:")
 zeros = tf.zeros(shape=(2, 3))
 print(f"\nZeros:\n{zeros.numpy()}")
 
@@ -124,7 +124,7 @@ print(f"\nIdentity Matrix:\n{identity.numpy()}")
 # ============================================================
 # PART 2: Tensor Operations
 # ============================================================
-print("\n\n📌 PART 2: Tensor Operations")
+print("\n\n PART 2: Tensor Operations")
 print("-" * 80)
 
 print("""
@@ -139,21 +139,21 @@ print(f"\nTensor a:\n{a.numpy()}")
 print(f"\nTensor b:\n{b.numpy()}")
 
 # Element-wise operations
-print(f"\n\n🔹 Element-wise Operations:")
+print(f"\n\n Element-wise Operations:")
 print(f"\nAddition (a + b):\n{tf.add(a, b).numpy()}")
 print(f"\nSubtraction (a - b):\n{tf.subtract(a, b).numpy()}")
 print(f"\nMultiplication (a * b) [element-wise]:\n{tf.multiply(a, b).numpy()}")
 print(f"\nDivision (a / b):\n{tf.divide(a, b).numpy()}")
 
 # Matrix operations
-print(f"\n\n🔹 Matrix Operations:")
+print(f"\n\n Matrix Operations:")
 print(f"\nMatrix Multiplication (a @ b):\n{tf.matmul(a, b).numpy()}")
 print(f"  This is THE operation in neural networks!")
 
 print(f"\nTranspose (aᵀ):\n{tf.transpose(a).numpy()}")
 
 # Reduction operations
-print(f"\n\n🔹 Reduction Operations:")
+print(f"\n\n Reduction Operations:")
 x = tf.constant([[1.0, 2.0, 3.0],
                 [4.0, 5.0, 6.0]])
 print(f"\nTensor x:\n{x.numpy()}")
@@ -166,7 +166,7 @@ print(f"\nSum along axis 0 (columns): {tf.reduce_sum(x, axis=0).numpy()}")
 print(f"Sum along axis 1 (rows): {tf.reduce_sum(x, axis=1).numpy()}")
 
 # Reshaping
-print(f"\n\n🔹 Reshaping Tensors:")
+print(f"\n\n Reshaping Tensors:")
 original = tf.constant([[1, 2, 3, 4], [5, 6, 7, 8]])
 print(f"\nOriginal shape {original.shape}:\n{original.numpy()}")
 
@@ -180,11 +180,11 @@ print(f"  Shape: {flattened.shape}")
 # ============================================================
 # PART 3: Automatic Differentiation (Autograd)
 # ============================================================
-print("\n\n📌 PART 3: Automatic Differentiation - The Magic of TensorFlow!")
+print("\n\n PART 3: Automatic Differentiation - The Magic of TensorFlow!")
 print("-" * 80)
 
 print("""
-🎯 This is what makes deep learning frameworks powerful!
+ This is what makes deep learning frameworks powerful!
 
 In the previous files, we manually calculated gradients.
 Now, TensorFlow does it AUTOMATICALLY using GradientTape!
@@ -192,7 +192,7 @@ Now, TensorFlow does it AUTOMATICALLY using GradientTape!
 GradientTape "records" operations so it can calculate gradients.
 """)
 
-print("\n🔹 Example 1: Simple Gradient")
+print("\n Example 1: Simple Gradient")
 print("  Calculate: f(x) = x², find df/dx at x=3")
 
 x = tf.Variable(3.0)  # Variables are trainable!
@@ -206,9 +206,9 @@ with tf.GradientTape() as tape:
 # Calculate gradient
 dy_dx = tape.gradient(y, x)
 print(f"  dy/dx = {dy_dx.numpy()}")
-print(f"  ✓ Correct! The derivative of x² is 2x = 2×3 = 6")
+print(f"   Correct! The derivative of x² is 2x = 2×3 = 6")
 
-print("\n\n🔹 Example 2: Complex Function")
+print("\n\n Example 2: Complex Function")
 print("  f(x) = 3x² + 2x + 1, find df/dx at x=2")
 
 x = tf.Variable(2.0)
@@ -218,9 +218,9 @@ with tf.GradientTape() as tape:
 
 dy_dx = tape.gradient(y, x)
 print(f"  dy/dx = {dy_dx.numpy()}")
-print(f"  ✓ Correct! df/dx = 6x + 2 = 6×2 + 2 = 14")
+print(f"   Correct! df/dx = 6x + 2 = 6×2 + 2 = 14")
 
-print("\n\n🔹 Example 3: Multiple Variables (Neural Network!)")
+print("\n\n Example 3: Multiple Variables (Neural Network!)")
 print("  Simulating: Loss = (w₁x₁ + w₂x₂ + b - target)²")
 
 w1 = tf.Variable(0.5)
@@ -241,12 +241,12 @@ print(f"\n  Gradients:")
 print(f"    dLoss/dw1 = {gradients[0].numpy():.4f}")
 print(f"    dLoss/dw2 = {gradients[1].numpy():.4f}")
 print(f"    dLoss/db = {gradients[2].numpy():.4f}")
-print(f"  🎉 TensorFlow calculated all gradients automatically!")
+print(f"   TensorFlow calculated all gradients automatically!")
 
 # ============================================================
 # PART 4: Building a Simple Neural Network
 # ============================================================
-print("\n\n📌 PART 4: Building Your First Neural Network with Keras")
+print("\n\n PART 4: Building Your First Neural Network with Keras")
 print("-" * 80)
 
 print("""
@@ -259,7 +259,7 @@ Three ways to build models:
 Let's start with Sequential!
 """)
 
-print("\n🔹 Method 1: Sequential API")
+print("\n Method 1: Sequential API")
 
 # Build the model
 model = keras.Sequential([
@@ -267,7 +267,7 @@ model = keras.Sequential([
     keras.layers.Dense(1, activation='sigmoid', name='output')
 ])
 
-print("\n✅ Model created!")
+print("\n Model created!")
 model.summary()
 
 print("""
@@ -285,7 +285,7 @@ Architecture: Input(2) → Dense(4, ReLU) → Dense(1, Sigmoid)
 """)
 
 # Visualize architecture
-print("\n🔹 Model Architecture Visualization:")
+print("\n Model Architecture Visualization:")
 print("""
     Input Layer         Hidden Layer        Output Layer
         (2)                 (4)                 (1)
@@ -299,7 +299,7 @@ print("""
 
 # Count parameters
 total_params = sum([tf.reduce_prod(var.shape).numpy() for var in model.trainable_variables])
-print(f"\n📊 Total trainable parameters: {total_params}")
+print(f"\n Total trainable parameters: {total_params}")
 print(f"  Hidden layer: 2×4 weights + 4 biases = 12 parameters")
 print(f"  Output layer: 4×1 weights + 1 bias = 5 parameters")
 print(f"  Total: 12 + 5 = 17 parameters")
@@ -307,7 +307,7 @@ print(f"  Total: 12 + 5 = 17 parameters")
 # ============================================================
 # PART 5: Compiling and Training
 # ============================================================
-print("\n\n📌 PART 5: Compiling and Training the Model")
+print("\n\n PART 5: Compiling and Training the Model")
 print("-" * 80)
 
 print("""
@@ -324,13 +324,13 @@ model.compile(
     metrics=['accuracy']  # Track accuracy
 )
 
-print("✅ Model compiled!")
+print(" Model compiled!")
 print("  Optimizer: Adam (smart gradient descent)")
 print("  Loss: Binary Cross-Entropy (for 0/1 classification)")
 print("  Metrics: Accuracy")
 
 # Create training data (XOR problem!)
-print("\n\n🔹 Training Data (XOR Problem):")
+print("\n\n Training Data (XOR Problem):")
 X_train = np.array([[0, 0], [0, 1], [1, 0], [1, 1]], dtype=np.float32)
 y_train = np.array([[0], [1], [1], [0]], dtype=np.float32)
 
@@ -339,7 +339,7 @@ for i in range(len(X_train)):
     print(f"  {X_train[i]} → {y_train[i][0]}")
 
 # Train the model
-print("\n\n🏋️ Training the model...")
+print("\n\n️ Training the model...")
 history = model.fit(
     X_train, y_train,
     epochs=1000,
@@ -347,12 +347,12 @@ history = model.fit(
     batch_size=4
 )
 
-print(f"✅ Training complete!")
+print(f" Training complete!")
 print(f"  Final loss: {history.history['loss'][-1]:.6f}")
 print(f"  Final accuracy: {history.history['accuracy'][-1]*100:.2f}%")
 
 # Test predictions
-print("\n\n🧪 Testing Predictions:")
+print("\n\n Testing Predictions:")
 predictions = model.predict(X_train, verbose=0)
 for i in range(len(X_train)):
     pred_class = 1 if predictions[i][0] > 0.5 else 0
@@ -361,7 +361,7 @@ for i in range(len(X_train)):
 # ============================================================
 # PART 6: Visualizing Training
 # ============================================================
-print("\n\n📌 PART 6: Visualizing Training Progress")
+print("\n\n PART 6: Visualizing Training Progress")
 print("-" * 80)
 
 fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(14, 5))
@@ -383,13 +383,13 @@ ax2.grid(True, alpha=0.3)
 ax2.set_ylim([0, 1.1])
 
 plt.tight_layout()
-plt.savefig('/d/Language Learning/AI ML/Learning-ML-AI/Phase 4 - Deep Learning/keras_training.png', dpi=150)
-print("✓ Saved visualization: keras_training.png")
+plt.savefig('keras_training.png', dpi=150)
+print(" Saved visualization: keras_training.png")
 
 # ============================================================
 # PART 7: Different Layer Types
 # ============================================================
-print("\n\n📌 PART 7: Common Keras Layers")
+print("\n\n PART 7: Common Keras Layers")
 print("-" * 80)
 
 print("""
@@ -432,7 +432,7 @@ Keras provides many types of layers:
 """)
 
 # Example with more layers
-print("\n🔹 Example: Model with Dropout and Batch Normalization")
+print("\n Example: Model with Dropout and Batch Normalization")
 
 advanced_model = keras.Sequential([
     keras.layers.Dense(8, activation='relu', input_shape=(4,)),
@@ -444,18 +444,18 @@ advanced_model = keras.Sequential([
 ])
 
 advanced_model.summary()
-print("\n💡 This model is more robust against overfitting!")
+print("\n This model is more robust against overfitting!")
 
 # ============================================================
 # PART 8: Saving and Loading Models
 # ============================================================
-print("\n\n📌 PART 8: Saving and Loading Models")
+print("\n\n PART 8: Saving and Loading Models")
 print("-" * 80)
 
 # Save the model
 model_path = '/d/Language Learning/AI ML/Learning-ML-AI/Phase 4 - Deep Learning/my_first_model.h5'
 model.save(model_path)
-print(f"✅ Model saved to: {model_path}")
+print(f" Model saved to: {model_path}")
 print("  This saves:")
 print("  - Architecture (layer structure)")
 print("  - Weights (learned parameters)")
@@ -463,11 +463,11 @@ print("  - Optimizer state (for resuming training)")
 
 # Load the model
 loaded_model = keras.models.load_model(model_path)
-print(f"\n✅ Model loaded!")
+print(f"\n Model loaded!")
 
 # Verify it works
 test_predictions = loaded_model.predict(X_train, verbose=0)
-print(f"\n🧪 Testing loaded model:")
+print(f"\n Testing loaded model:")
 for i in range(len(X_train)):
     pred_class = 1 if test_predictions[i][0] > 0.5 else 0
     print(f"  {X_train[i]} → {pred_class}")
@@ -475,7 +475,7 @@ for i in range(len(X_train)):
 # ============================================================
 # PART 9: Callbacks
 # ============================================================
-print("\n\n📌 PART 9: Callbacks - Control Training Process")
+print("\n\n PART 9: Callbacks - Control Training Process")
 print("-" * 80)
 
 print("""
@@ -517,14 +517,14 @@ history_callbacks = callback_model.fit(
     verbose=0
 )
 
-print(f"✅ Training stopped at epoch {len(history_callbacks.history['loss'])}")
+print(f" Training stopped at epoch {len(history_callbacks.history['loss'])}")
 print(f"  Early stopping saved time!")
 print(f"  Final accuracy: {history_callbacks.history['accuracy'][-1]*100:.2f}%")
 
 # ============================================================
 # WHY THIS MATTERS
 # ============================================================
-print("\n\n🎯 WHY TENSORFLOW/KERAS MATTERS")
+print("\n\n WHY TENSORFLOW/KERAS MATTERS")
 print("=" * 80)
 print("""
 1. NO MANUAL BACKPROPAGATION:
@@ -554,18 +554,18 @@ print("""
    - TF Hub: Pre-trained models
    - Huge community
 
-🔑 Key Concepts Mastered:
+ Key Concepts Mastered:
 
-   ✓ Tensors: Multi-dimensional arrays
-   ✓ Operations: Add, multiply, matmul
-   ✓ Automatic Differentiation: GradientTape
-   ✓ Sequential API: Build models easily
-   ✓ Compile: Optimizer + Loss + Metrics
-   ✓ Fit: Train the model
-   ✓ Predict: Make predictions
-   ✓ Save/Load: Persist models
+    Tensors: Multi-dimensional arrays
+    Operations: Add, multiply, matmul
+    Automatic Differentiation: GradientTape
+    Sequential API: Build models easily
+    Compile: Optimizer + Loss + Metrics
+    Fit: Train the model
+    Predict: Make predictions
+    Save/Load: Persist models
 
-📝 The Keras Workflow:
+ The Keras Workflow:
 
    1. Build: Define architecture
       model = keras.Sequential([...])
@@ -582,14 +582,14 @@ print("""
    5. Predict: Use the model
       predictions = model.predict(X_new)
 
-🚀 What's Next?
+ What's Next?
    - Real datasets (MNIST, CIFAR-10)
    - Convolutional Neural Networks (images)
    - Recurrent Neural Networks (sequences)
    - Transfer Learning (use pre-trained models)
    - Advanced architectures (ResNet, BERT)
 
-💡 Compare to NumPy Implementation:
+ Compare to NumPy Implementation:
    NumPy: 200+ lines, manual gradients
    Keras: 10 lines, automatic gradients
    Same result! But Keras is:
@@ -597,14 +597,14 @@ print("""
    - Easier (less code)
    - Scalable (works for huge networks)
 
-🎓 Best Practices:
-   ✓ Start simple (Sequential API)
-   ✓ Use callbacks (early stopping, learning rate scheduling)
-   ✓ Normalize inputs (mean=0, std=1)
-   ✓ Use appropriate activation (ReLU for hidden, sigmoid/softmax for output)
-   ✓ Monitor training (loss & accuracy curves)
-   ✓ Save best model (ModelCheckpoint callback)
+ Best Practices:
+    Start simple (Sequential API)
+    Use callbacks (early stopping, learning rate scheduling)
+    Normalize inputs (mean=0, std=1)
+    Use appropriate activation (ReLU for hidden, sigmoid/softmax for output)
+    Monitor training (loss & accuracy curves)
+    Save best model (ModelCheckpoint callback)
 """)
 
-print("\n✅ TensorFlow & Keras Basics Complete!")
+print("\n TensorFlow & Keras Basics Complete!")
 print("Next: first_nn.py - Build a real neural network on MNIST!")

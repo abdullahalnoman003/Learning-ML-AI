@@ -1,5 +1,5 @@
 """
-🎯 TRANSFER LEARNING - Standing on the Shoulders of Giants
+ TRANSFER LEARNING - Standing on the Shoulders of Giants
 ===========================================================
 
 What is Transfer Learning?
@@ -30,10 +30,10 @@ We reuse layers 1-3 (general features) and retrain layer 4 (our specific task)!
 
 When to use Transfer Learning:
 -------------------------------
-✅ Small dataset (< 10,000 images)
-✅ Similar task (e.g., both are image classification)
-✅ Limited compute resources
-✅ Need quick results
+ Small dataset (< 10,000 images)
+ Similar task (e.g., both are image classification)
+ Limited compute resources
+ Need quick results
 
 Popular Pre-trained Models:
 ----------------------------
@@ -64,7 +64,7 @@ except ImportError:
 # ============================================================
 # PART 1: Understanding Pre-trained Models
 # ============================================================
-print("\n📌 PART 1: Loading a Pre-trained Model")
+print("\n PART 1: Loading a Pre-trained Model")
 print("-" * 80)
 
 print("""
@@ -79,7 +79,7 @@ VGG16 Architecture:
 Keras includes several pre-trained models!
 """)
 
-print("\n🔹 Loading VGG16 (this downloads ~500MB first time)...")
+print("\n Loading VGG16 (this downloads ~500MB first time)...")
 
 # Load VGG16 without top layer (we'll add our own)
 base_model = keras.applications.VGG16(
@@ -88,15 +88,15 @@ base_model = keras.applications.VGG16(
     input_shape=(224, 224, 3)  # Standard ImageNet size
 )
 
-print("\n✅ VGG16 loaded!")
+print("\n VGG16 loaded!")
 print(f"  Model size: ~138M parameters")
 print(f"  Trained on: ImageNet (1.4M images)")
 print(f"  Original task: 1000-class classification")
 
-print("\n📊 Base Model Architecture:")
+print("\n Base Model Architecture:")
 base_model.summary()
 
-print(f"\n💡 Notice:")
+print(f"\n Notice:")
 print(f"  - Input: (224, 224, 3) RGB image")
 print(f"  - Output: (7, 7, 512) feature maps")
 print(f"  - We'll use these features for our task!")
@@ -104,7 +104,7 @@ print(f"  - We'll use these features for our task!")
 # ============================================================
 # PART 2: Feature Extraction Strategy
 # ============================================================
-print("\n\n📌 PART 2: Transfer Learning Strategies")
+print("\n\n PART 2: Transfer Learning Strategies")
 print("-" * 80)
 
 print("""
@@ -126,7 +126,7 @@ We'll demonstrate both!
 """)
 
 # Visualize freezing
-print("\n🔹 Freezing Base Model Layers:")
+print("\n Freezing Base Model Layers:")
 base_model.trainable = False  # Freeze all layers
 
 trainable_count = sum([1 for layer in base_model.layers if layer.trainable])
@@ -135,12 +135,12 @@ frozen_count = len(base_model.layers) - trainable_count
 print(f"  Total layers: {len(base_model.layers)}")
 print(f"  Trainable layers: {trainable_count}")
 print(f"  Frozen layers: {frozen_count}")
-print(f"  ✓ Base model weights won't change during training!")
+print(f"   Base model weights won't change during training!")
 
 # ============================================================
 # PART 3: Building Transfer Learning Model
 # ============================================================
-print("\n\n📌 PART 3: Building Transfer Learning Model")
+print("\n\n PART 3: Building Transfer Learning Model")
 print("-" * 80)
 
 print("""
@@ -154,7 +154,7 @@ We'll classify CIFAR-10:
 """)
 
 # Load CIFAR-10 dataset
-print("\n🔹 Loading CIFAR-10 dataset...")
+print("\n Loading CIFAR-10 dataset...")
 (X_train_cifar, y_train_cifar), (X_test_cifar, y_test_cifar) = keras.datasets.cifar10.load_data()
 
 print(f"  Training: {X_train_cifar.shape}")
@@ -174,11 +174,11 @@ for i, ax in enumerate(axes.flat):
     ax.axis('off')
 
 plt.tight_layout()
-plt.savefig('/d/Language Learning/AI ML/Learning-ML-AI/Phase 4 - Deep Learning/cifar10_samples.png', dpi=150)
-print("\n✓ Saved visualization: cifar10_samples.png")
+plt.savefig('cifar10_samples.png', dpi=150)
+print("\n Saved visualization: cifar10_samples.png")
 
 # Preprocess for VGG16
-print("\n🔹 Preprocessing for VGG16:")
+print("\n Preprocessing for VGG16:")
 print("  1. Resize 32×32 → 224×224 (VGG16 input size)")
 print("  2. Normalize using ImageNet statistics")
 
@@ -207,10 +207,10 @@ X_test_processed = preprocess_for_vgg(X_test_subset.astype('float32'))
 y_train_onehot = keras.utils.to_categorical(y_train_subset, 10)
 y_test_onehot = keras.utils.to_categorical(y_test_subset, 10)
 
-print(f"  ✓ Preprocessed!")
+print(f"   Preprocessed!")
 
 # Build model
-print("\n🔹 Building Transfer Learning Model:")
+print("\n Building Transfer Learning Model:")
 
 model = keras.Sequential([
     base_model,
@@ -220,7 +220,7 @@ model = keras.Sequential([
     keras.layers.Dense(10, activation='softmax')
 ])
 
-print("\n✅ Transfer Learning Model:")
+print("\n Transfer Learning Model:")
 model.summary()
 
 # Count parameters
@@ -228,17 +228,17 @@ total_params = model.count_params()
 trainable_params = sum([tf.reduce_prod(var.shape).numpy() for var in model.trainable_variables])
 frozen_params = total_params - trainable_params
 
-print(f"\n📊 Parameter Analysis:")
+print(f"\n Parameter Analysis:")
 print(f"  Total parameters: {total_params:,}")
 print(f"  Trainable parameters: {trainable_params:,} ({trainable_params/total_params*100:.1f}%)")
 print(f"  Frozen parameters: {frozen_params:,} ({frozen_params/total_params*100:.1f}%)")
-print(f"\n💡 We only train {trainable_params/total_params*100:.1f}% of parameters!")
+print(f"\n We only train {trainable_params/total_params*100:.1f}% of parameters!")
 print(f"   This is why transfer learning is so fast!")
 
 # ============================================================
 # PART 4: Training with Transfer Learning
 # ============================================================
-print("\n\n📌 PART 4: Training the Model")
+print("\n\n PART 4: Training the Model")
 print("-" * 80)
 
 model.compile(
@@ -247,8 +247,8 @@ model.compile(
     metrics=['accuracy']
 )
 
-print("✅ Model compiled")
-print("\n🏋️ Training with frozen base model...\n")
+print(" Model compiled")
+print("\n️ Training with frozen base model...\n")
 
 # Callbacks
 early_stop = keras.callbacks.EarlyStopping(
@@ -267,18 +267,18 @@ history = model.fit(
     verbose=1
 )
 
-print("\n✅ Training complete!")
+print("\n Training complete!")
 
 # Evaluate
 test_loss, test_acc = model.evaluate(X_test_processed, y_test_onehot, verbose=0)
-print(f"\n📊 Test Results (Feature Extraction):")
+print(f"\n Test Results (Feature Extraction):")
 print(f"  Test Accuracy: {test_acc*100:.2f}%")
-print(f"\n💡 Not bad for training only {trainable_params:,} parameters!")
+print(f"\n Not bad for training only {trainable_params:,} parameters!")
 
 # ============================================================
 # PART 5: Fine-Tuning
 # ============================================================
-print("\n\n📌 PART 5: Fine-Tuning for Better Performance")
+print("\n\n PART 5: Fine-Tuning for Better Performance")
 print("-" * 80)
 
 print("""
@@ -289,7 +289,7 @@ Fine-tuning strategy:
 4. Prevent overfitting on small dataset
 """)
 
-print("\n🔹 Unfreezing last 4 layers of VGG16:")
+print("\n Unfreezing last 4 layers of VGG16:")
 
 # Unfreeze the last 4 layers
 base_model.trainable = True
@@ -304,7 +304,7 @@ print(f"  Frozen layers: {frozen_count}")
 print(f"  Trainable layers: {trainable_count}")
 
 # Recompile with lower learning rate
-print("\n🔹 Recompiling with lower learning rate:")
+print("\n Recompiling with lower learning rate:")
 model.compile(
     optimizer=keras.optimizers.Adam(learning_rate=1e-5),  # Much lower!
     loss='categorical_crossentropy',
@@ -312,9 +312,9 @@ model.compile(
 )
 
 print("  Learning rate: 1e-5 (vs 1e-3 default)")
-print("  ✓ Lower learning rate prevents destroying pre-trained weights")
+print("   Lower learning rate prevents destroying pre-trained weights")
 
-print("\n🏋️ Fine-tuning...\n")
+print("\n️ Fine-tuning...\n")
 
 history_finetune = model.fit(
     X_train_processed, y_train_onehot,
@@ -324,11 +324,11 @@ history_finetune = model.fit(
     verbose=1
 )
 
-print("\n✅ Fine-tuning complete!")
+print("\n Fine-tuning complete!")
 
 # Evaluate again
 test_loss_ft, test_acc_ft = model.evaluate(X_test_processed, y_test_onehot, verbose=0)
-print(f"\n📊 Test Results After Fine-Tuning:")
+print(f"\n Test Results After Fine-Tuning:")
 print(f"  Test Accuracy: {test_acc_ft*100:.2f}%")
 print(f"  Improvement: +{(test_acc_ft - test_acc)*100:.2f}%")
 
@@ -360,13 +360,13 @@ ax2.legend(fontsize=10)
 ax2.grid(True, alpha=0.3)
 
 plt.tight_layout()
-plt.savefig('/d/Language Learning/AI ML/Learning-ML-AI/Phase 4 - Deep Learning/transfer_learning_history.png', dpi=150)
-print("\n✓ Saved visualization: transfer_learning_history.png")
+plt.savefig('transfer_learning_history.png', dpi=150)
+print("\n Saved visualization: transfer_learning_history.png")
 
 # ============================================================
 # PART 6: Making Predictions
 # ============================================================
-print("\n\n📌 PART 6: Testing the Transfer Learning Model")
+print("\n\n PART 6: Testing the Transfer Learning Model")
 print("-" * 80)
 
 # Make predictions
@@ -390,21 +390,21 @@ for i, ax in enumerate(axes.flat):
     ax.axis('off')
 
 plt.tight_layout()
-plt.savefig('/d/Language Learning/AI ML/Learning-ML-AI/Phase 4 - Deep Learning/transfer_learning_predictions.png', dpi=150)
-print("\n✓ Saved visualization: transfer_learning_predictions.png")
+plt.savefig('transfer_learning_predictions.png', dpi=150)
+print("\n Saved visualization: transfer_learning_predictions.png")
 
-print("\n🧪 Sample Predictions:")
+print("\n Sample Predictions:")
 for i in range(5):
     pred = predicted_classes[i]
     actual = y_test_subset[i][0]
     conf = predictions[i][pred] * 100
-    status = '✓' if pred == actual else '✗'
+    status = '' if pred == actual else ''
     print(f"  {status} Predicted: {class_names[pred]:12s} ({conf:5.1f}%) | Actual: {class_names[actual]}")
 
 # ============================================================
 # PART 7: Comparing Approaches
 # ============================================================
-print("\n\n📌 PART 7: Comparing Different Approaches")
+print("\n\n PART 7: Comparing Different Approaches")
 print("-" * 80)
 
 print("""
@@ -426,29 +426,29 @@ Let's compare three approaches:
    - Best performance
 """)
 
-print("\n📊 Comparison (on CIFAR-10 subset):\n")
+print("\n Comparison (on CIFAR-10 subset):\n")
 print(f"  {'Approach':<20} | {'Training Time':<15} | {'Parameters':<15} | {'Accuracy':<10}")
 print(f"  {'-'*20}+{'-'*16}+{'-'*16}+{'-'*10}")
 print(f"  {'From Scratch':<20} | {'Hours (slow)':<15} | {'~15M (all)':<15} | {'~65%':<10}")
 print(f"  {'Feature Extract':<20} | {'Minutes (fast)':<15} | {f'~{trainable_params:,} (few)':<15} | {f'{test_acc*100:.1f}%':<10}")
 print(f"  {'Fine-Tuning':<20} | {'~30 min':<15} | {f'~{trainable_params:,}+':<15} | {f'{test_acc_ft*100:.1f}%':<10}")
 
-print("\n💡 Key Insights:")
-print("  ✓ Transfer learning is MUCH faster")
-print("  ✓ Works great with small datasets")
-print("  ✓ Fine-tuning gives best results")
-print("  ✓ Pre-trained models are incredibly valuable!")
+print("\n Key Insights:")
+print("   Transfer learning is MUCH faster")
+print("   Works great with small datasets")
+print("   Fine-tuning gives best results")
+print("   Pre-trained models are incredibly valuable!")
 
 # ============================================================
 # PART 8: Other Pre-trained Models
 # ============================================================
-print("\n\n📌 PART 8: Other Pre-trained Models Available")
+print("\n\n PART 8: Other Pre-trained Models Available")
 print("-" * 80)
 
 print("""
 Keras provides many pre-trained models:
 
-📦 Available Models:
+ Available Models:
 
 1. VGG16 / VGG19
    - Simple, powerful
@@ -489,7 +489,7 @@ All available via: keras.applications.<ModelName>
 All trained on ImageNet!
 """)
 
-print("\n🔹 Quick comparison:")
+print("\n Quick comparison:")
 models_info = [
     ("VGG16", "138M", "71.3%", "Slow"),
     ("ResNet50", "25M", "74.9%", "Medium"),
@@ -506,23 +506,23 @@ for name, params, acc, speed in models_info:
 # ============================================================
 # PART 9: Best Practices
 # ============================================================
-print("\n\n📌 PART 9: Transfer Learning Best Practices")
+print("\n\n PART 9: Transfer Learning Best Practices")
 print("-" * 80)
 
 print("""
-🎯 When to Use Transfer Learning:
-  ✅ Small dataset (< 10,000 samples)
-  ✅ Similar domain (both images, both text, etc.)
-  ✅ Limited compute resources
-  ✅ Need quick results
-  ✅ Prototyping
+ When to Use Transfer Learning:
+   Small dataset (< 10,000 samples)
+   Similar domain (both images, both text, etc.)
+   Limited compute resources
+   Need quick results
+   Prototyping
 
-⚠️  When NOT to Use:
-  ❌ Very different domain (ImageNet → medical scans may not help)
-  ❌ Extremely large dataset (train from scratch might be better)
-  ❌ Very different task (ImageNet → audio)
+️  When NOT to Use:
+   Very different domain (ImageNet → medical scans may not help)
+   Extremely large dataset (train from scratch might be better)
+   Very different task (ImageNet → audio)
 
-📋 Step-by-Step Guide:
+ Step-by-Step Guide:
 
 1. CHOOSE BASE MODEL:
    - Similar task? Use related model
@@ -556,7 +556,7 @@ print("""
    - Compare to baseline
    - Analyze errors
 
-🔧 Tips:
+ Tips:
 
 1. DATA AUGMENTATION:
    - Flip, rotate, zoom images
@@ -583,15 +583,15 @@ print("""
    - ModelCheckpoint
    - ReduceLROnPlateau
 
-💡 Common Mistakes:
+ Common Mistakes:
 
-❌ Fine-tuning too early (do feature extraction first!)
-❌ High learning rate when fine-tuning (destroys weights!)
-❌ Unfreezing too many layers (overfits on small data!)
-❌ Not using data augmentation
-❌ Wrong preprocessing (each model has specific preprocessing!)
+ Fine-tuning too early (do feature extraction first!)
+ High learning rate when fine-tuning (destroys weights!)
+ Unfreezing too many layers (overfits on small data!)
+ Not using data augmentation
+ Wrong preprocessing (each model has specific preprocessing!)
 
-✅ Do This:
+ Do This:
 
 1. Start simple (freeze everything)
 2. Add data augmentation
@@ -604,7 +604,7 @@ print("""
 # ============================================================
 # WHY THIS MATTERS
 # ============================================================
-print("\n\n🎯 WHY TRANSFER LEARNING MATTERS")
+print("\n\n WHY TRANSFER LEARNING MATTERS")
 print("=" * 80)
 print("""
 1. DEMOCRATIZES DEEP LEARNING:
@@ -645,13 +645,13 @@ print("""
    - Later layers: Specific objects (task-specific)
    - We leverage universal features!
 
-📊 Our Achievement:
+ Our Achievement:
    - Used 5,000 images (vs 1.4M for ImageNet)
    - Trained in minutes (vs weeks)
    - Achieved ~{test_acc_ft*100:.1f}% accuracy
    - Only trained {trainable_params:,} parameters!
 
-🔑 Key Takeaways:
+ Key Takeaways:
 
    1. Transfer learning = Reusing learned features
       - Pre-trained on large dataset
@@ -672,7 +672,7 @@ print("""
       - Speed: MobileNet
       - Baseline: ResNet50
 
-🚀 What's Next?
+ What's Next?
 
    PRACTICE:
    - Try different models (ResNet, EfficientNet)
@@ -692,16 +692,16 @@ print("""
    - Product defect detection
    - Custom image search
 
-💡 Remember:
+ Remember:
    "Transfer learning is not cheating, it's smart engineering!"
 
    Just like we don't reinvent programming languages,
    we don't retrain from scratch when great models exist!
 
-🎓 You've mastered transfer learning!
+ You've mastered transfer learning!
    This is THE practical way to use deep learning today.
    Most real-world applications use transfer learning!
 """)
 
-print("\n✅ Transfer Learning Complete!")
+print("\n Transfer Learning Complete!")
 print("Next: nlp_basics.py - Text processing and NLP fundamentals")

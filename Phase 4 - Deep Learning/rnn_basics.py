@@ -1,5 +1,5 @@
 """
-🔄 RECURRENT NEURAL NETWORKS (RNN) - Deep Learning for Sequences
+ RECURRENT NEURAL NETWORKS (RNN) - Deep Learning for Sequences
 ==================================================================
 
 What is a Recurrent Neural Network?
@@ -64,7 +64,7 @@ except ImportError:
 # ============================================================
 # PART 1: Understanding Sequential Data
 # ============================================================
-print("\n📌 PART 1: Understanding Sequential Data")
+print("\n PART 1: Understanding Sequential Data")
 print("-" * 80)
 
 print("""
@@ -92,7 +92,7 @@ Key characteristic: ORDER MATTERS!
 """)
 
 # Create simple sequence data
-print("\n🔹 Example: Predicting Next Number in Sequence")
+print("\n Example: Predicting Next Number in Sequence")
 print("\nSequence pattern: Each number = sum of previous two (like Fibonacci)")
 
 # Generate sequence
@@ -115,12 +115,12 @@ plt.title('Sequential Data - Order Matters!', fontsize=14, fontweight='bold')
 plt.grid(True, alpha=0.3)
 plt.tight_layout()
 plt.savefig('/d/Language Learning/AI ML/Learning-ML-AI/Phase 4 - Deep Learning/rnn_sequence_data.png', dpi=150)
-print("\n✓ Saved visualization: rnn_sequence_data.png")
+print("\n Saved visualization: rnn_sequence_data.png")
 
 # ============================================================
 # PART 2: Vanilla RNN from Scratch
 # ============================================================
-print("\n\n📌 PART 2: Understanding Vanilla RNN")
+print("\n\n PART 2: Understanding Vanilla RNN")
 print("-" * 80)
 
 print("""
@@ -137,7 +137,7 @@ It carries information from previous time steps.
 """)
 
 # Simple RNN example
-print("\n🔹 Manual RNN Calculation Example:")
+print("\n Manual RNN Calculation Example:")
 
 # Parameters (small example)
 W_h = np.array([[0.5]])  # Hidden to hidden
@@ -154,7 +154,7 @@ print(f"Input sequence: {x_sequence}")
 h = np.array([0.0])
 outputs = []
 
-print("\n⏱️ Processing sequence step-by-step:\n")
+print("\n️ Processing sequence step-by-step:\n")
 for t, x in enumerate(x_sequence):
     # RNN cell computation
     h = np.tanh(W_h * h + W_x * x + b)
@@ -163,13 +163,13 @@ for t, x in enumerate(x_sequence):
     outputs.append(y[0])
     print(f"  Step {t}: x={x:.1f}, h={h[0]:.4f}, y={y[0]:.4f}")
 
-print(f"\n💡 Notice how hidden state h changes and carries information!")
+print(f"\n Notice how hidden state h changes and carries information!")
 print(f"   The hidden state h is the RNN's \"memory\"")
 
 # ============================================================
 # PART 3: Preparing Sequential Data
 # ============================================================
-print("\n\n📌 PART 3: Preparing Data for RNN")
+print("\n\n PART 3: Preparing Data for RNN")
 print("-" * 80)
 
 print("""
@@ -198,7 +198,7 @@ def create_sequences(data, seq_length):
 seq_length = 3  # Use 3 previous values to predict next
 X_seq, y_seq = create_sequences(sequence[:-5], seq_length)  # Hold out last 5 for testing
 
-print(f"\n🔹 Training Data:")
+print(f"\n Training Data:")
 print(f"  Input shape: {X_seq.shape}")
 print(f"  Output shape: {y_seq.shape}")
 print(f"  Number of samples: {len(X_seq)}")
@@ -215,12 +215,12 @@ print(f"  (samples, time_steps, features)")
 # Normalize
 X_seq_normalized = X_seq / np.max(X_seq)
 y_seq_normalized = y_seq / np.max(y_seq)
-print(f"\n  ✓ Normalized to [0, 1] range")
+print(f"\n   Normalized to [0, 1] range")
 
 # ============================================================
 # PART 4: Building a Simple RNN
 # ============================================================
-print("\n\n📌 PART 4: Building RNN with Keras")
+print("\n\n PART 4: Building RNN with Keras")
 print("-" * 80)
 
 print("""
@@ -240,12 +240,12 @@ simple_rnn_model = keras.Sequential([
     keras.layers.Dense(1, name='output')
 ])
 
-print("\n✅ Simple RNN Model:")
+print("\n Simple RNN Model:")
 simple_rnn_model.summary()
 
 simple_rnn_model.compile(optimizer='adam', loss='mse', metrics=['mae'])
 
-print("\n🏋️ Training Simple RNN...")
+print("\n️ Training Simple RNN...")
 history_simple = simple_rnn_model.fit(
     X_seq_normalized, y_seq_normalized,
     epochs=100,
@@ -254,13 +254,13 @@ history_simple = simple_rnn_model.fit(
     verbose=0
 )
 
-print(f"✅ Training complete!")
+print(f" Training complete!")
 print(f"  Final loss: {history_simple.history['loss'][-1]:.6f}")
 
 # ============================================================
 # PART 5: LSTM - The Better RNN
 # ============================================================
-print("\n\n📌 PART 5: LSTM - Long Short-Term Memory")
+print("\n\n PART 5: LSTM - Long Short-Term Memory")
 print("-" * 80)
 
 print("""
@@ -298,17 +298,17 @@ lstm_model = keras.Sequential([
     keras.layers.Dense(1, name='output')
 ])
 
-print("\n✅ LSTM Model:")
+print("\n LSTM Model:")
 lstm_model.summary()
 
-print(f"\n📊 Parameter comparison:")
+print(f"\n Parameter comparison:")
 print(f"  SimpleRNN(32): {32*32 + 32*1 + 32:,} parameters")
 print(f"  LSTM(32): {32*32*4 + 32*1*4 + 32*4:,} parameters")
 print(f"  LSTM has 4× more parameters (4 gates!)")
 
 lstm_model.compile(optimizer='adam', loss='mse', metrics=['mae'])
 
-print("\n🏋️ Training LSTM...")
+print("\n️ Training LSTM...")
 history_lstm = lstm_model.fit(
     X_seq_normalized, y_seq_normalized,
     epochs=100,
@@ -317,7 +317,7 @@ history_lstm = lstm_model.fit(
     verbose=0
 )
 
-print(f"✅ Training complete!")
+print(f" Training complete!")
 print(f"  Final loss: {history_lstm.history['loss'][-1]:.6f}")
 
 # Compare performance
@@ -332,12 +332,12 @@ plt.yscale('log')
 plt.grid(True, alpha=0.3)
 plt.tight_layout()
 plt.savefig('/d/Language Learning/AI ML/Learning-ML-AI/Phase 4 - Deep Learning/rnn_vs_lstm_training.png', dpi=150)
-print("\n✓ Saved visualization: rnn_vs_lstm_training.png")
+print("\n Saved visualization: rnn_vs_lstm_training.png")
 
 # ============================================================
 # PART 6: Making Predictions
 # ============================================================
-print("\n\n📌 PART 6: Making Sequence Predictions")
+print("\n\n PART 6: Making Sequence Predictions")
 print("-" * 80)
 
 # Test on held-out data
@@ -349,7 +349,7 @@ y_test_actual = sequence[-5]
 pred_simple = simple_rnn_model.predict(X_test, verbose=0)[0][0] * np.max(y_seq)
 pred_lstm = lstm_model.predict(X_test, verbose=0)[0][0] * np.max(y_seq)
 
-print(f"\n🧪 Test Prediction:")
+print(f"\n Test Prediction:")
 print(f"  Input sequence: {test_sequence}")
 print(f"  Actual next value: {y_test_actual}")
 print(f"  Simple RNN prediction: {pred_simple:.2f}")
@@ -360,7 +360,7 @@ print(f"  LSTM error: {abs(y_test_actual - pred_lstm):.2f}")
 # ============================================================
 # PART 7: Sentiment Analysis with IMDB
 # ============================================================
-print("\n\n📌 PART 7: Text Sequence - IMDB Sentiment Analysis")
+print("\n\n PART 7: Text Sequence - IMDB Sentiment Analysis")
 print("-" * 80)
 
 print("""
@@ -380,16 +380,16 @@ maxlen = 200  # Cut reviews after 200 words
 
 (X_train_imdb, y_train_imdb), (X_test_imdb, y_test_imdb) = keras.datasets.imdb.load_data(num_words=max_features)
 
-print(f"\n✅ Data loaded:")
+print(f"\n Data loaded:")
 print(f"  Training samples: {len(X_train_imdb)}")
 print(f"  Test samples: {len(X_test_imdb)}")
 
-print(f"\n🔹 Example review (as word indices):")
+print(f"\n Example review (as word indices):")
 print(f"  {X_train_imdb[0][:20]}...")
 print(f"  Label: {'Positive' if y_train_imdb[0] == 1 else 'Negative'}")
 
 # Pad sequences to same length
-print(f"\n🔹 Padding sequences to length {maxlen}...")
+print(f"\n Padding sequences to length {maxlen}...")
 X_train_imdb = keras.preprocessing.sequence.pad_sequences(X_train_imdb, maxlen=maxlen)
 X_test_imdb = keras.preprocessing.sequence.pad_sequences(X_test_imdb, maxlen=maxlen)
 
@@ -397,7 +397,7 @@ print(f"  Padded shape: {X_train_imdb.shape}")
 print(f"  (samples, time_steps)")
 
 # Build LSTM model for sentiment
-print("\n\n📌 PART 8: LSTM for Sentiment Analysis")
+print("\n\n PART 8: LSTM for Sentiment Analysis")
 print("-" * 80)
 
 print("""
@@ -417,7 +417,7 @@ sentiment_model = keras.Sequential([
     keras.layers.Dense(1, activation='sigmoid', name='output')
 ])
 
-print("\n✅ Sentiment Model:")
+print("\n Sentiment Model:")
 sentiment_model.summary()
 
 sentiment_model.compile(
@@ -426,7 +426,7 @@ sentiment_model.compile(
     metrics=['accuracy']
 )
 
-print("\n🏋️ Training sentiment model (this takes a few minutes)...")
+print("\n️ Training sentiment model (this takes a few minutes)...")
 print("  Training on 25,000 reviews...")
 
 history_sentiment = sentiment_model.fit(
@@ -437,11 +437,11 @@ history_sentiment = sentiment_model.fit(
     verbose=1
 )
 
-print("\n✅ Training complete!")
+print("\n Training complete!")
 
 # Evaluate
 test_loss, test_acc = sentiment_model.evaluate(X_test_imdb, y_test_imdb, verbose=0)
-print(f"\n📊 Test Results:")
+print(f"\n Test Results:")
 print(f"  Test Accuracy: {test_acc*100:.2f}%")
 print(f"  The model correctly classifies {test_acc*100:.1f}% of reviews!")
 
@@ -466,10 +466,10 @@ ax2.grid(True, alpha=0.3)
 
 plt.tight_layout()
 plt.savefig('/d/Language Learning/AI ML/Learning-ML-AI/Phase 4 - Deep Learning/rnn_sentiment_training.png', dpi=150)
-print("\n✓ Saved visualization: rnn_sentiment_training.png")
+print("\n Saved visualization: rnn_sentiment_training.png")
 
 # Test on example
-print("\n\n🔹 Testing on examples:")
+print("\n\n Testing on examples:")
 word_index = keras.datasets.imdb.get_word_index()
 reverse_word_index = {v: k for k, v in word_index.items()}
 
@@ -485,12 +485,12 @@ for i in range(3):
     print(f"    {review[:200]}...")
     print(f"    Prediction: {'Positive' if prediction > 0.5 else 'Negative'} (score: {prediction:.3f})")
     print(f"    Actual: {'Positive' if actual == 1 else 'Negative'}")
-    print(f"    {'✓ Correct!' if (prediction > 0.5) == actual else '✗ Wrong'}")
+    print(f"    {' Correct!' if (prediction > 0.5) == actual else ' Wrong'}")
 
 # ============================================================
 # PART 9: GRU - Alternative to LSTM
 # ============================================================
-print("\n\n📌 PART 9: GRU - Gated Recurrent Unit")
+print("\n\n PART 9: GRU - Gated Recurrent Unit")
 print("-" * 80)
 
 print("""
@@ -518,10 +518,10 @@ gru_model = keras.Sequential([
     keras.layers.Dense(1, activation='sigmoid')
 ])
 
-print("\n✅ GRU Model:")
+print("\n GRU Model:")
 gru_model.summary()
 
-print(f"\n📊 Parameter comparison (for 64 units):")
+print(f"\n Parameter comparison (for 64 units):")
 print(f"  LSTM: {lstm_model.layers[0].count_params():,} parameters")
 print(f"  GRU: {64*64*3 + 64*1*3 + 64*3:,} parameters (estimate)")
 print(f"  GRU is simpler and faster!")
@@ -529,7 +529,7 @@ print(f"  GRU is simpler and faster!")
 # ============================================================
 # PART 10: Bidirectional RNN
 # ============================================================
-print("\n\n📌 PART 10: Bidirectional RNN")
+print("\n\n PART 10: Bidirectional RNN")
 print("-" * 80)
 
 print("""
@@ -555,16 +555,16 @@ bidirectional_model = keras.Sequential([
     keras.layers.Dense(1, activation='sigmoid')
 ])
 
-print("\n✅ Bidirectional LSTM Model:")
+print("\n Bidirectional LSTM Model:")
 bidirectional_model.summary()
 
-print("\n💡 Notice: Parameters doubled!")
+print("\n Notice: Parameters doubled!")
 print("   Two LSTMs: one forward, one backward")
 
 # ============================================================
 # WHY THIS MATTERS
 # ============================================================
-print("\n\n🎯 WHY RNNs MATTER")
+print("\n\n WHY RNNs MATTER")
 print("=" * 80)
 print("""
 1. REVOLUTIONIZED SEQUENCE MODELING:
@@ -575,14 +575,14 @@ print("""
    - Video analysis
 
 2. CORE CONCEPTS MASTERED:
-   ✓ Sequential data
-   ✓ Hidden state (memory)
-   ✓ Parameter sharing across time
-   ✓ Backpropagation through time (BPTT)
-   ✓ Vanishing gradient problem
-   ✓ LSTM gates (forget, input, output)
-   ✓ GRU (simpler alternative)
-   ✓ Bidirectional processing
+    Sequential data
+    Hidden state (memory)
+    Parameter sharing across time
+    Backpropagation through time (BPTT)
+    Vanishing gradient problem
+    LSTM gates (forget, input, output)
+    GRU (simpler alternative)
+    Bidirectional processing
 
 3. REAL-WORLD APPLICATIONS:
    - Language translation: Google Translate
@@ -612,12 +612,12 @@ print("""
    - GRU: Faster, similar performance
    - Bidirectional: Need future context (NLP)
 
-📊 Our Results:
+ Our Results:
    Sentiment Analysis: ~85% accuracy
    5 epochs, 25,000 reviews
    Understands positive vs negative!
 
-🔑 Key Takeaways:
+ Key Takeaways:
 
    1. Sequences need special handling
       - Order matters!
@@ -640,7 +640,7 @@ print("""
       - GRU: Balance of both
       - Bidirectional: Best for NLP
 
-🚀 What's Next?
+ What's Next?
 
    LIMITATIONS:
    - RNNs are SLOW (sequential, can't parallelize)
@@ -658,7 +658,7 @@ print("""
    - Attention mechanisms
    - BERT, GPT (transformer-based)
 
-💡 Historical Context:
+ Historical Context:
    2010-2017: RNN/LSTM golden age
    2017+: Transformers took over
    "Attention is All You Need" paper changed everything!
@@ -669,10 +669,10 @@ print("""
    - Time-series forecasting
    - When you need true sequential processing
 
-🎓 You've mastered RNNs!
+ You've mastered RNNs!
    This was the foundation of modern NLP.
    Now, Transformers build on these ideas!
 """)
 
-print("\n✅ RNN Basics Complete!")
+print("\n RNN Basics Complete!")
 print("Next: transfer_learning.py - Using pre-trained models")

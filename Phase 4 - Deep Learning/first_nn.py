@@ -1,5 +1,5 @@
 """
-🎨 FIRST NEURAL NETWORK - MNIST Digit Recognition
+ FIRST NEURAL NETWORK - MNIST Digit Recognition
 ==================================================
 
 What is MNIST?
@@ -53,7 +53,7 @@ except ImportError:
 # ============================================================
 # PART 1: Loading the Dataset
 # ============================================================
-print("\n📌 PART 1: Loading MNIST Dataset")
+print("\n PART 1: Loading MNIST Dataset")
 print("-" * 80)
 
 print("\nLoading MNIST data (this may take a moment)...")
@@ -61,7 +61,7 @@ print("\nLoading MNIST data (this may take a moment)...")
 # Keras includes MNIST dataset!
 (X_train, y_train), (X_test, y_test) = keras.datasets.mnist.load_data()
 
-print(f"\n✅ Data loaded successfully!")
+print(f"\n Data loaded successfully!")
 print(f"\nDataset shapes:")
 print(f"  Training images: {X_train.shape}")
 print(f"  Training labels: {y_train.shape}")
@@ -81,7 +81,7 @@ print(f"Number of classes: {len(np.unique(y_train))}")
 # ============================================================
 # PART 2: Exploring the Data
 # ============================================================
-print("\n\n📌 PART 2: Exploring the Data")
+print("\n\n PART 2: Exploring the Data")
 print("-" * 80)
 
 # Show first image
@@ -102,11 +102,11 @@ for i, ax in enumerate(axes.flat):
 
 plt.tight_layout()
 plt.savefig('/d/Language Learning/AI ML/Learning-ML-AI/Phase 4 - Deep Learning/mnist_samples.png', dpi=150)
-print("\n✓ Saved visualization: mnist_samples.png")
+print("\n Saved visualization: mnist_samples.png")
 print("  Look at the variety! Some digits are clear, others are tricky!")
 
 # Class distribution
-print("\n\n🔹 Class Distribution:")
+print("\n\n Class Distribution:")
 unique, counts = np.unique(y_train, out=True)
 for digit, count in zip(unique, counts):
     print(f"  Digit {digit}: {count:,} samples ({count/len(y_train)*100:.1f}%)")
@@ -120,13 +120,13 @@ plt.xticks(unique)
 plt.grid(True, alpha=0.3, axis='y')
 plt.tight_layout()
 plt.savefig('/d/Language Learning/AI ML/Learning-ML-AI/Phase 4 - Deep Learning/mnist_distribution.png', dpi=150)
-print("✓ Saved visualization: mnist_distribution.png")
+print(" Saved visualization: mnist_distribution.png")
 print("  Dataset is well-balanced! Each digit has roughly the same number of samples.")
 
 # ============================================================
 # PART 3: Data Preprocessing
 # ============================================================
-print("\n\n📌 PART 3: Data Preprocessing")
+print("\n\n PART 3: Data Preprocessing")
 print("-" * 80)
 
 print("""
@@ -145,36 +145,36 @@ Why preprocess?
 """)
 
 # Normalize pixel values to [0, 1]
-print("\n🔹 Step 1: Normalizing pixel values")
+print("\n Step 1: Normalizing pixel values")
 X_train_normalized = X_train.astype('float32') / 255.0
 X_test_normalized = X_test.astype('float32') / 255.0
 
 print(f"  Original range: [{X_train[0].min()}, {X_train[0].max()}]")
 print(f"  Normalized range: [{X_train_normalized[0].min():.1f}, {X_train_normalized[0].max():.1f}]")
-print(f"  ✓ Pixels now in [0, 1] range")
+print(f"   Pixels now in [0, 1] range")
 
 # Flatten images
-print("\n🔹 Step 2: Flattening images")
+print("\n Step 2: Flattening images")
 X_train_flat = X_train_normalized.reshape(-1, 28*28)
 X_test_flat = X_test_normalized.reshape(-1, 28*28)
 
 print(f"  Original shape: {X_train_normalized.shape}")
 print(f"  Flattened shape: {X_train_flat.shape}")
-print(f"  ✓ Each image is now a vector of 784 features")
+print(f"   Each image is now a vector of 784 features")
 
 # One-hot encode labels
-print("\n🔹 Step 3: One-hot encoding labels")
+print("\n Step 3: One-hot encoding labels")
 y_train_onehot = keras.utils.to_categorical(y_train, 10)
 y_test_onehot = keras.utils.to_categorical(y_test, 10)
 
 print(f"  Original label: {y_train[0]}")
 print(f"  One-hot encoded: {y_train_onehot[0]}")
-print(f"  ✓ Labels now in one-hot format (shape: {y_train_onehot.shape})")
+print(f"   Labels now in one-hot format (shape: {y_train_onehot.shape})")
 
 # ============================================================
 # PART 4: Building the Neural Network
 # ============================================================
-print("\n\n📌 PART 4: Building the Neural Network")
+print("\n\n PART 4: Building the Neural Network")
 print("-" * 80)
 
 print("""
@@ -203,22 +203,22 @@ model = keras.Sequential([
     keras.layers.Dense(10, activation='softmax', name='output')
 ])
 
-print("\n✅ Model architecture:")
+print("\n Model architecture:")
 model.summary()
 
 # Count parameters
-print("\n📊 Parameter breakdown:")
+print("\n Parameter breakdown:")
 print(f"  Layer 1: 784×128 + 128 = {784*128 + 128:,} parameters")
 print(f"  Layer 2: 128×64 + 64 = {128*64 + 64:,} parameters")
 print(f"  Layer 3: 64×10 + 10 = {64*10 + 10:,} parameters")
 print(f"  Total: {model.count_params():,} trainable parameters!")
 
-print("\n💡 Each parameter is a weight the network will learn!")
+print("\n Each parameter is a weight the network will learn!")
 
 # ============================================================
 # PART 5: Compiling the Model
 # ============================================================
-print("\n\n📌 PART 5: Compiling the Model")
+print("\n\n PART 5: Compiling the Model")
 print("-" * 80)
 
 model.compile(
@@ -227,7 +227,7 @@ model.compile(
     metrics=['accuracy']
 )
 
-print("✅ Model compiled!")
+print(" Model compiled!")
 print("\nConfiguration:")
 print("  Optimizer: Adam")
 print("    - Adaptive learning rate")
@@ -242,7 +242,7 @@ print("    - Percentage of correct predictions")
 # ============================================================
 # PART 6: Training the Model
 # ============================================================
-print("\n\n📌 PART 6: Training the Model")
+print("\n\n PART 6: Training the Model")
 print("-" * 80)
 
 print("\nTraining parameters:")
@@ -250,7 +250,7 @@ print("  Epochs: 10 (how many times to go through entire dataset)")
 print("  Batch size: 128 (number of samples per gradient update)")
 print("  Validation split: 0.1 (10% of training data for validation)")
 
-print("\n🏋️ Training started...\n")
+print("\n️ Training started...\n")
 
 history = model.fit(
     X_train_flat, y_train_onehot,
@@ -260,32 +260,32 @@ history = model.fit(
     verbose=1
 )
 
-print("\n✅ Training complete!")
+print("\n Training complete!")
 
 # ============================================================
 # PART 7: Evaluating the Model
 # ============================================================
-print("\n\n📌 PART 7: Evaluating on Test Set")
+print("\n\n PART 7: Evaluating on Test Set")
 print("-" * 80)
 
 test_loss, test_accuracy = model.evaluate(X_test_flat, y_test_onehot, verbose=0)
 
-print(f"\n📊 Test Results:")
+print(f"\n Test Results:")
 print(f"  Test Loss: {test_loss:.4f}")
 print(f"  Test Accuracy: {test_accuracy*100:.2f}%")
-print(f"\n💡 The model correctly classifies {test_accuracy*100:.1f}% of unseen digits!")
+print(f"\n The model correctly classifies {test_accuracy*100:.1f}% of unseen digits!")
 
 if test_accuracy > 0.95:
-    print("  🎉 Excellent performance! Above 95% accuracy!")
+    print("   Excellent performance! Above 95% accuracy!")
 elif test_accuracy > 0.90:
-    print("  😊 Good performance! Above 90% accuracy!")
+    print("   Good performance! Above 90% accuracy!")
 else:
-    print("  🤔 Could be better. Try adding more layers or training longer!")
+    print("   Could be better. Try adding more layers or training longer!")
 
 # ============================================================
 # PART 8: Visualizing Training Progress
 # ============================================================
-print("\n\n📌 PART 8: Visualizing Training Progress")
+print("\n\n PART 8: Visualizing Training Progress")
 print("-" * 80)
 
 fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(14, 5))
@@ -310,9 +310,9 @@ ax2.grid(True, alpha=0.3)
 
 plt.tight_layout()
 plt.savefig('/d/Language Learning/AI ML/Learning-ML-AI/Phase 4 - Deep Learning/mnist_training_history.png', dpi=150)
-print("✓ Saved visualization: mnist_training_history.png")
+print(" Saved visualization: mnist_training_history.png")
 
-print("\n💡 What to look for:")
+print("\n What to look for:")
 print("  - Loss should decrease over time")
 print("  - Accuracy should increase over time")
 print("  - Training and validation curves should be close")
@@ -321,13 +321,13 @@ print("  - If validation loss increases while training loss decreases → overfi
 # ============================================================
 # PART 9: Making Predictions
 # ============================================================
-print("\n\n📌 PART 9: Making Predictions on New Data")
+print("\n\n PART 9: Making Predictions on New Data")
 print("-" * 80)
 
 # Get predictions for test set
 predictions = model.predict(X_test_flat[:100], verbose=0)
 
-print("\n🔍 Example predictions:\n")
+print("\n Example predictions:\n")
 for i in range(5):
     predicted_class = np.argmax(predictions[i])
     confidence = predictions[i][predicted_class] * 100
@@ -336,7 +336,7 @@ for i in range(5):
     print(f"  Image {i}:")
     print(f"    Predicted: {predicted_class} (confidence: {confidence:.1f}%)")
     print(f"    Actual: {actual_class}")
-    print(f"    {'✓ Correct!' if predicted_class == actual_class else '✗ Wrong!'}")
+    print(f"    {' Correct!' if predicted_class == actual_class else ' Wrong!'}")
     print()
 
 # Visualize predictions
@@ -362,13 +362,13 @@ for i, ax in enumerate(axes.flat):
 
 plt.tight_layout()
 plt.savefig('/d/Language Learning/AI ML/Learning-ML-AI/Phase 4 - Deep Learning/mnist_predictions.png', dpi=150)
-print("✓ Saved visualization: mnist_predictions.png")
+print(" Saved visualization: mnist_predictions.png")
 print("  Green = correct prediction, Red = wrong prediction")
 
 # ============================================================
 # PART 10: Analyzing Errors
 # ============================================================
-print("\n\n📌 PART 10: Analyzing Errors - Where Did We Go Wrong?")
+print("\n\n PART 10: Analyzing Errors - Where Did We Go Wrong?")
 print("-" * 80)
 
 # Get all predictions
@@ -377,12 +377,12 @@ predicted_classes = np.argmax(all_predictions, axis=1)
 
 # Find misclassified examples
 misclassified_indices = np.where(predicted_classes != y_test)[0]
-print(f"\n❌ Number of errors: {len(misclassified_indices)} out of {len(y_test)}")
+print(f"\n Number of errors: {len(misclassified_indices)} out of {len(y_test)}")
 print(f"   Error rate: {len(misclassified_indices)/len(y_test)*100:.2f}%")
 
 # Show some errors
 if len(misclassified_indices) > 0:
-    print("\n🔍 Examples of misclassifications:\n")
+    print("\n Examples of misclassifications:\n")
 
     fig, axes = plt.subplots(3, 5, figsize=(12, 8))
     fig.suptitle('Misclassified Examples - These Are Tricky!', fontsize=16, fontweight='bold')
@@ -402,20 +402,20 @@ if len(misclassified_indices) > 0:
             if i < 3:
                 print(f"  Image {i+1}: Predicted {pred}, Actually {actual}")
                 print(f"    Confidence: {confidence:.1f}%")
-                print(f"    💡 Even humans might struggle with this one!")
+                print(f"     Even humans might struggle with this one!")
                 print()
         else:
             ax.axis('off')
 
     plt.tight_layout()
     plt.savefig('/d/Language Learning/AI ML/Learning-ML-AI/Phase 4 - Deep Learning/mnist_errors.png', dpi=150)
-    print("✓ Saved visualization: mnist_errors.png")
+    print(" Saved visualization: mnist_errors.png")
     print("  These are genuinely hard examples! The network did well overall.")
 
 # ============================================================
 # PART 11: Confusion Matrix
 # ============================================================
-print("\n\n📌 PART 11: Confusion Matrix - Detailed Performance")
+print("\n\n PART 11: Confusion Matrix - Detailed Performance")
 print("-" * 80)
 
 from sklearn.metrics import confusion_matrix
@@ -433,9 +433,9 @@ plt.ylabel('True Label', fontsize=12)
 plt.title('Confusion Matrix - Where Does the Model Confuse?', fontsize=14, fontweight='bold')
 plt.tight_layout()
 plt.savefig('/d/Language Learning/AI ML/Learning-ML-AI/Phase 4 - Deep Learning/mnist_confusion_matrix.png', dpi=150)
-print("✓ Saved visualization: mnist_confusion_matrix.png")
+print(" Saved visualization: mnist_confusion_matrix.png")
 
-print("\n📊 Reading the confusion matrix:")
+print("\n Reading the confusion matrix:")
 print("  - Diagonal: Correct predictions")
 print("  - Off-diagonal: Confusions")
 print("\n  Common confusions:")
@@ -449,7 +449,7 @@ for i in range(10):
 # ============================================================
 # PART 12: Understanding What the Network Learned
 # ============================================================
-print("\n\n📌 PART 12: Visualizing What the Network Learned")
+print("\n\n PART 12: Visualizing What the Network Learned")
 print("-" * 80)
 
 print("""
@@ -480,8 +480,8 @@ for i, ax in enumerate(axes.flat):
 
 plt.tight_layout()
 plt.savefig('/d/Language Learning/AI ML/Learning-ML-AI/Phase 4 - Deep Learning/mnist_neuron_weights.png', dpi=150)
-print("✓ Saved visualization: mnist_neuron_weights.png")
-print("\n💡 Each neuron learned to detect different patterns!")
+print(" Saved visualization: mnist_neuron_weights.png")
+print("\n Each neuron learned to detect different patterns!")
 print("  - Some detect edges")
 print("  - Some detect curves")
 print("  - Some detect specific digit features")
@@ -490,7 +490,7 @@ print("  - Together, they recognize all digits!")
 # ============================================================
 # WHY THIS MATTERS
 # ============================================================
-print("\n\n🎯 WHY THIS MNIST PROJECT MATTERS")
+print("\n\n WHY THIS MNIST PROJECT MATTERS")
 print("=" * 80)
 print("""
 1. REAL-WORLD PROBLEM:
@@ -503,24 +503,24 @@ print("""
      * Document processing
 
 2. COMPLETE WORKFLOW LEARNED:
-   ✓ Load data
-   ✓ Explore and visualize
-   ✓ Preprocess (normalize, reshape, encode)
-   ✓ Build architecture
-   ✓ Compile model
-   ✓ Train with validation
-   ✓ Evaluate on test set
-   ✓ Analyze errors
-   ✓ Visualize learned features
+    Load data
+    Explore and visualize
+    Preprocess (normalize, reshape, encode)
+    Build architecture
+    Compile model
+    Train with validation
+    Evaluate on test set
+    Analyze errors
+    Visualize learned features
 
 3. KEY CONCEPTS MASTERED:
-   ✓ Multi-class classification
-   ✓ One-hot encoding
-   ✓ Softmax activation
-   ✓ Categorical cross-entropy loss
-   ✓ Train/validation/test split
-   ✓ Confusion matrix
-   ✓ Model evaluation
+    Multi-class classification
+    One-hot encoding
+    Softmax activation
+    Categorical cross-entropy loss
+    Train/validation/test split
+    Confusion matrix
+    Model evaluation
 
 4. PERFORMANCE ACHIEVED:
    - ~97% accuracy with simple network!
@@ -533,7 +533,7 @@ print("""
    - Confusion matrix shows patterns
    - Understand model limitations
 
-📊 Results Summary:
+ Results Summary:
    Test Accuracy: ~{test_accuracy*100:.1f}%
    Training Time: ~1-2 minutes
    Parameters: {model.count_params():,}
@@ -541,7 +541,7 @@ print("""
    This is impressive! A simple network learned to recognize
    handwritten digits with near-human accuracy!
 
-🚀 What's Next?
+ What's Next?
 
    IMPROVEMENTS:
    - Add dropout (reduce overfitting)
@@ -560,7 +560,7 @@ print("""
    - Fine-tune for your task
    - Save weeks of training time!
 
-💡 Key Takeaways:
+ Key Takeaways:
 
    1. More parameters ≠ Better performance
       - Our simple model works great!
@@ -582,10 +582,10 @@ print("""
       - Guides improvements
       - Builds intuition
 
-🎓 You've built your first real neural network!
+ You've built your first real neural network!
    This is the foundation of modern AI.
    Next: CNNs will take this to the next level!
 """)
 
-print("\n✅ First Neural Network Complete!")
+print("\n First Neural Network Complete!")
 print("Next: cnn_basics.py - Convolutional Neural Networks for images")
