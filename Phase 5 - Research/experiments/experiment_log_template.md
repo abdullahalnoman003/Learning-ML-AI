@@ -9,7 +9,7 @@ This template helps you track ML experiments systematically. Copy this template 
 **Project:** Project Name
 **Researcher:** Your Name
 **Start Date:** YYYY-MM-DD
-**Status:** 🔄 In Progress / ✅ Complete / ❌ Abandoned
+**Status:**  In Progress /  Complete /  Abandoned
 **Goal:** Brief description of what you're trying to achieve
 
 ---
@@ -96,7 +96,7 @@ system:
 
 **Date:** YYYY-MM-DD
 **Researcher:** Name
-**Status:** ✅ Complete / 🔄 Running / ❌ Failed
+**Status:**  Complete /  Running /  Failed
 
 #### Configuration
 What's different from the baseline?
@@ -148,7 +148,7 @@ Did it work? Why or why not?
 ### Experiment 2: [Short Description]
 
 **Date:** YYYY-MM-DD
-**Status:** 🔄 Running
+**Status:**  Running
 
 #### What Changed
 Compared to Experiment 1:
@@ -173,7 +173,7 @@ Higher learning rate should speed up convergence without hurting final performan
 ### Experiment 3: [Short Description]
 
 **Date:** YYYY-MM-DD
-**Status:** ❌ Failed
+**Status:**  Failed
 
 #### What Changed
 Attempted to use a more complex architecture.

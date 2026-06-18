@@ -669,14 +669,14 @@ research-project/
         print("\n1. REPRODUCIBILITY:")
         print("-" * 80)
         repro_checklist = [
-            "✓ Set random seeds (Python, NumPy, PyTorch, etc.)",
-            "✓ Document library versions",
-            "✓ Save all hyperparameters",
-            "✓ Version your data",
-            "✓ Save model checkpoints",
-            "✓ Document hardware used",
-            "✓ Provide reproduction script",
-            "✓ Share code publicly"
+            " Set random seeds (Python, NumPy, PyTorch, etc.)",
+            " Document library versions",
+            " Save all hyperparameters",
+            " Version your data",
+            " Save model checkpoints",
+            " Document hardware used",
+            " Provide reproduction script",
+            " Share code publicly"
         ]
         for item in repro_checklist:
             print(item)

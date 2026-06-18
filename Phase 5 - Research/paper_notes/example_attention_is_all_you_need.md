@@ -252,7 +252,7 @@ PE(pos, 2i+1) = cos(pos / 10000^(2i/d_model))
    - **Validity:**  Works well, but learned encodings might be better
 
 3. **Assumption:** Fixed number of layers (6) is appropriate
-   - **Validity:** ⚠️ Task-dependent; deeper models explored later (GPT-3 has 96 layers)
+   - **Validity:** ️ Task-dependent; deeper models explored later (GPT-3 has 96 layers)
 
 #### Methodology Critique
 - **Strengths:**
@@ -277,7 +277,7 @@ PE(pos, 2i+1) = cos(pos / 10000^(2i/d_model))
 -  Code available (TensorFlow)
 -  Architecture fully specified
 -  Training procedure documented
-- ⚠️ Requires significant compute (8 GPUs)
+- ️ Requires significant compute (8 GPUs)
 
 ### Innovation & Impact
 

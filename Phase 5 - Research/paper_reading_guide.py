@@ -44,10 +44,10 @@ class PaperReadingGuide:
 
         print("WHY USE THE 3-PASS METHOD?")
         print("-" * 80)
-        print("✓ Prevents wasting time on papers that aren't relevant")
-        print("✓ Builds understanding progressively")
-        print("✓ Helps you decide when to stop reading")
-        print("✓ Improves retention and comprehension")
+        print(" Prevents wasting time on papers that aren't relevant")
+        print(" Builds understanding progressively")
+        print(" Helps you decide when to stop reading")
+        print(" Improves retention and comprehension")
         print()
 
     def pass_1_guide(self):
